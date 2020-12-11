@@ -1999,9 +1999,9 @@
 										"$ref": "AAAAAAF2UqY1O9hNAIw="
 									},
 									"font": "Arial;13;0",
-									"left": 395,
+									"left": 394,
 									"top": 779,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2061,9 +2061,9 @@
 										"$ref": "AAAAAAF2UqY1O9hO7Ag="
 									},
 									"font": "Arial;13;0",
-									"left": 1087,
+									"left": 1086,
 									"top": 784,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2165,12 +2165,12 @@
 										"$ref": "AAAAAAF2UrQYCOr7rcQ="
 									},
 									"font": "Arial;13;0",
-									"left": 1236,
-									"top": 710,
+									"left": 1233,
+									"top": 671,
 									"width": 56.74169921875,
 									"height": 13,
-									"alpha": 0.24597763891162372,
-									"distance": 170.29386365926402,
+									"alpha": 0.2935487572914619,
+									"distance": 131.89768762188365,
 									"hostEdge": {
 										"$ref": "AAAAAAF2UrQYCOr/Mjg="
 									},
@@ -2272,9 +2272,9 @@
 										"$ref": "AAAAAAF2UrQYCOr8MSE="
 									},
 									"font": "Arial;13;0",
-									"left": 1206,
+									"left": 1205,
 									"top": 416,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2334,9 +2334,9 @@
 										"$ref": "AAAAAAF2UrQYCOr9R8s="
 									},
 									"font": "Arial;13;0",
-									"left": 1208,
+									"left": 1207,
 									"top": 675,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2543,9 +2543,9 @@
 										"$ref": "AAAAAAF2UrZvrOyTRmU="
 									},
 									"font": "Arial;13;0",
-									"left": 1096,
+									"left": 1095,
 									"top": 684,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -3422,9 +3422,9 @@
 										"$ref": "AAAAAAF2UtSojxaTu9Y="
 									},
 									"font": "Arial;13;0",
-									"left": 660,
+									"left": 659,
 									"top": 457,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -3522,7 +3522,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Ujv19Z3bolY="
 							},
-							"name": "Nome"
+							"name": "Nome",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3530,7 +3531,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Ujv19Z3bolY="
 							},
-							"name": "Cognome"
+							"name": "Cognome",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3538,7 +3540,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Ujv19Z3bolY="
 							},
-							"name": "CodFiscale"
+							"name": "CodFiscale",
+							"type": ""
 						}
 					]
 				},
@@ -3659,7 +3662,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Uj2Nkp4l7sM="
 							},
-							"name": "Indirizzo"
+							"name": "Indirizzo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3667,7 +3671,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Uj2Nkp4l7sM="
 							},
-							"name": "CodUtente"
+							"name": "CodUtente",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3675,7 +3680,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Uj2Nkp4l7sM="
 							},
-							"name": "Email"
+							"name": "Email",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3683,7 +3689,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Uj2Nkp4l7sM="
 							},
-							"name": "Password"
+							"name": "Password",
+							"type": ""
 						}
 					]
 				},
@@ -3747,7 +3754,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkCM3Z8R5s4="
 							},
-							"name": "CodRider"
+							"name": "CodRider",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3755,7 +3763,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkCM3Z8R5s4="
 							},
-							"name": "MezzoDiTrasporto"
+							"name": "MezzoDiTrasporto",
+							"type": ""
 						}
 					]
 				},
@@ -3804,7 +3813,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "Nome"
+							"name": "Nome",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3812,7 +3822,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "P.Iva"
+							"name": "P.Iva",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3820,7 +3831,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "Citta"
+							"name": "Citta",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3828,7 +3840,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "Indirizzo"
+							"name": "Indirizzo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3836,7 +3849,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "OrarioApertura"
+							"name": "OrarioApertura",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3844,7 +3858,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkI4UKJIJgk="
 							},
-							"name": "GiorniChiusura"
+							"name": "GiorniChiusura",
+							"type": ""
 						}
 					]
 				},
@@ -3893,7 +3908,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkN3AaTtTfo="
 							},
-							"name": "CodArticolo"
+							"name": "CodArticolo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3901,7 +3917,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkN3AaTtTfo="
 							},
-							"name": "Costo"
+							"name": "Costo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3909,7 +3926,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkN3AaTtTfo="
 							},
-							"name": "Ingredienti"
+							"name": "Ingredienti",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3917,7 +3935,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkN3AaTtTfo="
 							},
-							"name": "Categoria"
+							"name": "Categoria",
+							"type": ""
 						}
 					]
 				},
@@ -3935,7 +3954,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkS0bqm5kmY="
 							},
-							"name": "CodOrdine"
+							"name": "CodOrdine",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3943,7 +3963,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkS0bqm5kmY="
 							},
-							"name": "Data"
+							"name": "Data",
+							"type": ""
 						}
 					]
 				},
@@ -3994,7 +4015,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkT4H6s9WyI="
 							},
-							"name": "CodCarrello"
+							"name": "CodCarrello",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4002,7 +4024,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkT4H6s9WyI="
 							},
-							"name": "TotalePrezzo"
+							"name": "TotalePrezzo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4010,7 +4033,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkT4H6s9WyI="
 							},
-							"name": "NumeroProdotti"
+							"name": "NumeroProdotti",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4018,7 +4042,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2UkT4H6s9WyI="
 							},
-							"name": "Completo"
+							"name": "Completo",
+							"type": ""
 						}
 					]
 				}
