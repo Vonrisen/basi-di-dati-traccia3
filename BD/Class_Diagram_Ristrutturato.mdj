@@ -5397,7 +5397,7 @@
 										"$ref": "AAAAAAF2cQnr+Wp/B0I="
 									},
 									"edgePosition": 2,
-									"text": "+sta"
+									"text": "+in"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -6204,17 +6204,18 @@
 									"model": {
 										"$ref": "AAAAAAF2cT1UuvkY9ZU="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 862,
+									"left": 839,
 									"top": 733,
+									"width": 56.74169921875,
 									"height": 13,
-									"alpha": 0.5235987755982988,
-									"distance": 30,
+									"alpha": 0.4636474756675083,
+									"distance": 33.54101966249684,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cT1Uu/kbdFI="
 									},
-									"edgePosition": 2
+									"edgePosition": 2,
+									"text": "+contiene"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -6539,16 +6540,17 @@
 									"model": {
 										"$ref": "AAAAAAF2cT2SLP8XaBc="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 993,
-									"top": 290,
+									"left": 985,
+									"top": 280,
+									"width": 17.7099609375,
 									"height": 13,
-									"alpha": -0.5235987755982988,
-									"distance": 30,
+									"alpha": -0.7853978798152477,
+									"distance": 21.213203435596427,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cT2SLP8Zkgs="
-									}
+									},
+									"text": "+in"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -6581,11 +6583,11 @@
 									},
 									"font": "Arial;13;0",
 									"left": 1017,
-									"top": 286,
+									"top": 279,
 									"width": 7.22998046875,
 									"height": 13,
-									"alpha": 0.5235987755982988,
-									"distance": 25,
+									"alpha": 0.6747412989762416,
+									"distance": 19.209372712298546,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cT2SLP8Zkgs="
 									},
@@ -8127,7 +8129,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cQnr+Wp7Kko="
 								},
-								"name": "sta",
+								"name": "in",
 								"reference": {
 									"$ref": "AAAAAAF2cMdG8/bxjOY="
 								},
@@ -8158,6 +8160,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cT1UuvkXa3M="
 								},
+								"name": "contiene",
 								"reference": {
 									"$ref": "AAAAAAF2cMdG8/bxjOY="
 								},
@@ -8896,6 +8899,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cT2SLP8VHz0="
 								},
+								"name": "in",
 								"reference": {
 									"$ref": "AAAAAAF2cMZwePXvyXY="
 								},
