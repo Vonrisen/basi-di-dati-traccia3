@@ -254,7 +254,7 @@
 											"top": 151,
 											"width": 150,
 											"height": 13,
-											"text": "+NumCellulare: String",
+											"text": "+Cellulare: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7825,7 +7825,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMPnP/TQV48="
 							},
-							"name": "NumCellulare",
+							"name": "Cellulare",
 							"type": "String"
 						}
 					]
