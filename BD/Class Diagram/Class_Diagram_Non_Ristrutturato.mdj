@@ -186,7 +186,7 @@
 											"top": 83,
 											"width": 142,
 											"height": 13,
-											"text": "+dataN: Date",
+											"text": "+data_n: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -220,7 +220,7 @@
 											"top": 113,
 											"width": 142,
 											"height": 13,
-											"text": "+luogoN: String",
+											"text": "+luogo_n: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -449,7 +449,7 @@
 											"top": 214,
 											"width": 134,
 											"height": 13,
-											"text": "+codUtente: String",
+											"text": "+cod_utente: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -695,7 +695,7 @@
 											"top": 214,
 											"width": 141.2734375,
 											"height": 13,
-											"text": "+codRider: String",
+											"text": "+cod_rider: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -712,7 +712,7 @@
 											"top": 229,
 											"width": 141.2734375,
 											"height": 13,
-											"text": "+veicolo: T_Veicolo",
+											"text": "+veicolo: TipoVeicolo",
 											"horizontalAlignment": 0
 										},
 										{
@@ -763,7 +763,7 @@
 											"top": 274,
 											"width": 141.2734375,
 											"height": 13,
-											"text": "+fasciaOraria: String",
+											"text": "+fascia_oraria: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -780,7 +780,7 @@
 											"top": 289,
 											"width": 141.2734375,
 											"height": 13,
-											"text": "+n_Consegne: Small Int",
+											"text": "+n_consegne: Small Int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -901,7 +901,7 @@
 											"font": "Arial;13;1",
 											"left": 941,
 											"top": 191,
-											"width": 118.8662109375,
+											"width": 119.58984375,
 											"height": 13,
 											"text": "Carrello"
 										},
@@ -936,7 +936,7 @@
 									"font": "Arial;13;0",
 									"left": 936,
 									"top": 184,
-									"width": 128.8662109375,
+									"width": 129.58984375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2cMZwePXz6t0="
@@ -973,9 +973,9 @@
 											"font": "Arial;13;0",
 											"left": 941,
 											"top": 214,
-											"width": 118.8662109375,
+											"width": 119.58984375,
 											"height": 13,
-											"text": "+codCarrello: String",
+											"text": "+cod_carrello: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -990,7 +990,7 @@
 											"font": "Arial;13;0",
 											"left": 941,
 											"top": 229,
-											"width": 118.8662109375,
+											"width": 119.58984375,
 											"height": 13,
 											"text": "+completo: Char",
 											"horizontalAlignment": 0
@@ -999,7 +999,7 @@
 									"font": "Arial;13;0",
 									"left": 936,
 									"top": 209,
-									"width": 128.8662109375,
+									"width": 129.58984375,
 									"height": 38
 								},
 								{
@@ -1014,7 +1014,7 @@
 									"font": "Arial;13;0",
 									"left": 936,
 									"top": 247,
-									"width": 128.8662109375,
+									"width": 129.58984375,
 									"height": 10
 								},
 								{
@@ -1054,7 +1054,7 @@
 							"containerChangeable": true,
 							"left": 936,
 							"top": 184,
-							"width": 128.8662109375,
+							"width": 129.58984375,
 							"height": 88,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cMZwePXyDNk="
@@ -1389,7 +1389,7 @@
 											"font": "Arial;13;1",
 											"left": 637,
 											"top": 703,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
 											"text": "Alimento"
 										},
@@ -1424,7 +1424,7 @@
 									"font": "Arial;13;0",
 									"left": 632,
 									"top": 696,
-									"width": 206.44091796875,
+									"width": 212.22998046875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2cMdG9Pb1300="
@@ -1461,9 +1461,9 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 726,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
-											"text": "+codAlimento: String",
+											"text": "+cod_alimento: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1478,9 +1478,9 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 741,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
-											"text": "+nomeAlimento: String",
+											"text": "+nome: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1495,7 +1495,7 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 756,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
 											"text": "+prezzo: Real",
 											"horizontalAlignment": 0
@@ -1512,7 +1512,7 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 771,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
 											"text": "+descrizione: String[0..1]",
 											"horizontalAlignment": 0
@@ -1529,16 +1529,16 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 786,
-											"width": 196.44091796875,
+											"width": 202.22998046875,
 											"height": 13,
-											"text": "+tipoAllergeni: T_Allergene[0..14]",
+											"text": "+t_allergeni: TipoAllergene[0..14]",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 632,
 									"top": 721,
-									"width": 206.44091796875,
+									"width": 212.22998046875,
 									"height": 83
 								},
 								{
@@ -1553,7 +1553,7 @@
 									"font": "Arial;13;0",
 									"left": 632,
 									"top": 804,
-									"width": 206.44091796875,
+									"width": 212.22998046875,
 									"height": 10
 								},
 								{
@@ -1593,7 +1593,7 @@
 							"containerChangeable": true,
 							"left": 632,
 							"top": 696,
-							"width": 206.44091796875,
+							"width": 212.22998046875,
 							"height": 118,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cMdG9Pb0v6k="
@@ -1694,7 +1694,7 @@
 										"$ref": "AAAAAAF2cMnWZvrVgxk="
 									},
 									"font": "Arial;13;0",
-									"left": 845,
+									"left": 851,
 									"top": 733,
 									"width": 56.74169921875,
 									"height": 13,
@@ -1717,7 +1717,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 865,
+									"left": 871,
 									"top": 719,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -1737,7 +1737,7 @@
 										"$ref": "AAAAAAF2cMnWZvrVgxk="
 									},
 									"font": "Arial;13;0",
-									"left": 869,
+									"left": 875,
 									"top": 759,
 									"width": 6.5,
 									"height": 13,
@@ -1852,7 +1852,7 @@
 								"$ref": "AAAAAAF2cMdG9PbzF+w="
 							},
 							"lineStyle": 2,
-							"points": "837:754;992:754;992:271",
+							"points": "843:754;992:754;992:271",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF2cMnWZvrZTXE="
@@ -2003,7 +2003,7 @@
 											"top": 454,
 											"width": 134,
 											"height": 13,
-											"text": "+codOrdine: String",
+											"text": "+cod_ordine: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2710,7 +2710,7 @@
 											"font": "Arial;13;1",
 											"left": 181,
 											"top": 703,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
 											"text": "Negozio"
 										},
@@ -2745,7 +2745,7 @@
 									"font": "Arial;13;0",
 									"left": 176,
 									"top": 696,
-									"width": 178.72705078125,
+									"width": 180.18701171875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2cM5JbAhg+3Q="
@@ -2782,9 +2782,9 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 726,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
-											"text": "+codNegozio: String",
+											"text": "+cod_negozio: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2799,7 +2799,7 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 741,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
 											"text": "+nome: String",
 											"horizontalAlignment": 0
@@ -2816,7 +2816,7 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 756,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
 											"text": "+indirizzo: String",
 											"horizontalAlignment": 0
@@ -2851,9 +2851,9 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 771,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
-											"text": "+orarioApertura: Time[0..1]",
+											"text": "+orario_apertura: Time[0..1]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2868,9 +2868,9 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 786,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
-											"text": "+orarioChiusura: Time[0..1]",
+											"text": "+orario_chiusura: Time[0..1]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2885,16 +2885,16 @@
 											"font": "Arial;13;0",
 											"left": 181,
 											"top": 801,
-											"width": 168.72705078125,
+											"width": 170.18701171875,
 											"height": 13,
-											"text": "+giornoChiusura: String[0..1]",
+											"text": "+giorno_chiusura: String[0..1]",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 176,
 									"top": 721,
-									"width": 178.72705078125,
+									"width": 180.18701171875,
 									"height": 98
 								},
 								{
@@ -2909,7 +2909,7 @@
 									"font": "Arial;13;0",
 									"left": 176,
 									"top": 819,
-									"width": 178.72705078125,
+									"width": 180.18701171875,
 									"height": 10
 								},
 								{
@@ -2949,7 +2949,7 @@
 							"containerChangeable": true,
 							"left": 176,
 							"top": 696,
-							"width": 178.72705078125,
+							"width": 180.18701171875,
 							"height": 163,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cM5JbAhfG9k="
@@ -3050,7 +3050,7 @@
 										"$ref": "AAAAAAF2cM5b2gkkt0Y="
 									},
 									"font": "Arial;13;0",
-									"left": 363,
+									"left": 364,
 									"top": 739,
 									"width": 79.8662109375,
 									"height": 13,
@@ -3073,7 +3073,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 382,
+									"left": 383,
 									"top": 725,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -3093,7 +3093,7 @@
 										"$ref": "AAAAAAF2cM5b2gkkt0Y="
 									},
 									"font": "Arial;13;0",
-									"left": 372,
+									"left": 373,
 									"top": 766,
 									"width": 6.5,
 									"height": 13,
@@ -3208,7 +3208,7 @@
 								"$ref": "AAAAAAF2cM5JbAhe0po="
 							},
 							"lineStyle": 2,
-							"points": "354:760;632:760",
+							"points": "355:760;632:760",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF2cM5b2gkoZzc="
@@ -3359,7 +3359,7 @@
 											"top": 430,
 											"width": 165.35009765625,
 											"height": 13,
-											"text": "+codConsegna: String",
+											"text": "+cod_consegna: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4868,7 +4868,7 @@
 											"top": 620,
 											"width": 167,
 											"height": 13,
-											"text": "T_Allergene"
+											"text": "TipoAllergene"
 										},
 										{
 											"_type": "LabelView",
@@ -5307,7 +5307,7 @@
 											"top": 620,
 											"width": 86.72802734375,
 											"height": 13,
-											"text": "T_Veicolo"
+											"text": "TipoVeicolo"
 										},
 										{
 											"_type": "LabelView",
@@ -6196,7 +6196,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMPnP/TQV48="
 							},
-							"name": "dataN",
+							"name": "data_n",
 							"type": "Date"
 						},
 						{
@@ -6214,7 +6214,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMPnP/TQV48="
 							},
-							"name": "luogoN",
+							"name": "luogo_n",
 							"type": "String"
 						},
 						{
@@ -6328,7 +6328,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
-							"name": "codUtente",
+							"name": "cod_utente",
 							"type": "String"
 						},
 						{
@@ -6399,7 +6399,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
-							"name": "codRider",
+							"name": "cod_rider",
 							"type": "String"
 						},
 						{
@@ -6437,7 +6437,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
-							"name": "fasciaOraria",
+							"name": "fascia_oraria",
 							"type": "String"
 						},
 						{
@@ -6446,7 +6446,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
-							"name": "n_Consegne",
+							"name": "n_consegne",
 							"type": "Small Int"
 						}
 					]
@@ -6465,7 +6465,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMZwePXvyXY="
 							},
-							"name": "codCarrello",
+							"name": "cod_carrello",
 							"type": "String"
 						},
 						{
@@ -6553,7 +6553,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "codAlimento",
+							"name": "cod_alimento",
 							"type": "String"
 						},
 						{
@@ -6562,7 +6562,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "nomeAlimento",
+							"name": "nome",
 							"type": "String"
 						},
 						{
@@ -6590,7 +6590,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "tipoAllergeni",
+							"name": "t_allergeni",
 							"type": {
 								"$ref": "AAAAAAF2cNPTKD+NNNs="
 							},
@@ -6645,7 +6645,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMsCSP0mgvA="
 							},
-							"name": "codOrdine",
+							"name": "cod_ordine",
 							"type": "String"
 						},
 						{
@@ -6746,7 +6746,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "codNegozio",
+							"name": "cod_negozio",
 							"type": "String"
 						},
 						{
@@ -6782,7 +6782,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "orarioApertura",
+							"name": "orario_apertura",
 							"type": "Time",
 							"multiplicity": "0..1"
 						},
@@ -6792,7 +6792,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "orarioChiusura",
+							"name": "orario_chiusura",
 							"type": "Time",
 							"multiplicity": "0..1"
 						},
@@ -6802,7 +6802,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "giornoChiusura",
+							"name": "giorno_chiusura",
 							"type": "String",
 							"multiplicity": "0..1"
 						}
@@ -6917,7 +6917,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM8qfg2nh1k="
 							},
-							"name": "codConsegna",
+							"name": "cod_consegna",
 							"type": "String"
 						},
 						{
@@ -7021,7 +7021,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "T_Allergene",
+					"name": "TipoAllergene",
 					"literals": [
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -7143,7 +7143,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "T_Veicolo",
+					"name": "TipoVeicolo",
 					"literals": [
 						{
 							"_type": "UMLEnumerationLiteral",
