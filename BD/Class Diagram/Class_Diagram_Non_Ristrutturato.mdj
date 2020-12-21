@@ -2020,24 +2020,7 @@
 											"top": 469,
 											"width": 134,
 											"height": 13,
-											"text": "+data: Date",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2eo/rWPeZ3NE=",
-											"_parent": {
-												"$ref": "AAAAAAF2cMsCSf0uPAc="
-											},
-											"model": {
-												"$ref": "AAAAAAF2eo/rUveQqHQ="
-											},
-											"font": "Arial;13;0",
-											"left": 629,
-											"top": 484,
-											"width": 134,
-											"height": 13,
-											"text": "+ora: Time",
+											"text": "+data: Timestamp",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2045,7 +2028,7 @@
 									"left": 624,
 									"top": 449,
 									"width": 144,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2058,7 +2041,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 624,
-									"top": 502,
+									"top": 487,
 									"width": 144,
 									"height": 10
 								},
@@ -2841,23 +2824,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2cNGReiWVxr8=",
-											"_parent": {
-												"$ref": "AAAAAAF2cM5JbAhkyyU="
-											},
-											"model": {
-												"$ref": "AAAAAAF2cNGRcCWGWvs="
-											},
-											"font": "Arial;13;0",
-											"left": 181,
-											"top": 771,
-											"width": 170.18701171875,
-											"height": 13,
-											"text": "+orario_apertura: Time[0..1]",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAF2cNGk1yZZRe4=",
 											"_parent": {
 												"$ref": "AAAAAAF2cM5JbAhkyyU="
@@ -2867,10 +2833,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 181,
-											"top": 786,
+											"top": 771,
 											"width": 170.18701171875,
 											"height": 13,
-											"text": "+orario_chiusura: Time[0..1]",
+											"text": "+orario: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2884,7 +2850,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 181,
-											"top": 801,
+											"top": 786,
 											"width": 170.18701171875,
 											"height": 13,
 											"text": "+giorno_chiusura: String[0..1]",
@@ -2895,7 +2861,7 @@
 									"left": 176,
 									"top": 721,
 									"width": 180.18701171875,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2908,7 +2874,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 176,
-									"top": 819,
+									"top": 804,
 									"width": 180.18701171875,
 									"height": 10
 								},
@@ -3376,24 +3342,7 @@
 											"top": 445,
 											"width": 165.35009765625,
 											"height": 13,
-											"text": "+data: Date",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2eo9gu/VdoXg=",
-											"_parent": {
-												"$ref": "AAAAAAF2cM8qfw2vHAE="
-											},
-											"model": {
-												"$ref": "AAAAAAF2eo9gs/VLp9E="
-											},
-											"font": "Arial;13;0",
-											"left": 181,
-											"top": 460,
-											"width": 165.35009765625,
-											"height": 13,
-											"text": "+ora: Time",
+											"text": "+data: Timestamp",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3407,7 +3356,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 181,
-											"top": 475,
+											"top": 460,
 											"width": 165.35009765625,
 											"height": 13,
 											"text": "+indirizzo: String",
@@ -3424,7 +3373,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 181,
-											"top": 490,
+											"top": 475,
 											"width": 165.35009765625,
 											"height": 13,
 											"text": "+completata: Char",
@@ -3441,7 +3390,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 181,
-											"top": 505,
+											"top": 490,
 											"width": 165.35009765625,
 											"height": 13,
 											"text": "+note: String[0..1]",
@@ -3452,7 +3401,7 @@
 									"left": 176,
 									"top": 425,
 									"width": 175.35009765625,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -3465,7 +3414,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 176,
-									"top": 523,
+									"top": 508,
 									"width": 175.35009765625,
 									"height": 10
 								},
@@ -6655,16 +6604,7 @@
 								"$ref": "AAAAAAF2cMsCSP0mgvA="
 							},
 							"name": "data",
-							"type": "Date"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2eo/rUveQqHQ=",
-							"_parent": {
-								"$ref": "AAAAAAF2cMsCSP0mgvA="
-							},
-							"name": "ora",
-							"type": "Time"
+							"type": "Timestamp"
 						}
 					]
 				},
@@ -6778,23 +6718,12 @@
 						},
 						{
 							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2cNGRcCWGWvs=",
-							"_parent": {
-								"$ref": "AAAAAAF2cM5Jawhcvcc="
-							},
-							"name": "orario_apertura",
-							"type": "Time",
-							"multiplicity": "0..1"
-						},
-						{
-							"_type": "UMLAttribute",
 							"_id": "AAAAAAF2cNGkzyZK3O8=",
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "orario_chiusura",
-							"type": "Time",
-							"multiplicity": "0..1"
+							"name": "orario",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6927,16 +6856,7 @@
 								"$ref": "AAAAAAF2cM8qfg2nh1k="
 							},
 							"name": "data",
-							"type": "Date"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2eo9gs/VLp9E=",
-							"_parent": {
-								"$ref": "AAAAAAF2cM8qfg2nh1k="
-							},
-							"name": "ora",
-							"type": "Time"
+							"type": "Timestamp"
 						},
 						{
 							"_type": "UMLAttribute",
