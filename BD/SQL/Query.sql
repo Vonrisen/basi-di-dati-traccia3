@@ -1,4 +1,112 @@
--- Carrello Creazione tabella
+-- TABELLA SCORTA
+CREATE TABLE Scorta(
+
+	cod_negozio CHAR(3),
+	cod_alimento CHAR(6),
+	quantita SMALLINT NOT NULL,
+
+	PRIMARY KEY(cod_negozio, cod_alimento),
+	FOREIGN KEY (cod_negozio) REFERENCES Negozio(cod_negozio) ON DELETE CASCADE,
+	FOREIGN KEY (cod_alimento) REFERENCES Alimento(cod_alimento) ON DELETE CASCADE
+	
+)
+
+
+-- TABELLA COMPORDINE
+CREATE TABLE CompOrdine(
+
+	cod_ordine CHAR(16),
+	cod_alimento CHAR(6),
+	quantita SMALLINT NOT NULL,
+
+	PRIMARY KEY(cod_ordine, cod_alimento),
+	FOREIGN KEY (cod_ordine) REFERENCES Ordine(cod_ordine) ON DELETE CASCADE,
+	FOREIGN KEY (cod_alimento) REFERENCES Alimento(cod_alimento)
+	
+)
+
+
+-- TABELLA COMPCARRELLO
+CREATE TABLE CompCarrello(
+
+	cod_carrello CHAR(16),
+	cod_alimento CHAR(6),
+	quantita SMALLINT NOT NULL,
+
+	PRIMARY KEY(cod_carrello, cod_alimento),
+	FOREIGN KEY (cod_carrello) REFERENCES Carrello(cod_carrello) ON DELETE CASCADE,
+	FOREIGN KEY (cod_alimento) REFERENCES Alimento(cod_alimento) ON DELETE CASCADE
+	
+)
+
+
+-- TABELLA CONTRATTO
+CREATE TABLE Contratto(
+
+	cod_rider CHAR(5),
+	cod_negozio CHAR(3),
+	
+	PRIMARY KEY (cod_rider,cod_negozio),
+	FOREIGN KEY (cod_rider) REFERENCES Rider(cod_rider) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (cod_negozio) REFERENCES Negozio(cod_negozio) ON DELETE CASCADE ON UPDATE CASCADE
+	
+)
+
+
+-- TABELLA COMPALIMENTO
+CREATE TABLE CompAlimento( 
+
+	cod_alimento CHAR(8), 
+	t_allergene TipoAllergene, 
+
+	PRIMARY KEY(cod_alimento,t_allergene), 
+	FOREIGN KEY (cod_alimento) REFERENCES Alimento(cod_alimento) ON DELETE CASCADE, 
+	FOREIGN KEY (t_allergene) REFERENCES Allergene(t_allergene) 
+
+) 
+
+-- TABELLA ALLERGENE
+CREATE TYPE TipoAllergene AS ENUM ('Cereali e derivati', 'Crostacei', 'Uova', 'Pesce', 'Arachidi', 'Soia', 'Latte', 'Frutta a guscio', 'Sedano', 'Senape', 'Anidride solforosa e solfiti', 'Lupini', 'Molluschi');
+CREATE TABLE Allergene( 
+
+	t_allergene TipoAllergene PRIMARY KEY 
+
+) 
+
+
+-- TABELLA ALIMENTO
+CREATE TABLE Alimento( 
+
+	cod_alimento CHAR (6) PRIMARY KEY, 
+	nome VARCHAR (32) NOT NULL UNIQUE, 
+	prezzo REAL NOT NULL, 
+	descrizione VARCHAR(255) 
+
+) 
+
+
+-- TABELLA ORDINE
+CREATE TYPE StatoConsegna AS ENUM ('In attesa','In consegna','Consegnato','Errore');
+CREATE TABLE Ordine(
+
+	cod_ordine CHAR(16) PRIMARY KEY,
+	data_ordine TIMESTAMP NOT NULL,
+	ora_consegna TIME,
+	indirizzo VARCHAR(255) NOT NULL,
+	stato StatoConsegna NOT NULL DEFAULT 'In attesa',
+	note VARCHAR(255),
+	cod_rider CHAR(5),
+	cod_negozio CHAR(3),
+	cod_utente CHAR(10),
+	
+	FOREIGN KEY(cod_rider) REFERENCES Rider(cod_rider),
+	FOREIGN KEY(cod_negozio) REFERENCES Negozio(cod_negozio),
+	FOREIGN KEY(cod_utente) REFERENCES Utente(cod_utente)
+	
+)
+
+
+-- TABELLA CARRELLO
 CREATE SEQUENCE seq_Carrello; 
 
 CREATE TABLE Carrello( 
@@ -11,7 +119,8 @@ CREATE TABLE Carrello(
 
 )
 
--- Persona creazione tabella
+
+-- TABELLA PERSONA
 CREATE TABLE Persona( 
 
 	cf CHAR(16), 
@@ -27,7 +136,8 @@ CREATE TABLE Persona(
 
 )
 
--- Rider creazione tabella
+
+-- TABELLA RIDER
 CREATE TYPE TipoVeicolo AS ENUM ('Bicicletta', 'Motoveicolo', 'Autovettura');
 CREATE SEQUENCE seq_Rider; 
 CREATE TABLE Rider( 
@@ -44,7 +154,8 @@ CREATE TABLE Rider(
 
 ) 
 
--- Utente creazione tabella
+
+-- TABELLA UTENTE
 CREATE SEQUENCE seq_Utente; 
 
 CREATE TABLE Utente( 
@@ -59,20 +170,8 @@ CREATE TABLE Utente(
 
 )
 
--- Ordine creazione tabella
 
-CREATE TABLE Ordine(
-
-	cod_ordine CHAR(16) PRIMARY KEY,
-	data TIMESTAMP NOT NULL,
-	cod_utente CHAR(10),
-
-	CONSTRAINT fk_Ordine FOREIGN KEY(cod_utente) REFERENCES Utente(cod_utente) ON UPDATE CASCADE
-
- )
-
--- Negozio creazione tabella
-
+-- TABELLA NEGOZIO
 CREATE SEQUENCE seq_Negozio;
 
  CREATE TABLE Negozio(
