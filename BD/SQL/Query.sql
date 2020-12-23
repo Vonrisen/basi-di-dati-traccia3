@@ -183,3 +183,32 @@ CREATE SEQUENCE seq_Negozio;
 	giorno_chiusura VARCHAR(56)
 
  )
+
+
+
+--TRIGGER E FUNCTION PER CREARE UN ORDINE
+
+
+CREATE TRIGGER crea_ordine
+AFTER UPDATE ON Carrello
+FOR EACH ROW
+WHEN (OLD.completo='n' AND NEW.completo='s')
+EXECUTE PROCEDURE crea_ordine();
+
+
+CREATE OR REPLACE FUNCTION crea_ordine() RETURNS trigger AS $crea_ordine$
+DECLARE
+/* Inizializzare indirizzo, note, cod_rider, cod_negozio*/
+BEGIN
+INSERT INTO Ordine (cod_ordine,cod_utente, data_ordine,indirizzo ,note , cod_rider, cod_negozio)
+VALUES(NEW.cod_carrello,NEW.cod_utente,current_timestamp,indirizzo ,note ,cod_rider, cod_negozio);
+INSERT INTO CompOrdine (SELECT * FROM CompCarrello WHERE cod_carrello=NEW.cod_carrello);
+UPDATE Scorta AS S
+SET quantita = S.quantita - C.quantita
+FROM CompOrdine AS C
+WHERE S.cod_alimento = C.cod_alimento AND C.cod_ordine=NEW.cod_carrello;
+DELETE FROM Carrello WHERE cod_carrello=NEW.cod_carrello;
+RETURN NEW;
+END;
+$crea_ordine$ LANGUAGE plpgsql;
+
