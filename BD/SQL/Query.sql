@@ -206,7 +206,7 @@ INSERT INTO CompOrdine (SELECT * FROM CompCarrello WHERE cod_carrello=NEW.cod_ca
 UPDATE Scorta AS S
 SET quantita = S.quantita - C.quantita
 FROM CompOrdine AS C
-WHERE S.cod_alimento = C.cod_alimento AND C.cod_ordine=NEW.cod_carrello;
+WHERE S.cod_alimento = C.cod_alimento AND C.cod_ordine=NEW.cod_carrello AND S.cod_negozio = cod_negozio;
 DELETE FROM Carrello WHERE cod_carrello=NEW.cod_carrello;
 RETURN NEW;
 END;
