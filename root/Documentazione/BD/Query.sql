@@ -269,3 +269,21 @@ BEGIN
 DELETE FROM Food WHERE name = food_name;
 END;
 $$;
+
+//Dato un alimento e una lista di allergeni, aggiunge questi ultimi all' alimento
+CREATE OR REPLACE PROCEDURE addAllergen(food_id varchar, allergens varchar) LANGUAGE plpgsql AS $$
+DECLARE
+allerg varchar='';
+count_allergens INT DEFAULT 1;
+BEGIN
+LOOP
+ allerg=split_part(allergens, ',', count_allergens);
+ IF allerg<>'' THEN
+ INSERT INTO FoodComposition VALUES(food_id, allerg::AllergenType);
+ count_allergens = count_allergens + 1;
+ ELSE
+ exit;
+ END IF;
+END LOOP;
+END;
+$$;
