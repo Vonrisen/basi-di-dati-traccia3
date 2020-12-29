@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -34,9 +37,13 @@ public class LoginFrame {
 	private void initialize() {
 		ImageIcon imageLogo = new ImageIcon("src/images/Logo.png");
 		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 600, 800);
+//		frame.setBounds(100, 100, 600, 800);
+		frame.setSize(600,800);
+		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2); //Setta il frame a centro monitor
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
