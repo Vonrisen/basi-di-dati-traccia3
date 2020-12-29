@@ -114,22 +114,31 @@ public class LoginFrame {
 		loginPanel.add(loginButton);
 		loginButton.setVisible(false);
 		
+		JButton homeButton = new JButton("HOME");
+		homeButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				homeButton.setVisible(false);
+				usernameTF.setVisible(false);
+				passwordTF.setVisible(false);
+				loginButton.setVisible(false);
+				usernameImage.setVisible(false);
+				passwordImage.setVisible(false);
+				adminButton.setVisible(true);
+				shopButton.setVisible(true);
+			}
+		});
+		
+		homeButton.setBounds(35, 297, 89, 44);
+		loginPanel.add(homeButton);
+		homeButton.setVisible(false);
+		
+		//ACTIONS
 		adminButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				adminButton.setIcon(new ImageIcon("src/images/shopButtonInactive.png"));
-				
-				try {
-					
-					Thread.sleep(350);
-					
-				} catch (InterruptedException e1) {
-					
-					Thread.currentThread().interrupt();
-					
-				}
-				
+				homeButton.setVisible(true);
 				adminButton.setVisible(false);
 				shopButton.setVisible(false);
 				usernameTF.setVisible(true);
@@ -145,16 +154,7 @@ public class LoginFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				try {
-					
-					Thread.sleep(350);
-					
-				} catch (InterruptedException e1) {
-					
-					e1.printStackTrace();
-					
-				}
-				
+				homeButton.setVisible(true);
 				adminButton.setVisible(false);
 				shopButton.setVisible(false);
 				usernameTF.setVisible(true);
@@ -195,7 +195,7 @@ public class LoginFrame {
 				
 				if(passwordTF.getText().equals("Inserisci la password")) {
 					
-					passwordTF.setEchoChar('â€¢');
+					passwordTF.setEchoChar('•');
 					passwordTF.setText("");
 					
 				} else passwordTF.selectAll();
@@ -225,6 +225,4 @@ public class LoginFrame {
 		
 		
 	}
-	
-	
 }
