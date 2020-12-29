@@ -135,7 +135,7 @@
 											"top": 46,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+customer_id: Char[10]",
+											"text": "+customer_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -152,7 +152,7 @@
 											"top": 61,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+name: Varchar[32]",
+											"text": "+name: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -169,7 +169,7 @@
 											"top": 76,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+surname: Varchar[32]",
+											"text": "+surname: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -186,7 +186,7 @@
 											"top": 91,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+address: Varchar[255]",
+											"text": "+address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -220,7 +220,7 @@
 											"top": 121,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+birth_place: Varchar[25]",
+											"text": "+birth_place: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -237,7 +237,7 @@
 											"top": 136,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+gender: Char[1]",
+											"text": "+gender: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -254,7 +254,7 @@
 											"top": 151,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+cellphone: Char[10]",
+											"text": "+cellphone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -271,7 +271,7 @@
 											"top": 166,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+cf: Char[16]",
+											"text": "+cf: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -288,7 +288,7 @@
 											"top": 181,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+email: Varchar[320]",
+											"text": "+email: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -305,24 +305,7 @@
 											"top": 196,
 											"width": 146.3515625,
 											"height": 13,
-											"text": "+password: Varchar[32]",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2cMV0ivXABS8=",
-											"_parent": {
-												"$ref": "AAAAAAF2cMS6D/U1IWA="
-											},
-											"model": {
-												"$ref": "AAAAAAF2cMV0hfW9QwI="
-											},
-											"font": "Arial;13;0",
-											"left": 621,
-											"top": 211,
-											"width": 146.3515625,
-											"height": 13,
-											"text": "+flag: Char[1]",
+											"text": "+password: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -330,7 +313,7 @@
 									"left": 616,
 									"top": 41,
 									"width": 156.3515625,
-									"height": 188
+									"height": 173
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -343,7 +326,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 616,
-									"top": 229,
+									"top": 214,
 									"width": 156.3515625,
 									"height": 10
 								},
@@ -385,7 +368,7 @@
 							"left": 616,
 							"top": 16,
 							"width": 156.3515625,
-							"height": 223,
+							"height": 208,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cMS6D/Uwc4Q="
 							},
@@ -517,7 +500,7 @@
 											"top": 46,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+rider_id: Char[5]",
+											"text": "+rider_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -534,7 +517,7 @@
 											"top": 61,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+name: Varchar[32]",
+											"text": "+name: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -551,7 +534,7 @@
 											"top": 76,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+surname: Varchar[32]",
+											"text": "+surname: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -568,7 +551,7 @@
 											"top": 91,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+address: Varchar[255]",
+											"text": "+address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -602,7 +585,7 @@
 											"top": 121,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+birth_place: Varchar[25]",
+											"text": "+birth_place: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -619,7 +602,7 @@
 											"top": 136,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+gender: Char[1]",
+											"text": "+gender: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -636,7 +619,7 @@
 											"top": 151,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+cellphone: Char[10]",
+											"text": "+cellphone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -653,41 +636,7 @@
 											"top": 166,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+cf: Char[16]",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2cMWs1vXVj+g=",
-											"_parent": {
-												"$ref": "AAAAAAF2cMT4PPVxcDk="
-											},
-											"model": {
-												"$ref": "AAAAAAF2cMWs0vXSG0s="
-											},
-											"font": "Arial;13;0",
-											"left": 125,
-											"top": 181,
-											"width": 167.2734375,
-											"height": 13,
-											"text": "+email: Varchar[320]",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2cMW60vXcDEM=",
-											"_parent": {
-												"$ref": "AAAAAAF2cMT4PPVxcDk="
-											},
-											"model": {
-												"$ref": "AAAAAAF2cMW6zfXZU0c="
-											},
-											"font": "Arial;13;0",
-											"left": 125,
-											"top": 196,
-											"width": 167.2734375,
-											"height": 13,
-											"text": "+password: Varchar[32]",
+											"text": "+cf: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -701,7 +650,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 125,
-											"top": 211,
+											"top": 181,
 											"width": 167.2734375,
 											"height": 13,
 											"text": "+vehicle: VehicleType",
@@ -718,10 +667,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 125,
-											"top": 226,
+											"top": 196,
 											"width": 167.2734375,
 											"height": 13,
-											"text": "+working_time: Char[11]",
+											"text": "+working_time: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -735,7 +684,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 125,
-											"top": 241,
+											"top": 211,
 											"width": 167.2734375,
 											"height": 13,
 											"text": "+deliveries_number: Smallint",
@@ -746,7 +695,7 @@
 									"left": 120,
 									"top": 41,
 									"width": 177.2734375,
-									"height": 218
+									"height": 188
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -759,7 +708,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 120,
-									"top": 259,
+									"top": 229,
 									"width": 177.2734375,
 									"height": 10
 								},
@@ -801,7 +750,7 @@
 							"left": 120,
 							"top": 16,
 							"width": 177.2734375,
-							"height": 253,
+							"height": 223,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cMT4PPVsQ9U="
 							},
@@ -933,7 +882,7 @@
 											"top": 142,
 											"width": 135.49072265625,
 											"height": 13,
-											"text": "+cart_id: Char[12]",
+											"text": "+cart_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -950,7 +899,7 @@
 											"top": 157,
 											"width": 135.49072265625,
 											"height": 13,
-											"text": "+complete: Char[1]",
+											"text": "+complete: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1421,7 +1370,7 @@
 											"top": 678,
 											"width": 196.44091796875,
 											"height": 13,
-											"text": "+food_id Char[6]",
+											"text": "+food_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1438,7 +1387,7 @@
 											"top": 693,
 											"width": 196.44091796875,
 											"height": 13,
-											"text": "+name: Varchar[32]",
+											"text": "+name: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1472,7 +1421,7 @@
 											"top": 723,
 											"width": 196.44091796875,
 											"height": 13,
-											"text": "+description[0..1]: Varchar[255]",
+											"text": "+description[0..1]: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1685,7 +1634,7 @@
 											"top": 358,
 											"width": 203.68359375,
 											"height": 13,
-											"text": "+order_id: Char[12]",
+											"text": "+order_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1736,7 +1685,7 @@
 											"top": 403,
 											"width": 203.68359375,
 											"height": 13,
-											"text": "+address: Varchar[255]",
+											"text": "+address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1770,7 +1719,7 @@
 											"top": 433,
 											"width": 203.68359375,
 											"height": 13,
-											"text": "+note[0..1]: Varchar[255]",
+											"text": "+note[0..1]: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1951,7 +1900,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 624,
-									"top": 244,
+									"top": 229,
 									"width": 69.03076171875,
 									"height": 13,
 									"alpha": -1.2329181560700566,
@@ -1974,7 +1923,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 724,
-									"top": 260,
+									"top": 245,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -1994,7 +1943,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 705,
-									"top": 246,
+									"top": 231,
 									"width": 7.22998046875,
 									"height": 13,
 									"alpha": 0.6747412534893902,
@@ -2108,7 +2057,7 @@
 								"$ref": "AAAAAAF2cMS6D/UvSSI="
 							},
 							"lineStyle": 2,
-							"points": "696:238;696:368;565:368",
+							"points": "696:223;696:368;565:368",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF2cMsdlv1/WjY="
@@ -2259,7 +2208,7 @@
 											"top": 678,
 											"width": 202.46484375,
 											"height": 13,
-											"text": "+shop_id: Char[4]",
+											"text": "+shop_id: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2276,7 +2225,7 @@
 											"top": 693,
 											"width": 202.46484375,
 											"height": 13,
-											"text": "+name: Varchar[32]",
+											"text": "+name: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2293,7 +2242,7 @@
 											"top": 708,
 											"width": 202.46484375,
 											"height": 13,
-											"text": "+address: Varchar[255]",
+											"text": "+address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2310,7 +2259,7 @@
 											"top": 723,
 											"width": 202.46484375,
 											"height": 13,
-											"text": "+working_hours[0..1]: Char[11]",
+											"text": "+working_hours[0..1]: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2327,7 +2276,24 @@
 											"top": 738,
 											"width": 202.46484375,
 											"height": 13,
-											"text": "+closing_days[0..1]: Varchar[56]",
+											"text": "+closing_days[0..1]: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF2qiNsHFEe3yA=",
+											"_parent": {
+												"$ref": "AAAAAAF2cM5JbAhkyyU="
+											},
+											"model": {
+												"$ref": "AAAAAAF2qiNsA1EVjXA="
+											},
+											"font": "Arial;13;0",
+											"left": 109,
+											"top": 753,
+											"width": 202.46484375,
+											"height": 13,
+											"text": "+password: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2335,7 +2301,7 @@
 									"left": 104,
 									"top": 673,
 									"width": 212.46484375,
-									"height": 83
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2348,7 +2314,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 104,
-									"top": 756,
+									"top": 771,
 									"width": 212.46484375,
 									"height": 10
 								},
@@ -2390,7 +2356,7 @@
 							"left": 104,
 							"top": 648,
 							"width": 212.46484375,
-							"height": 118,
+							"height": 133,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cM5JbAhfG9k="
 							},
@@ -2556,7 +2522,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 126,
-									"top": 271,
+									"top": 241,
 									"width": 92.88525390625,
 									"height": 13,
 									"alpha": -1.2924966923180672,
@@ -2578,7 +2544,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 179,
-									"top": 290,
+									"top": 260,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -2596,16 +2562,16 @@
 										"$ref": "AAAAAAF2cNAhbRJk5mo="
 									},
 									"font": "Arial;13;0",
-									"left": 217,
-									"top": 271,
-									"width": 7.22998046875,
+									"left": 210,
+									"top": 241,
+									"width": 21.68359375,
 									"height": 13,
 									"alpha": 0.8760583604340575,
 									"distance": 15.620499351813308,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cNAhbRJm47c="
 									},
-									"text": "1"
+									"text": "0..1"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -2648,7 +2614,7 @@
 								"$ref": "AAAAAAF2cMsCSf0oF7s="
 							},
 							"lineStyle": 2,
-							"points": "352:368;208:368;208:268",
+							"points": "352:368;208:368;208:238",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF2cNAhbRJnGpg="
@@ -7517,8 +7483,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "customer_id",
-							"type": "Char",
-							"multiplicity": "10"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7527,8 +7492,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "name",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7537,8 +7501,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "surname",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7547,8 +7510,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "address",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7566,8 +7528,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "birth_place",
-							"type": "Varchar",
-							"multiplicity": "25"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7576,8 +7537,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "gender",
-							"type": "Char",
-							"multiplicity": "1"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7586,8 +7546,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "cellphone",
-							"type": "Char",
-							"multiplicity": "10"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7596,8 +7555,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "cf",
-							"type": "Char",
-							"multiplicity": "16"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7606,8 +7564,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "email",
-							"type": "Varchar",
-							"multiplicity": "320"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7616,18 +7573,7 @@
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
 							"name": "password",
-							"type": "Varchar",
-							"multiplicity": "32"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2cMV0hfW9QwI=",
-							"_parent": {
-								"$ref": "AAAAAAF2cMS6D/Utw4k="
-							},
-							"name": "flag",
-							"type": "Char",
-							"multiplicity": "1"
+							"type": "String"
 						}
 					]
 				},
@@ -7679,8 +7625,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "rider_id",
-							"type": "Char",
-							"multiplicity": "5"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7689,8 +7634,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "name",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7699,8 +7643,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "surname",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7709,8 +7652,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "address",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7728,8 +7670,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "birth_place",
-							"type": "Varchar",
-							"multiplicity": "25"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7738,8 +7679,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "gender",
-							"type": "Char",
-							"multiplicity": "1"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7748,8 +7688,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "cellphone",
-							"type": "Char",
-							"multiplicity": "10"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7758,28 +7697,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "cf",
-							"type": "Char",
-							"multiplicity": "16"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2cMWs0vXSG0s=",
-							"_parent": {
-								"$ref": "AAAAAAF2cMT4PPVp/kY="
-							},
-							"name": "email",
-							"type": "Varchar",
-							"multiplicity": "320"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2cMW6zfXZU0c=",
-							"_parent": {
-								"$ref": "AAAAAAF2cMT4PPVp/kY="
-							},
-							"name": "password",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7797,8 +7715,7 @@
 								"$ref": "AAAAAAF2cMT4PPVp/kY="
 							},
 							"name": "working_time",
-							"type": "Char",
-							"multiplicity": "11"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7826,8 +7743,7 @@
 								"$ref": "AAAAAAF2cMZwePXvyXY="
 							},
 							"name": "cart_id",
-							"type": "Char",
-							"multiplicity": "12"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7836,8 +7752,7 @@
 								"$ref": "AAAAAAF2cMZwePXvyXY="
 							},
 							"name": "complete",
-							"type": "Char",
-							"multiplicity": "1"
+							"type": "String"
 						}
 					]
 				},
@@ -7947,8 +7862,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "food_id Char[6]",
-							"type": ""
+							"name": "food_id",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7957,8 +7872,7 @@
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
 							"name": "name",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7976,8 +7890,7 @@
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
 							"name": "description[0..1]",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8006,8 +7919,7 @@
 								"$ref": "AAAAAAF2cMsCSP0mgvA="
 							},
 							"name": "order_id",
-							"type": "Char",
-							"multiplicity": "12"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8036,8 +7948,7 @@
 								"$ref": "AAAAAAF2cMsCSP0mgvA="
 							},
 							"name": "address",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8057,8 +7968,7 @@
 								"$ref": "AAAAAAF2cMsCSP0mgvA="
 							},
 							"name": "note[0..1]",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8148,8 +8058,7 @@
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
 							"name": "shop_id",
-							"type": "Char",
-							"multiplicity": "4"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8158,8 +8067,7 @@
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
 							"name": "name",
-							"type": "Varchar",
-							"multiplicity": "32"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8168,8 +8076,7 @@
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
 							"name": "address",
-							"type": "Varchar",
-							"multiplicity": "255"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8178,8 +8085,7 @@
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
 							"name": "working_hours[0..1]",
-							"type": "Char",
-							"multiplicity": "11"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8188,8 +8094,16 @@
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
 							"name": "closing_days[0..1]",
-							"type": "Varchar",
-							"multiplicity": "56"
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF2qiNsA1EVjXA=",
+							"_parent": {
+								"$ref": "AAAAAAF2cM5Jawhcvcc="
+							},
+							"name": "password",
+							"type": "String"
 						}
 					]
 				},
@@ -8229,7 +8143,7 @@
 								"reference": {
 									"$ref": "AAAAAAF2cMT4PPVp/kY="
 								},
-								"multiplicity": "1"
+								"multiplicity": "0..1"
 							}
 						},
 						{
