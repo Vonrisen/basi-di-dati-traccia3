@@ -58,6 +58,8 @@ public class LoginFrame extends JFrame {
 	ImageIcon homeButtonInactive;
 	ImageIcon loginButtonActive;
 	ImageIcon loginButtonInactive;
+	ImageIcon adminLogoImage;
+	ImageIcon shopLogoImage;
 	Dimension dim;
 	JTable table;
 	JScrollPane scrollPane;
@@ -91,6 +93,8 @@ public class LoginFrame extends JFrame {
 		loginButtonInactive = new ImageIcon("src/images/loginButtonInactive.png");
 		usernameIcon = new ImageIcon("src/images/usernameIcon.png");
 		passwordIcon = new ImageIcon("src/images/passwordIcon.png");
+		adminLogoImage = new ImageIcon("src/images/adminLogo.png");
+		shopLogoImage = new ImageIcon("src/images/shopLogo.png");
 		dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 		// FRAME INITIALIZER
@@ -133,28 +137,28 @@ public class LoginFrame extends JFrame {
 
 		usernameImage = new JLabel();
 		usernameImage.setIcon(usernameIcon);
-		usernameImage.setBounds(141, 66, 25, 25);
+		usernameImage.setBounds(141, 46, 25, 25);
 		usernameImage.setVisible(false);
 		loginPanel.add(usernameImage);
 
 		passwordImage = new JLabel();
 		passwordImage.setIcon(passwordIcon);
-		passwordImage.setBounds(141, 111, 25, 25);
+		passwordImage.setBounds(141, 91, 25, 25);
 		passwordImage.setVisible(false);
 		loginPanel.add(passwordImage);
 
 		// USERNAME TEXF FIELD INITIALIZER
 		usernameTF = new RoundJTextField(new Color(0x771007));
-		usernameTF.setText("Username");
-		usernameTF.setBounds(177, 65, 250, 30);
+		usernameTF.setText("Inserisci ID");
+		usernameTF.setBounds(177, 45, 250, 30);
 		usernameTF.setVisible(false);
 		loginPanel.add(usernameTF);
 
 		// PASSWORD TEXT FIELD INITIALIZER
 		passwordTF = new RoundJPasswordField(new Color(0x771007));
-		passwordTF.setText("Password");
+		passwordTF.setText("Inserisci password");
 		passwordTF.setEchoChar((char) 0);
-		passwordTF.setBounds(177, 110, 250, 30);
+		passwordTF.setBounds(177, 90, 250, 30);
 		passwordTF.setVisible(false);
 		loginPanel.add(passwordTF);
 
@@ -177,7 +181,7 @@ public class LoginFrame extends JFrame {
 
 		loginButton = new JButton();
 		loginButton.setIcon(loginButtonInactive);
-		loginButton.setBounds(167, 170, 250, 30);
+		loginButton.setBounds(167, 150, 250, 30);
 		loginButton.setBorder(null);
 		loginButton.setFocusable(false);
 		loginButton.setContentAreaFilled(false);
@@ -217,6 +221,7 @@ public class LoginFrame extends JFrame {
 				passwordImage.setVisible(true);
 				loginButton.setVisible(true);
 				adminButton.setVisible(false);
+				logoLabel.setIcon(adminLogoImage);
 			}
 
 			@Override
@@ -246,6 +251,8 @@ public class LoginFrame extends JFrame {
 				usernameImage.setVisible(true);
 				passwordImage.setVisible(true);
 				loginButton.setVisible(true);
+				
+				logoLabel.setIcon(shopLogoImage);
 			}
 
 			@Override
@@ -275,8 +282,10 @@ public class LoginFrame extends JFrame {
 				passwordImage.setVisible(false);
 				adminButton.setVisible(true);
 				shopButton.setVisible(true);
-				usernameTF.setText("Username");
-				passwordTF.setText("Password");
+				usernameTF.setText("Inserisci ID");
+				passwordTF.setText("Inserisci password");
+				passwordTF.setEchoChar((char) 0);
+				logoLabel.setIcon(logoImage);
 			}
 		});
 
@@ -319,7 +328,7 @@ public class LoginFrame extends JFrame {
 				else
 				{
 					System.out.println("Login avvenuto con successo");
-					LoginController login_controller = new LoginController(connection,frame);
+					LoginController login_controller = new LoginController(connection);
 					try {
 						frame.setVisible(false);
 						login_controller.displayShops(connection);
@@ -333,7 +342,7 @@ public class LoginFrame extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 
-				if (usernameTF.getText().equals("Username"))
+				if (usernameTF.getText().equals("Inserisci ID"))
 					usernameTF.setText("");
 
 			}
@@ -343,7 +352,7 @@ public class LoginFrame extends JFrame {
 
 				if (usernameTF.getText().equals(""))
 
-					usernameTF.setText("Username");
+					usernameTF.setText("Inserisci ID");
 			}
 		});
 
@@ -351,12 +360,11 @@ public class LoginFrame extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 
-				if (passwordTF.getText().equals("Password")) {
+				if (passwordTF.getText().equals("Inserisci password")) {
 
 					passwordTF.setEchoChar('•');
 					passwordTF.setText("");
 				}
-
 			}
 
 			@Override
@@ -364,7 +372,7 @@ public class LoginFrame extends JFrame {
 
 				if (passwordTF.getText().equals("")) {
 
-					passwordTF.setText("Password");
+					passwordTF.setText("Inserisci password");
 					passwordTF.setEchoChar((char) 0);
 				}
 			}

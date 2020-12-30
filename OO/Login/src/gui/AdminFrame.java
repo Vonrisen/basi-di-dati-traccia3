@@ -27,7 +27,7 @@ public class AdminFrame extends JFrame {
 		contentPane.add(scrollPane);
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
+		//FARE BOTTONE PER TORNARE INDIETRO E APPOSITE FUNZIONI 
 	}
 	public JTable getTable() {
 		return table;
