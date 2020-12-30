@@ -4,11 +4,11 @@ public class Shop {
 
 	private String meal_id;
 	private String name;
-	private String price;
+	private float price;
 	private String description;
 	
 	
-	public Shop(String meal_id, String name, String price, String description) {
+	public Shop(String meal_id, String name,  float price, String description) {
 		super();
 		this.meal_id = meal_id;
 		this.name = name;
@@ -28,10 +28,10 @@ public class Shop {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public String getDescription() {

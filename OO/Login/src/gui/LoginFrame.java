@@ -321,9 +321,10 @@ public class LoginFrame extends JFrame {
 					System.out.println("Login avvenuto con successo");
 					LoginController login_controller = new LoginController(connection,frame);
 					try {
-						login_controller.displayShops(connection, frame);
+						frame.setVisible(false);
+						login_controller.displayShops(connection);
 					} catch (SQLException e) {
-						e.printStackTrace();
+						System.out.println("Errore durante la trasposizione del result set sulla tabella");
 					}
 				}
 			}
