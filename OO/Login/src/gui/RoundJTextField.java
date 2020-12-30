@@ -9,19 +9,23 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 public class RoundJTextField extends JTextField {
-	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Color color;
-	
+
 	RoundJTextField(Color color) {
-		
+
 		this.color = color;
-		
+
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) { 
 		if (!isOpaque()) { 
-			
+
 			int w = getWidth() - 1; 
 			int h = getHeight() - 1;
 			Graphics2D g2 = (Graphics2D) g.create();
@@ -33,20 +37,20 @@ public class RoundJTextField extends JTextField {
 			g2.setStroke(new BasicStroke((float)2)); //Farlo più spesso quando si clicca dentro
 			g2.drawRoundRect(0, 0, w, h, h, h);
 			g2.dispose();
-			
+
 		} 
-		
+
 		super.paintComponent(g);
-		
+
 	}
-	
+
 	@Override 
 	public void updateUI() { 
-		
+
 		super.updateUI(); 
 		setOpaque(false);
 		setBorder(BorderFactory.createEmptyBorder(4, 8, 4, 8)); 
-		
-		}
-	
+
+	}
+
 }

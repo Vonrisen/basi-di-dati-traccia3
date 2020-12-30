@@ -1,28 +1,32 @@
 package gui;
 
 import java.awt.BasicStroke;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 public class RoundJPasswordField extends JPasswordField {
-	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Color color;
-	
+
 	RoundJPasswordField(Color color) {
-		
+
 		this.color = color;
-		
+
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) { 
 		if (!isOpaque()) { 
-			
+
 			int w = getWidth() - 1; 
 			int h = getHeight() - 1;
 			Graphics2D g2 = (Graphics2D) g.create();
@@ -34,20 +38,20 @@ public class RoundJPasswordField extends JPasswordField {
 			g2.setStroke(new BasicStroke((float)2)); //Farlo più spesso quando si clicca dentro
 			g2.drawRoundRect(0, 0, w, h, h, h);
 			g2.dispose();
-			
+
 		} 
-		
+
 		super.paintComponent(g);
-		
+
 	}
-	
+
 	@Override 
 	public void updateUI() { 
-		
+
 		super.updateUI(); 
 		setOpaque(false);
 		setBorder(BorderFactory.createEmptyBorder(4, 8, 4, 8)); 
-		
-		}
-	
+
+	}
+
 }

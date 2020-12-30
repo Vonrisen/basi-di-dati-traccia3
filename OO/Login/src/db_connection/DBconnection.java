@@ -29,6 +29,7 @@ public class DBconnection {
      {
          System.out.println("Non e' stato possibile trovare il driver desiderato");
      }
+	 
 	}
 	
 	public Connection getConnection()

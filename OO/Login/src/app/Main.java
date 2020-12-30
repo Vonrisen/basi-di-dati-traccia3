@@ -1,9 +1,9 @@
 package app;
 
 import java.awt.EventQueue;
+
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import db_connection.DBconnection;
 import gui.LoginFrame;
 
@@ -29,7 +29,7 @@ public class Main {
 				 }
 				//Inizio applicativo
 				try {
-					LoginFrame window = new LoginFrame();
+					LoginFrame window = new LoginFrame(connection);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
