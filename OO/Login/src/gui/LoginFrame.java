@@ -68,32 +68,31 @@ public class LoginFrame {
 		
 		JTextField usernameTF = new RoundJTextField(new Color(0x771007));
 		usernameTF.setText("Inserisci l'username");
-		usernameTF.setBounds(192, 35, 250, 30);
+		usernameTF.setBounds(177, 65, 250, 30);
 		usernameTF.setVisible(false);
 		loginPanel.add(usernameTF);
 		
 		JPasswordField passwordTF = new RoundJPasswordField(new Color(0x771007));
 		passwordTF.setText("Inserisci la password");
 		passwordTF.setEchoChar((char) 0);
-		passwordTF.setBounds(192, 80, 250, 30);
+		passwordTF.setBounds(177, 110, 250, 30);
 		passwordTF.setVisible(false);
 		loginPanel.add(passwordTF);
 		
 		JLabel usernameImage = new JLabel();
 		usernameImage.setIcon(new ImageIcon("src/images/usernameIcon.png"));
-		usernameImage.setBounds(156, 36, 25, 25);
+		usernameImage.setBounds(141, 66, 25, 25);
 		usernameImage.setVisible(false);
 		loginPanel.add(usernameImage);
 		
 		JLabel passwordImage = new JLabel();
 		passwordImage.setIcon(new ImageIcon("src/images/passwordIcon.png"));
-		passwordImage.setBounds(156, 81, 25, 25);
+		passwordImage.setBounds(141, 111, 25, 25);
 		passwordImage.setVisible(false);
 		loginPanel.add(passwordImage);
 		
 		JButton adminButton = new JButton();
 		adminButton.setIcon(new ImageIcon("src/images/adminButtonInactive.png"));
-		adminButton.setBackground(null);
 		adminButton.setBorder(null);
 		adminButton.setBounds(322, 50, 150, 150);
 		adminButton.setFocusable(false);
@@ -102,50 +101,53 @@ public class LoginFrame {
 		
 		JButton shopButton = new JButton();
 		shopButton.setIcon(new ImageIcon("src/images/shopButtonInactive.png"));
-		shopButton.setBackground(null);
 		shopButton.setBorder(null);
 		shopButton.setBounds(112 , 50, 150, 150);
 		shopButton.setFocusable(false);
 		shopButton.setContentAreaFilled(false);
 		loginPanel.add(shopButton);
 		
-		JButton loginButton = new JButton("Login");
-		loginButton.setBounds(248, 177, 89, 23);
-		loginPanel.add(loginButton);
+		JButton loginButton = new JButton();
+		loginButton.setIcon(new ImageIcon("src/images/loginButtonInactive.png"));
+		loginButton.setBounds(167, 170, 250, 30);
+		loginButton.setBorder(null);
+		loginButton.setFocusable(false);
+		loginButton.setContentAreaFilled(false);
 		loginButton.setVisible(false);
+		loginPanel.add(loginButton);
 		
-		JButton homeButton = new JButton("HOME");
-		homeButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				homeButton.setVisible(false);
-				usernameTF.setVisible(false);
-				passwordTF.setVisible(false);
-				loginButton.setVisible(false);
-				usernameImage.setVisible(false);
-				passwordImage.setVisible(false);
-				adminButton.setVisible(true);
-				shopButton.setVisible(true);
-			}
-		});
-		
-		homeButton.setBounds(35, 297, 89, 44);
-		loginPanel.add(homeButton);
+		JButton homeButton = new JButton();
+		homeButton.setIcon(new ImageIcon("src/images/homeButtonInactive.png"));
+		homeButton.setBounds(267, 270, 50, 50);
+		homeButton.setBorder(null);
+		homeButton.setFocusable(false);
+		homeButton.setContentAreaFilled(false);
 		homeButton.setVisible(false);
+		loginPanel.add(homeButton);
+//		
+//		JLabel lblNewLabel = new JLabel("Admin Login");
+//		lblNewLabel.setForeground(new Color(0x77120b));
+//		lblNewLabel.setBounds(177, 40, 119, 14);
+//		loginPanel.add(lblNewLabel);
 		
 		//ACTIONS
 		adminButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				homeButton.setVisible(true);
-				adminButton.setVisible(false);
-				shopButton.setVisible(false);
-				usernameTF.setVisible(true);
-				passwordTF.setVisible(true);
-				usernameImage.setVisible(true);
-				passwordImage.setVisible(true);
-				loginButton.setVisible(true);
+				setVisible(homeButton, adminButton, shopButton, usernameTF, passwordTF, usernameImage, passwordImage, loginButton);
+				
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				
+				adminButton.setIcon(new ImageIcon("src/images/adminButtonActive.png"));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				adminButton.setIcon(new ImageIcon("src/images/adminButtonInactive.png"));
 				
 			}
 		});
@@ -154,14 +156,43 @@ public class LoginFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				homeButton.setVisible(true);
-				adminButton.setVisible(false);
-				shopButton.setVisible(false);
-				usernameTF.setVisible(true);
-				passwordTF.setVisible(true);
-				usernameImage.setVisible(true);
-				passwordImage.setVisible(true);
-				loginButton.setVisible(true);
+				setVisible(homeButton, adminButton, shopButton, usernameTF, passwordTF, usernameImage, passwordImage, loginButton);
+				
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				
+				shopButton.setIcon(new ImageIcon("src/images/shopButtonActive.png"));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				shopButton.setIcon(new ImageIcon("src/images/shopButtonInactive.png"));
+				
+			}
+		});
+		
+		homeButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				setVisible(homeButton, adminButton, shopButton, usernameTF, passwordTF, usernameImage, passwordImage, loginButton);
+				
+			}
+		});
+		
+		homeButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				
+				homeButton.setIcon(new ImageIcon("src/images/homeButtonActive.png"));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				homeButton.setIcon(new ImageIcon("src/images/homeButtonInactive.png"));
 				
 			}
 		});
@@ -214,15 +245,55 @@ public class LoginFrame {
 			}
 		});
 		
+		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				
+				loginButton.setIcon(new ImageIcon("src/images/loginButtonActive.png"));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				loginButton.setIcon(new ImageIcon("src/images/loginButtonInactive.png"));
+				
+			}
+		});
+		
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!usernameTF.getText().equals(username)||!passwordTF.getText().equals(password))
+				if(!usernameTF.getText().equals(username)||!passwordTF.toString().equals(password))
 					System.out.println("Username o password sbagliati, riprovare");
 				else
 				System.out.println("Login avvenuto con successo");
 			}
 		});
 		
+	}
+	
+	public void setVisible(JButton homeButton, JButton adminButton, JButton shopButton, JTextField usernameTF,
+						  JPasswordField passwordTF, JLabel usernameImage, JLabel passwordImage, JButton loginButton) {
 		
+		if(loginButton.isShowing()) {
+			homeButton.setVisible(false);
+			usernameTF.setVisible(false);
+			passwordTF.setVisible(false);
+			loginButton.setVisible(false);
+			usernameImage.setVisible(false);
+			passwordImage.setVisible(false);
+			adminButton.setVisible(true);
+			shopButton.setVisible(true);
+			
+		} else {
+			homeButton.setVisible(true);
+			adminButton.setVisible(false);
+			shopButton.setVisible(false);
+			usernameTF.setVisible(true);
+			passwordTF.setVisible(true);
+			usernameImage.setVisible(true);
+			passwordImage.setVisible(true);
+			loginButton.setVisible(true);
+			
+		}
 	}
 }
