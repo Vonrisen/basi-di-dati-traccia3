@@ -276,3 +276,9 @@ LOOP
 END LOOP;
 END;
 $$;
+//Inserisce un customer
+CREATE OR REPLACE PROCEDURE insertCustomer(customer_name varchar, surname varchar, address varchar, birth_date date, birth_place varchar, cellphone char, email varchar, passw varchar, cf varchar) LANGUAGE PLPGSQL AS $$
+BEGIN
+INSERT INTO Customer VALUES (DEFAULT,customer_name,surname,address,birth_date,birth_place,gender,cellphone,email,passw,cf);
+END;
+$$;
