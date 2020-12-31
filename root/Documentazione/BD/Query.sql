@@ -56,16 +56,15 @@ CREATE TABLE Contract(
 
 -- TABELLA COMPALIMENTO
 
-CREATE TABLE FoodComposition( 
+CREATE TABLE MealComposition( 
 
-	food_id CHAR(6), 
+	meal_id CHAR(6), 
 	allergen AllergenType, 
 
-	PRIMARY KEY(food_id,allergen), 
-	FOREIGN KEY (food_id) REFERENCES Food(food_id) ON DELETE CASCADE ON UPDATE CASCADE, 
-	FOREIGN KEY (allergen) REFERENCES Allergen(allergen) ON DELETE CASCADE ON UPDATE CASCADE
-
+	PRIMARY KEY(meal_id,allergen), 
+	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE 
 ) 
+
 
 -- TABELLA ALLERGENE
 CREATE TYPE AllergenType AS ENUM ('Cereali e derivati', 'Crostacei', 'Uova', 'Pesce', 'Arachidi', 'Soia', 'Latte', 'Frutta a guscio', 'Sedano', 'Senape', 'Anidride solforosa e solfiti', 'Lupini', 'Molluschi');
@@ -77,10 +76,10 @@ CREATE TABLE Allergen(
 
 
 -- TABELLA ALIMENTO
-CREATE TABLE Food( 
+CREATE TABLE Meal( 
 
-    food_id CHAR (6) PRIMARY KEY, 
-	name VARCHAR (32) NOT NULL UNIQUE, 
+    meal_id CHAR (6) PRIMARY KEY, 
+	meal_name VARCHAR (32) NOT NULL UNIQUE, 
 	price REAL NOT NULL, 
 	description VARCHAR(255) 
 ) 
@@ -93,16 +92,16 @@ CREATE TYPE DeliveryStatus AS ENUM ('In attesa','In consegna','Consegnato','Erro
 
 CREATE TABLE CustomerOrder(
 
-	order_id CHAR(12) PRIMARY KEY,
-	order_date TIMESTAMP NOT NULL,
+	order_id CHAR(8) PRIMARY KEY,
+	order_date TIMESTAMP NOT NULL DEFAULT current_timestamp,
 	delivery_time TIME,
 	address VARCHAR(255) NOT NULL,
-	status DeliveryStatus NOT NULL DEFAULT 'In attesa',
-	payment PaymentType,
+	status VARCHAR(20) NOT NULL DEFAULT 'In attesa',
+	payment VARCHAR(20),
 	note VARCHAR(255),
 	rider_id CHAR(5),
 	shop_id CHAR(4),
-	customer_id CHAR(10),
+	customer_id CHAR(6),
 	
 	FOREIGN KEY(rider_id) REFERENCES Rider(rider_id),
 	FOREIGN KEY(shop_id) REFERENCES Shop(shop_id),
@@ -113,41 +112,27 @@ CREATE TABLE CustomerOrder(
 
 
 -- TABELLA CARRELLO
-CREATE SEQUENCE Cart_sequence; 
-
-CREATE TABLE Cart( 
-
-	cart_id CHAR(12) PRIMARY KEY DEFAULT to_char(nextval('Cart_sequence'),'000000000000'), 
-	complete CHAR(1) NOT NULL DEFAULT 'n', 
-	customer_id CHAR(10), 
-	FOREIGN KEY(customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE CASCADE 
-
-)
-
-
-
 
 
 -- TABELLA RIDER
 
-CREATE TYPE VehicleType AS ENUM ('Bicicletta', 'Motoveicolo', 'Autovettura');
 CREATE SEQUENCE Rider_sequence; 
 CREATE TABLE Rider( 
 
+	rider_id CHAR(5) PRIMARY KEY DEFAULT to_char(nextval ('Rider_sequence'),'R0000FM'), 
 	cf CHAR(16) NOT NULL UNIQUE, 
-	name VARCHAR(32) NOT NULL, 
+	rider_name VARCHAR(32) NOT NULL, 
 	surname VARCHAR(32) NOT NULL, 
 	address VARCHAR(255) NOT NULL, 
 	birth_date DATE NOT NULL, 
 	birth_place VARCHAR(25) NOT NULL, 
 	gender CHAR(1) NOT NULL, 
 	cellphone CHAR(10) NOT NULL UNIQUE, 
-	rider_id CHAR(5) PRIMARY KEY DEFAULT to_char(nextval ('Rider_sequence'),'R0000FM'), 
 	email VARCHAR(320) NOT NULL UNIQUE, 
 	password VARCHAR(32) NOT NULL, 
-	vehicle VehicleType NOT NULL, 
+	vehicle VARCHAR(20) NOT NULL, 
 	working_time CHAR(11) NOT NULL, 
-	deliveries_number SMALLINT NOT NULL
+	deliveries_number SMALLINT NOT NULL DEFAULT 0
 	
 ) 
 
@@ -158,19 +143,32 @@ CREATE SEQUENCE Customer_sequence;
 
 CREATE TABLE Customer( 
     
-	name VARCHAR(32) NOT NULL, 
+	customer_id CHAR(7) PRIMARY KEY DEFAULT to_char(nextval('Customer_sequence'),'U000000FM'),
+	customer_name VARCHAR(32) NOT NULL, 
 	surname VARCHAR(32) NOT NULL, 
 	address VARCHAR(255) NOT NULL, 
 	birth_date DATE NOT NULL, 
 	birth_place VARCHAR(25) NOT NULL, 
 	gender CHAR(1) NOT NULL, 
-	cellphone CHAR(10) NOT NULL UNIQUE, 
-	customer_id CHAR(10) PRIMARY KEY DEFAULT to_char(nextval('Customer_sequence'),'U000000000FM'), 
+	cellphone CHAR(10) NOT NULL UNIQUE,  
 	email VARCHAR(320) NOT NULL UNIQUE, 
 	password VARCHAR(32) NOT NULL, 
 	flag CHAR(1) NOT NULL DEFAULT 'b', 
 	cf CHAR(16) NOT NULL UNIQUE
 	
+)
+
+--TABELLA CART
+
+CREATE SEQUENCE Cart_sequence; 
+
+
+CREATE TABLE Cart( 
+
+	cart_id CHAR(8) PRIMARY KEY DEFAULT to_char(nextval('Cart_sequence'),'00000000'), 
+	complete CHAR(1) NOT NULL DEFAULT 'n', 
+	customer_id CHAR(7), 
+	FOREIGN KEY(customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE CASCADE 
 )
 
 
@@ -181,11 +179,16 @@ CREATE SEQUENCE Shop_sequence;
  CREATE TABLE Shop(
 	 
 	shop_id CHAR(4) PRIMARY KEY DEFAULT to_char(nextval('Shop_sequence'),'S000'),
-	name VARCHAR(32) NOT NULL,
+	shop_name VARCHAR(32) NOT NULL,
 	address VARCHAR(255) NOT NULL UNIQUE,
 	working_hours CHAR(11),
 	closing_days VARCHAR(56)
  )
+
+---CALLABLE STATEMENTS JDBC
+
+
+
 
 
 --TRIGGER E FUNCTION PER CREARE UN ORDINE
@@ -215,18 +218,18 @@ END;
 $crea_ordine$ LANGUAGE plpgsql;
 
 //Inserisce un alimento nella tabella Food
-CREATE OR REPLACE PROCEDURE insertFood(name_food varchar, prefix varchar, price real, description varchar) LANGUAGE PLPGSQL AS $$
+CREATE OR REPLACE PROCEDURE insertFood(food_name varchar, prefix varchar, price real, description varchar) LANGUAGE PLPGSQL AS $$
 declare
-suffix CHAR(4)=to_char(nextval('Food_sequence'),'0000FM');
+suffix CHAR(4)=to_char(nextval('Meal_sequence'),'0000FM');
 begin
-INSERT INTO Food VALUES (prefix||suffix, name_food, price, description);
+INSERT INTO Meal VALUES (prefix||suffix, food_name, price, description);
 end;
 $$;
  
 //Inserisce un allergene ad un alimento
 CREATE OR REPLACE PROCEDURE insertAllergen(food_id varchar, allergen AllergenType ) LANGUAGE PLPGSQL AS $$
 begin
-INSERT INTO FoodComposition VALUES(food_id,allergen);
+INSERT INTO MealComposition VALUES(food_id,allergen);
 end;
 $$;
  
