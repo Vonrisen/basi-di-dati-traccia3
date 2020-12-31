@@ -8,8 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import daos.MealDAO;
-import daos.MealDAO;
+import daos_interfaces.MealDAO;
 import db_connection.DBconnection;
 import entities.Meal;
 import entities.Meal;
@@ -19,36 +18,41 @@ public class MealDAOPostgresImplementation implements MealDAO {
 	private Connection connection;
 	private PreparedStatement print_all_meals_PS;
 	private CallableStatement insert_meal_CS, delete_meal_CS;
-	public MealDAOPostgresImplementation(Connection connection) throws SQLException
+	public MealDAOPostgresImplementation(Connection connection)
 	{
 		this.connection = connection;
-		print_all_meals_PS = connection.prepareStatement("SELECT * FROM MEAL");
-		insert_meal_CS = connection.prepareCall("CALL insertMeal(?,?,?");
-		delete_meal_CS = connection.prepareCall("CALL DeleteMeal(?)");
+		try {
+			print_all_meals_PS = connection.prepareStatement("SELECT * FROM Meal");
+			insert_meal_CS = connection.prepareCall("CALL insertMeal(?,?,?,?)");
+			delete_meal_CS = connection.prepareCall("CALL deleteMeal(?)");
+		} catch (SQLException e) {
+			System.out.println("Errore durante la preparazione degli statement "+e.getMessage());
+		}
 	}
-	public ResultSet getAllShops() throws SQLException {
+	public ResultSet getAllMeals() throws SQLException {
 		
 		ResultSet rs = print_all_meals_PS.executeQuery();
 		return rs;
 	}
 	
-	public void insertShop(Meal shop) throws SQLException {
+	public void insertMeal(String name, String prefix, Float price, String description) throws SQLException {
 		
-		insert_meal_CS.setString(1, shop.getName());
-		insert_meal_CS.setFloat(2, shop.getPrice());
-		insert_meal_CS.setString(3, shop.getDescription());
+		insert_meal_CS.setString(1, name);
+		insert_meal_CS.setString(2, prefix);
+		insert_meal_CS.setFloat(3, price);
+		insert_meal_CS.setString(4, description);
 		insert_meal_CS.executeUpdate();
 		return;
 	}
 	
-	
-	public void deleteShop(Meal shop) throws SQLException {
-		delete_meal_CS.setString(1, shop.getMeal_id());
+	public void deleteMeal(String meal_id) throws SQLException {
+
+		delete_meal_CS.setString(1, meal_id);
 		delete_meal_CS.executeUpdate();
 		return;
-	}
-	@Override
-	public void updateShop(Meal shop) throws SQLException {
 		
 	}
+	
+	
+
 }

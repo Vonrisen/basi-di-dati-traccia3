@@ -1,4 +1,5 @@
-package Classi;
+package entities;
+
 
 import java.util.ArrayList;
 

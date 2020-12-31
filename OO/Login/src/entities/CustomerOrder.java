@@ -1,4 +1,6 @@
-package Classi;
+package entities;
+
+
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;

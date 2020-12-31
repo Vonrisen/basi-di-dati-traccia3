@@ -1,6 +1,5 @@
-package Classi;
+package entities;
 
-import java.util.ArrayList;
 
 public class Shop {
 	
@@ -10,23 +9,16 @@ public class Shop {
 	private String address;
 	private String working_hours;
 	private String closing_days;
-	private ArrayList <Rider> rider_list;
-	private ArrayList <CustomerOrder> order_list;
-	private ArrayList <Supply> supply_list;
 		
 	
 	//COSTRUTTORE
-	public Shop(String shop_id, String shop_name, String address, String working_hours, String closing_days,
-			ArrayList<Rider> rider_list, ArrayList<CustomerOrder> order_list, ArrayList<Supply> supply_list) {
+	public Shop(String shop_id, String shop_name, String address, String working_hours, String closing_days) {
 		super();
 		this.shop_id = shop_id;
 		this.shop_name = shop_name;
 		this.address = address;
 		this.working_hours = working_hours;
 		this.closing_days = closing_days;
-		this.rider_list = rider_list;
-		this.order_list = order_list;
-		this.supply_list = supply_list;
 	}
 
 	//GETTER AND SETTER
@@ -68,14 +60,6 @@ public class Shop {
 	
 	public void setClosing_days(String closing_days) {
 		this.closing_days = closing_days;
-	}
-
-	public ArrayList <Rider> getRider_list() {
-		return rider_list;
-	}
-
-	public void setRider_list(ArrayList <Rider> rider_list) {
-		this.rider_list = rider_list;
 	}
 	
 	

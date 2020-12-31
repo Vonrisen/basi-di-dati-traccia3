@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-import daos.MealDAO;
 import daos_implementation.MealDAOPostgresImplementation;
+import daos_interfaces.MealDAO;
 import gui.AdminFrame;
 import net.proteanit.sql.DbUtils;
 
