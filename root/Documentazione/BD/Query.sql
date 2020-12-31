@@ -3,14 +3,13 @@
 CREATE TABLE Supply(
 
 	shop_id CHAR(4),
-	food_id CHAR(6),
+	meal_id CHAR(6),
 	quantity SMALLINT NOT NULL,
 
 	PRIMARY KEY(shop_id, food_id),
 	FOREIGN KEY (shop_id) REFERENCES Shop(shop_id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (food_id) REFERENCES Food(food_id) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
-
 
 -- TABELLA COMPORDINE
 
@@ -31,12 +30,12 @@ CREATE TABLE OrderComposition(
 CREATE TABLE CartComposition(
 
 	cart_id CHAR(12),
-	food_id CHAR(6),
+	meal_id CHAR(6),
 	quantity SMALLINT NOT NULL,
 	
 	PRIMARY KEY(cart_id, food_id),
 	FOREIGN KEY (cart_id) REFERENCES Cart(cart_id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (food_id) REFERENCES Food(food_id) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 
 
@@ -87,9 +86,6 @@ CREATE TABLE Meal(
 
 -- TABELLA ORDINE
 
-CREATE TYPE PaymentType AS ENUM ('Contrassegno','Carta');
-CREATE TYPE DeliveryStatus AS ENUM ('In attesa','In consegna','Consegnato','Errore');
-
 CREATE TABLE CustomerOrder(
 
 	order_id CHAR(8) PRIMARY KEY,
@@ -110,8 +106,6 @@ CREATE TABLE CustomerOrder(
 
 
 
-
--- TABELLA CARRELLO
 
 
 -- TABELLA RIDER
