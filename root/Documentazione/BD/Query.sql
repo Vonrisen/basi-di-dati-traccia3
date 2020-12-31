@@ -54,7 +54,7 @@ CREATE TABLE Contract(
 
 
 -- TABELLA COMPALIMENTO
-
+CREATE TYPE AllergenType AS ENUM ('Cereali e derivati', 'Crostacei', 'Uova', 'Pesce', 'Arachidi', 'Soia', 'Latte', 'Frutta a guscio', 'Sedano', 'Senape', 'Sesamo', 'Anidride solforosa e solfiti', 'Lupini', 'Molluschi');
 CREATE TABLE MealComposition( 
 
 	meal_id CHAR(6), 
@@ -64,14 +64,6 @@ CREATE TABLE MealComposition(
 	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE 
 ) 
 
-
--- TABELLA ALLERGENE
-CREATE TYPE AllergenType AS ENUM ('Cereali e derivati', 'Crostacei', 'Uova', 'Pesce', 'Arachidi', 'Soia', 'Latte', 'Frutta a guscio', 'Sedano', 'Senape', 'Anidride solforosa e solfiti', 'Lupini', 'Molluschi');
-CREATE TABLE Allergen( 
-
-	allergen AllergenType PRIMARY KEY 
-
-) 
 
 
 -- TABELLA ALIMENTO
@@ -146,8 +138,7 @@ CREATE TABLE Customer(
 	gender CHAR(1) NOT NULL, 
 	cellphone CHAR(10) NOT NULL UNIQUE,  
 	email VARCHAR(320) NOT NULL UNIQUE, 
-	password VARCHAR(32) NOT NULL, 
-	flag CHAR(1) NOT NULL DEFAULT 'b', 
+	password VARCHAR(32) NOT NULL,
 	cf CHAR(16) NOT NULL UNIQUE
 	
 )

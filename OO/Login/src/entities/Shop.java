@@ -1,45 +1,85 @@
-package entities;
+package Classi;
+
+import java.util.ArrayList;
 
 public class Shop {
-
-	private String meal_id;
-	private String name;
-	private float price;
-	private String description;
 	
+	//ATTRIBUTI
+	private String shop_id;
+	private String shop_name;
+	private String address;
+	private String working_hours;
+	private String closing_days;
+	private ArrayList <Rider> rider_list;
+	private ArrayList <CustomerOrder> order_list;
+	private ArrayList <Supply> supply_list;
+		
 	
-	public Shop(String meal_id, String name,  float price, String description) {
+	//COSTRUTTORE
+	public Shop(String shop_id, String shop_name, String address, String working_hours, String closing_days,
+			ArrayList<Rider> rider_list, ArrayList<CustomerOrder> order_list, ArrayList<Supply> supply_list) {
 		super();
-		this.meal_id = meal_id;
-		this.name = name;
-		this.price = price;
-		this.description = description;
+		this.shop_id = shop_id;
+		this.shop_name = shop_name;
+		this.address = address;
+		this.working_hours = working_hours;
+		this.closing_days = closing_days;
+		this.rider_list = rider_list;
+		this.order_list = order_list;
+		this.supply_list = supply_list;
+	}
+
+	//GETTER AND SETTER
+	public String getShop_id() {
+		return shop_id;
 	}
 	
-	public String getMeal_id() {
-		return meal_id;
+	public void setShop_id(String shop_id) {
+		this.shop_id = shop_id;
 	}
-	public void setMeal_id(String meal_id) {
-		this.meal_id = meal_id;
+	
+	public String getShop_name() {
+		return shop_name;
 	}
-	public String getName() {
-		return name;
+	
+	public void setShop_name(String shop_name) {
+		this.shop_name = shop_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	public String getAddress() {
+		return address;
 	}
-	public float getPrice() {
-		return price;
+	
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public void setPrice(float price) {
-		this.price = price;
+	
+	public String getWorking_hours() {
+		return working_hours;
 	}
-	public String getDescription() {
-		return description;
+	
+	public void setWorking_hours(String working_hours) {
+		this.working_hours = working_hours;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	
+	public String getClosing_days() {
+		return closing_days;
 	}
+	
+	public void setClosing_days(String closing_days) {
+		this.closing_days = closing_days;
+	}
+
+	public ArrayList <Rider> getRider_list() {
+		return rider_list;
+	}
+
+	public void setRider_list(ArrayList <Rider> rider_list) {
+		this.rider_list = rider_list;
+	}
+	
+	
+	
 	
 	
 }
