@@ -218,11 +218,11 @@ END;
 $crea_ordine$ LANGUAGE plpgsql;
 
 //Inserisce un alimento nella tabella Food
-CREATE OR REPLACE PROCEDURE insertFood(food_name varchar, prefix varchar, price real, description varchar) LANGUAGE PLPGSQL AS $$
+CREATE OR REPLACE PROCEDURE insertFood(meal_name varchar, prefix varchar, price real, description varchar) LANGUAGE PLPGSQL AS $$
 declare
 suffix CHAR(4)=to_char(nextval('Meal_sequence'),'0000FM');
 begin
-INSERT INTO Meal VALUES (prefix||suffix, food_name, price, description);
+INSERT INTO Meal VALUES (prefix||suffix, meal_name, price, description);
 end;
 $$;
  
@@ -267,9 +267,10 @@ END;
 $$;
 
 //Eliminazione di un alimento
-CREATE OR REPLACE PROCEDURE deleteFood(food_name varchar) LANGUAGE PLPGSQL AS $$
+DROP PROCEDURE deleteMeal;
+CREATE OR REPLACE PROCEDURE deleteMeal(meal varchar) LANGUAGE PLPGSQL AS $$
 BEGIN
-DELETE FROM Food WHERE name = food_name;
+DELETE FROM Meal WHERE meal_name = meal;
 END;
 $$;
 
