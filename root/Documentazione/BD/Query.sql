@@ -113,9 +113,7 @@ CREATE TABLE Rider(
 	birth_date DATE NOT NULL, 
 	birth_place VARCHAR(25) NOT NULL, 
 	gender CHAR(1) NOT NULL, 
-	cellphone CHAR(10) NOT NULL UNIQUE, 
-	email VARCHAR(320) NOT NULL UNIQUE, 
-	password VARCHAR(32) NOT NULL, 
+	cellphone CHAR(10) NOT NULL UNIQUE,  
 	vehicle VARCHAR(20) NOT NULL, 
 	working_time CHAR(11) NOT NULL, 
 	deliveries_number SMALLINT NOT NULL DEFAULT 0
