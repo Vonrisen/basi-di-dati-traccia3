@@ -14,13 +14,17 @@ public class ShopDAOPostgresImplementation implements ShopDAO{
 	private Connection connection;
 	private PreparedStatement print_all_shops_PS;
 	private CallableStatement insert_shop_CS,delete_shop_CS, update_shop_CS;
-	public ShopDAOPostgresImplementation(Connection connection) throws SQLException
+	public ShopDAOPostgresImplementation(Connection connection)
 	{
 		this.connection = connection;
-		insert_shop_CS = connection.prepareCall("CALL insertShop(?,?,?,?)");
-		delete_shop_CS = connection.prepareCall("CALL deleteShop(?)");
-		update_shop_CS = connection.prepareCall("CALL updateShop(?,?,?,?)");
-		print_all_shops_PS = connection.prepareStatement("SELECT * FROM Shop");
+		try {
+			insert_shop_CS = connection.prepareCall("CALL insertShop(?,?,?,?)");
+			delete_shop_CS = connection.prepareCall("CALL deleteShop(?)");
+			update_shop_CS = connection.prepareCall("CALL updateShop(?,?,?,?)");
+			print_all_shops_PS = connection.prepareStatement("SELECT * FROM Shop");
+		} catch (SQLException e) {
+			System.out.println("Errore durante la preparazione degli statement "+e.getMessage());
+		}
 	}
 	public void insertShop(Shop shop) throws SQLException {
 		

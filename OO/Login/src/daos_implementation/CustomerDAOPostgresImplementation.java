@@ -53,19 +53,19 @@ public class CustomerDAOPostgresImplementation implements CustomerDAO {
 	}
 
 	
-	public void updateEmailPasswordCellphoneCustomer(String email, String password,String cellphone, String customer_id)throws SQLException  {
+	public void updateCustomer(String email, String password,String cellphone, String customer_id)throws SQLException  {
 		
 			update_email_password_cellphone_customer_PS.setString(1, email);
 			update_email_password_cellphone_customer_PS.setString(2,password);
 			update_email_password_cellphone_customer_PS.setString(3,cellphone);
 			update_email_password_cellphone_customer_PS.setString(4, customer_id);
 			update_email_password_cellphone_customer_PS.executeUpdate();
+			
 		return;
 	
 	}
 	
 	public ResultSet getAllCustomers() throws SQLException{
-		
 		
 		ResultSet rs = print_all_customers_PS.executeQuery();
 		return rs;

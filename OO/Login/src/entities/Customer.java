@@ -19,10 +19,9 @@ public class Customer {
 	private String cf;
 	
 	//COSTRUTTORE
-	public Customer(String customer_id, String customer_name, String surname, String address, Date birth_date,
+	public Customer( String customer_name, String surname, String address, Date birth_date,
 			String birth_place, String gender, String cellular, String email, String password, String cf) {
 		super();
-		this.customer_id = customer_id;
 		this.customer_name = customer_name;
 		this.surname = surname;
 		this.address = address;

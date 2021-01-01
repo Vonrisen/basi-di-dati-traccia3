@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.SQLException;
 import db_connection.DBconnection;
+import gui.AdminFrame;
 import gui.LoginFrame;
 
 public class Main {

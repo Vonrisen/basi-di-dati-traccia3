@@ -82,19 +82,19 @@ public class LoginFrame extends JFrame {
 		// IMAGES INITIALIZER
 
 
-		logoImage = new ImageIcon("src/images/logo.png");
-		adminButtonActive = new ImageIcon("src/images/adminButtonActive.png");
-		adminButtonInactive = new ImageIcon("src/images/adminButtonInactive.png");
-		homeButtonActive = new ImageIcon("src/images/homeButtonActive.png");
-		homeButtonInactive = new ImageIcon("src/images/homeButtonInactive.png");
-		shopButtonActive = new ImageIcon("src/images/shopButtonActive.png");
-		shopButtonInactive = new ImageIcon("src/images/shopButtonInactive.png");
-		loginButtonActive = new ImageIcon("src/images/loginButtonActive.png");
-		loginButtonInactive = new ImageIcon("src/images/loginButtonInactive.png");
-		usernameIcon = new ImageIcon("src/images/usernameIcon.png");
-		passwordIcon = new ImageIcon("src/images/passwordIcon.png");
-		adminLogoImage = new ImageIcon("src/images/adminLogo.png");
-		shopLogoImage = new ImageIcon("src/images/shopLogo.png");
+		logoImage = new ImageIcon("src\\images\\LoginImages\\Logo.png");
+		adminButtonActive = new ImageIcon("src\\images\\LoginImages\\adminButtonActive.png");
+		adminButtonInactive = new ImageIcon("src\\images\\LoginImages\\adminButtonInactive.png");
+		homeButtonActive = new ImageIcon("src\\images\\LoginImages\\homeButtonActive.png");
+		homeButtonInactive = new ImageIcon("src\\images\\LoginImages\\homeButtonInactive.png");
+		shopButtonActive = new ImageIcon("src\\images\\LoginImages\\shopButtonActive.png");
+		shopButtonInactive = new ImageIcon("src\\images\\LoginImages\\shopButtonInactive.png");
+		loginButtonActive = new ImageIcon("src\\images\\LoginImages\\Icons\\loginButtonActive.png");
+		loginButtonInactive = new ImageIcon("src\\images\\LoginImages\\loginButtonInactive.png");
+		usernameIcon = new ImageIcon("src\\images\\LoginImages/usernameIcon.png");
+		passwordIcon = new ImageIcon("src\\images\\LoginImages\\passwordIcon.png");
+		adminLogoImage = new ImageIcon("src\\images\\LoginImages\\adminLogo.png");
+		shopLogoImage = new ImageIcon("src\\images\\LoginImages\\shopLogo.png");
 		dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 		// FRAME INITIALIZER
@@ -316,7 +316,7 @@ public class LoginFrame extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent cursore_fuori_loginButton) {
 
-				loginButton.setIcon(new ImageIcon("src/images/loginButtonInactive.png"));
+				loginButton.setIcon(loginButtonInactive);
 
 			}
 		});
@@ -331,8 +331,8 @@ public class LoginFrame extends JFrame {
 					LoginController login_controller = new LoginController(connection);
 					try {
 						frame.setVisible(false);
-						login_controller.displayShops(connection);
-					} catch (SQLException e) {
+						login_controller.closeLoginOpenAdmin();
+					} catch (Exception e) {
 						System.out.println("Errore durante la trasposizione del result set sulla tabella");
 					}
 				}

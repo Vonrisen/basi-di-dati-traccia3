@@ -14,10 +14,8 @@ public class Rider {
 	private String address;
 	private Date birth_date;
 	private String birth_place;
-	private char gender;
-	private String cellular;
-	private String email;
-	private String password;
+	private String gender;
+	private String cellphone;
 	private String vehicle;
 	private String working_time;
 	private String deliveries_number;
@@ -27,7 +25,7 @@ public class Rider {
 	
 	//COSTRUTTORE
 	public Rider(String rider_id, String cf, String rider_name, String surname, String address, Date birth_date,
-			String birth_place, char gender, String cellular, String email, String password, String vehicle,
+			String birth_place, String gender, String cellular, String vehicle,
 			String working_time, String deliveries_number, ArrayList<Shop> shop_list,
 			ArrayList<CustomerOrder> order_list) {
 		super();
@@ -39,9 +37,7 @@ public class Rider {
 		this.birth_date = birth_date;
 		this.birth_place = birth_place;
 		this.gender = gender;
-		this.cellular = cellular;
-		this.email = email;
-		this.password = password;
+		this.cellphone = cellular;
 		this.vehicle = vehicle;
 		this.working_time = working_time;
 		this.deliveries_number = deliveries_number;
@@ -121,44 +117,25 @@ public class Rider {
 	}
 
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
 
-	public String getCellular() {
-		return cellular;
+	public String getCellphone() {
+		return cellphone;
 	}
 
 
-	public void setCellular(String cellular) {
-		this.cellular = cellular;
+	public void setCellphone(String cellular) {
+		this.cellphone = cellular;
 	}
 
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 
 	public String getVehicle() {

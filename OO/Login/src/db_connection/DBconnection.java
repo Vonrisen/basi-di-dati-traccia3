@@ -10,7 +10,7 @@ public class DBconnection {
 	private final String PWD="password123";
 	private final String IP="localhost";
 	private final String PORT="5432";
-	private final String DBNAME="FOOD_OVERFLOW";
+	private final String DBNAME="FOODOVERFLOW_DB";
 	private Connection connection = null; 
 	
 	private DBconnection() {
