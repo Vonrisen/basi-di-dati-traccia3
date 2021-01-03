@@ -240,7 +240,16 @@ BEGIN
 INSERT INTO Shop VALUES(DEFAULT, shop_name, address, working_hours, closing_days);
 END;
 $$;
-
+//Update Shop
+CREATE OR REPLACE PROCEDURE updateShop(shop_id varchar, shop_name varchar, address varchar, working_hours varchar, closing_days varchar)
+AS $$
+BEGIN
+IF working_hours=''THEN working_hours=null; END IF;
+IF closing_days=''THEN closing_days=null; END IF;
+UPDATE Shop SET shop_id=shop_id,shop_name=shop_name,working_hours=working_hours,closing_days=closing_days WHERE shop_id=shop_id;
+END;
+$$
+LANGUAGE PLPGSQL;
 
 //Eliminazione di un negozio
 CREATE OR REPLACE PROCEDURE deleteShop(cod_shop varchar) LANGUAGE PLPGSQL AS $$
