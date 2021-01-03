@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import controllers.AdminController;
 import db_connection.DBconnection;
 import gui.AdminFrame;
 import gui.LoginFrame;
@@ -14,6 +16,7 @@ public class Main {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				DBconnection dbconn = null;
@@ -30,13 +33,12 @@ public class Main {
 				 }
 				//Inizio applicativo
 				try {
-					LoginFrame window = new LoginFrame(connection);
-					window.frame.setVisible(true);
+					new LoginFrame();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
 }
