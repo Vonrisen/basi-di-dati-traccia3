@@ -25,12 +25,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import controllers.AdminController;
 import gui_support.RoundJRadioButton;
 import gui_support.RoundJTextField;
 
-public class RiderFrame {
+public class RiderFrame extends JFrame {
 
-	public JFrame frame;
 	private int mouseX=0;
 	private int mouseY=0;
 	private JTable table;
@@ -51,12 +51,15 @@ public class RiderFrame {
 	 */
 	public RiderFrame() {
 		initialize();
+		this.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		AdminController admin_controller = new AdminController();
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		ImageIcon maximize_button = new ImageIcon("src\\images\\FrameIcons\\maximizeFrameButton.png");
 		ImageIcon minimize_button = new ImageIcon("src\\images\\FrameIcons\\minimizeFrameButton.png");
@@ -70,23 +73,22 @@ public class RiderFrame {
 		ImageIcon insert_button_active = new ImageIcon("src\\images\\SqlButtons\\insertButtonActive.png");
 		ImageIcon update_button_inactive = new ImageIcon("src\\images\\SqlButtons\\updateButtonInactive.png");
 		ImageIcon update_button_active = new ImageIcon("src\\images\\SqlButtons\\updateButtonActive.png");
-		ImageIcon turn_back_inactive = new ImageIcon("src\\images\\AdminFrame\\turnBackInactive.png");
-		ImageIcon turn_back_active = new ImageIcon("src\\images\\AdminFrame\\turnBackActive.png");
+		ImageIcon go_back_inactive = new ImageIcon("src\\images\\AdminFrame\\turnBackInactive.png");
+		ImageIcon go_back_active = new ImageIcon("src\\images\\AdminFrame\\turnBackActive.png");
 		
-		frame = new JFrame();
-		frame.setSize(1600,900);
-		int central_width = dim.width/2-frame.getSize().width/2;
-		int central_height = dim.height/2-frame.getSize().height/2;
-		frame.setLocation(central_width, central_height); //Setta il frame a centro monitor
-		frame.setUndecorated(true);
-		frame.getContentPane().setLayout(new BorderLayout());
+		this.setSize(1600,900);
+		int central_width = dim.width/2-this.getSize().width/2;
+		int central_height = dim.height/2-this.getSize().height/2;
+		this.setLocation(central_width, central_height); //Setta il frame a centro monitor
+		this.setUndecorated(true);
+		this.getContentPane().setLayout(new BorderLayout());
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.LINE_AXIS));
 		topPanel.setPreferredSize(new Dimension(100,35));
 		topPanel.setBackground(new Color(0x771007));
 		topPanel.setVisible(true);
-		frame.getContentPane().add(topPanel, BorderLayout.NORTH);	
+		this.getContentPane().add(topPanel, BorderLayout.NORTH);	
 		
 		JLabel iconifierFrameButton = new JLabel();
 		iconifierFrameButton.setIcon(iconifier_button);
@@ -109,7 +111,7 @@ public class RiderFrame {
 		JPanel rider_panel = new JPanel();
 		rider_panel.setLayout(null);
 		rider_panel.setBackground(new Color(0xf3ecd7));
-		frame.getContentPane().add(rider_panel, BorderLayout.CENTER);
+		this.getContentPane().add(rider_panel, BorderLayout.CENTER);
 		
 		scrollPane1 = new JScrollPane();
 		rider_panel.add(scrollPane1);
@@ -244,32 +246,31 @@ public class RiderFrame {
 		working_timeTF.setBounds(1200, 490, 150, 25);
 		rider_panel.add(working_timeTF);
 		
-		JButton turn_back = new JButton();
-		turn_back.setBounds(90, 770, 50, 50);
-		turn_back.setIcon(turn_back_inactive);
-		turn_back.setBorder(null);
-		turn_back.setFocusable(false);
-		turn_back.setContentAreaFilled(false);
-		rider_panel.add(turn_back);
+		JButton go_back = new JButton();
+		go_back.setBounds(90, 770, 50, 50);
+		go_back.setIcon(go_back_inactive);
+		go_back.setBorder(null);
+		go_back.setFocusable(false);
+		go_back.setContentAreaFilled(false);
+		rider_panel.add(go_back);
 		
 		
-		turn_back.addMouseListener(new MouseAdapter() {
+		go_back.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				
-				//Si torna ad adminFrame
-				
+				RiderFrame.this.setVisible(false);
+				admin_controller.openAdminFrame();
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				
-				turn_back.setIcon(turn_back_active);
+				go_back.setIcon(go_back_active);
 				
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
 				
-				turn_back.setIcon(turn_back_inactive);
+				go_back.setIcon(go_back_inactive);
 				
 			}
 		});
@@ -339,7 +340,7 @@ public class RiderFrame {
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				
-				frame.setLocation (frame.getX()+e.getX()-mouseX,frame.getY()+e.getY()-mouseY);
+				RiderFrame.this.setLocation (RiderFrame.this.getX()+e.getX()-mouseX,RiderFrame.this.getY()+e.getY()-mouseY);
 				
 			}
 		});
@@ -366,15 +367,15 @@ public class RiderFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				if(frame.getSize().equals(new Dimension(1600,900))) {
+				if(RiderFrame.this.getSize().equals(new Dimension(1600,900))) {
 					
 					resizeFrameButton.setIcon(minimize_button);
-					frame.setLocation(central_width, central_height);
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+					RiderFrame.this.setLocation(central_width, central_height);
+					RiderFrame.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					
 					scrollPane1.setBounds(dim.width/2-600, 230, 1200, 700);
 					shops_tableT.setBounds(dim.width/2-600, 80, 225,100);
-					turn_back.setBounds(25, dim.height-100, 50, 50);
+					go_back.setBounds(25, dim.height-100, 50, 50);
 					
 					nameLB.setBounds(dim.width/2-300, 50, 100, 14);
 					nameTF.setBounds(dim.width/2-300, 70, 150, 25);
@@ -401,15 +402,15 @@ public class RiderFrame {
 					update_sql_button.setBounds(dim.width/2+450, 117, 150,30);
 					delete_sql_button.setBounds(dim.width/2+450, 167, 150,30);
 					
-				} else if(frame.getSize().equals(dim)) {
+				} else if(RiderFrame.this.getSize().equals(dim)) {
 					
 					resizeFrameButton.setIcon(maximize_button);
-					frame.setSize(1600,900);
-					frame.setLocation(central_width, central_height);
+					RiderFrame.this.setSize(1600,900);
+					RiderFrame.this.setLocation(central_width, central_height);
 					
 					scrollPane1.setBounds(90, 132, 850, 600);
 					shops_tableT.setBounds(90, 20, 225,100);
-					turn_back.setBounds(90, 770, 50, 50);
+					go_back.setBounds(90, 770, 50, 50);
 					
 					nameLB.setBounds(1000, 132, 100, 14);
 					surnameLB.setBounds(1200, 132, 100, 14);
@@ -445,7 +446,7 @@ public class RiderFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frame.setState(Frame.ICONIFIED);
+				RiderFrame.this.setState(Frame.ICONIFIED);
 				
 			}
 		});

@@ -211,10 +211,18 @@ public class AdminFrame extends JFrame{
 		shopButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				admin_controller.openShopFrame(AdminFrame.this);
+				AdminFrame.this.setVisible(false);
+				admin_controller.openShopFrame();
 			}
 		});
 		
+		riderButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				AdminFrame.this.setVisible(false);
+				admin_controller.openRiderFrame();
+			}
+		});
 		GridBagConstraints gcon = new GridBagConstraints();
 		gcon.insets = new Insets(50,100,50,100);
 

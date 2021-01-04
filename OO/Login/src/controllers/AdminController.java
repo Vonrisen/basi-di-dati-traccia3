@@ -1,20 +1,13 @@
 package controllers;
 
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.swing.JFrame;
-
-import daos_implementation.MealDAOPostgresImplementation;
+import javax.swing.JOptionPane;
 import daos_implementation.ShopDAOPostgresImplementation;
-import daos_interfaces.MealDAO;
 import daos_interfaces.ShopDAO;
-import db_connection.DBconnection;
-import entities.Shop;
 import gui.AdminFrame;
 import gui.LoginFrame;
+import gui.RiderFrame;
 import gui.ShopFrame;
 import net.proteanit.sql.DbUtils;
 
@@ -25,37 +18,43 @@ public class AdminController{
 	public AdminController()
 	{
 	}
-	public void openAdminFrame(LoginFrame login_frame)
+	
+	//FRAME OPENERS
+	public void openAdminFrame()
 	{
-		login_frame.setVisible(false);
 		new AdminFrame();
 		return;
 	}
-	public void openShopFrame(AdminFrame admin_frame) {
-		
-		admin_frame.setVisible(false);
+	public void openRiderFrame()
+	{
+		new RiderFrame();
+		return;
+	}
+	public void openShopFrame() {
 		ShopFrame shop_frame = new ShopFrame();
 		try {
 			shop_frame.getTable().setModel(DbUtils.resultSetToTableModel(shop.getAllShops()));
 		} catch (SQLException e1) {
-			System.out.println("Errore durante la trasposizione del result set sulla tabella"+e1.getMessage());
+			JOptionPane.showMessageDialog(null,"Errore durante la trasposizione del result set sulla tabella"+e1.getMessage());
 		}
 		return;
 	}
+	//SHOP CONTROLLING
 	public void insert_refreshShopTable(ShopFrame shop_frame)
 	{
 		try {
 			shop.insertShop(shop_frame.getNameTF().getText(), shop_frame.getAddressTF().getText(), shop_frame.getWorking_hoursTF().getText(), shop_frame.getClosing_daysTF().getText());
 			shop_frame.getTable().setModel(DbUtils.resultSetToTableModel(shop.getAllShops()));
 		} catch (SQLException e) {
-			System.out.println("Errore durante l'inserimento di una riga: "+e.getMessage());
+			JOptionPane.showMessageDialog(null,"Errore durante l'inserimento di una riga: "+e.getMessage());
 		}
 		return;
 	}
 	public void delete_refreshShopTable(ShopFrame shop_frame)
 	{
-		String value = shop_frame.getTable().getModel().getValueAt(shop_frame.getTable().getSelectedRow(), 0).toString();
+		String value;
 		try {
+			value = shop_frame.getTable().getModel().getValueAt(shop_frame.getTable().getSelectedRow(), 0).toString();
 			shop.deleteShop(value);
 			shop_frame.getTable().setModel(DbUtils.resultSetToTableModel(shop.getAllShops()));
 		} catch (SQLException e1) {
@@ -63,7 +62,7 @@ public class AdminController{
 		}
 		catch(ArrayIndexOutOfBoundsException e2)
 		{
-			System.out.println("Devi selezionare la riga da eliminare!");
+			JOptionPane.showMessageDialog(null,"Selezionare la riga da cancellare!");
 		}
 		return;
 	}
@@ -78,14 +77,13 @@ public class AdminController{
 		try {
 			shop_id=shop_frame.getTable().getModel().getValueAt(shop_frame.getTable().getSelectedRow(), 0).toString();
 			shop.updateShop(shop_id, name, address, working_hours, closing_days);
-			ShopDAO shop1 = new ShopDAOPostgresImplementation();
-			shop_frame.getTable().setModel(DbUtils.resultSetToTableModel(shop1.getAllShops()));
+			shop_frame.getTable().setModel(DbUtils.resultSetToTableModel(shop.getAllShops()));
 		} catch (SQLException e1) {
-			System.out.println("Errore durante l' update della riga: "+e1.getMessage());
+			JOptionPane.showMessageDialog(null,"Errore durante l' update della riga: "+e1.getMessage());
 		}
 		catch(ArrayIndexOutOfBoundsException e2)
 		{
-			System.out.println("Per apportare modifiche devi prima selezionare una riga!");
+			JOptionPane.showMessageDialog(null,"Selezionare la riga da aggiornare!");
 		}
 		return;
 	}

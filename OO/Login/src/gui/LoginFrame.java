@@ -393,7 +393,8 @@ public class LoginFrame extends JFrame {
 				else
 				{
 					System.out.println("Login avvenuto con successo");
-						admin_controller.openAdminFrame(LoginFrame.this);	
+					LoginFrame.this.setVisible(false);
+					admin_controller.openAdminFrame();	
 				}
 			}
 		});

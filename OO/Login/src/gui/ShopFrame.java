@@ -71,8 +71,8 @@ public class ShopFrame extends JFrame{
 		ImageIcon insert_button_active = new ImageIcon("src\\images\\SqlButtons\\insertButtonActive.png");
 		ImageIcon update_button_inactive = new ImageIcon("src\\images\\SqlButtons\\updateButtonInactive.png");
 		ImageIcon update_button_active = new ImageIcon("src\\images\\SqlButtons\\updateButtonActive.png");
-		ImageIcon turn_back_inactive = new ImageIcon("src\\images\\AdminFrame\\turnBackInactive.png");
-		ImageIcon turn_back_active = new ImageIcon("src\\images\\AdminFrame\\turnBackActive.png");
+		ImageIcon go_back_inactive = new ImageIcon("src\\images\\AdminFrame\\turnBackInactive.png");
+		ImageIcon go_back_active = new ImageIcon("src\\images\\AdminFrame\\turnBackActive.png");
 		AdminController admin_controller = new AdminController();
 		this.setSize(1600,900);
 		int central_width = dim.width/2-this.getSize().width/2;
@@ -222,30 +222,31 @@ public class ShopFrame extends JFrame{
 		closing_daysTF.setBounds(1028, 393, 240, 25);
 		shop_panel.add(closing_daysTF);
 		
-		JButton turn_back = new JButton();
-		turn_back.setBounds(90, 770, 50, 50);
-		turn_back.setIcon(turn_back_inactive);
-		turn_back.setBorder(null);
-		turn_back.setFocusable(false);
-		turn_back.setContentAreaFilled(false);
-		shop_panel.add(turn_back);
+		JButton go_back = new JButton();
+		go_back.setBounds(90, 770, 50, 50);
+		go_back.setIcon(go_back_inactive);
+		go_back.setBorder(null);
+		go_back.setFocusable(false);
+		go_back.setContentAreaFilled(false);
+		shop_panel.add(go_back);
 		
-		turn_back.addMouseListener(new MouseAdapter() {
+		go_back.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				
+				ShopFrame.this.setVisible(false);
+				admin_controller.openAdminFrame();
 			
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				
-				turn_back.setIcon(turn_back_active);
+				go_back.setIcon(go_back_active);
 				
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
 				
-				turn_back.setIcon(turn_back_inactive);
+				go_back.setIcon(go_back_inactive);
 				
 			}
 		});
@@ -351,7 +352,7 @@ public class ShopFrame extends JFrame{
 					
 					scrollPane1.setBounds(dim.width/2-600, 180, 1200, 700);
 					shops_tableT.setBounds(dim.width/2-600, 55, 225,100);
-					turn_back.setBounds(25, dim.height-100, 50, 50);
+					go_back.setBounds(25, dim.height-100, 50, 50);
 					
 					nameLB.setBounds(dim.width/2-300, 50, 46, 14);
 					nameTF.setBounds(dim.width/2-300, 70, 240, 25);
@@ -374,7 +375,7 @@ public class ShopFrame extends JFrame{
 					
 					scrollPane1.setBounds(90, 132, 850, 600);
 					shops_tableT.setBounds(90, 20, 225,100);
-					turn_back.setBounds(90, 770, 50, 50);
+					go_back.setBounds(90, 770, 50, 50);
 					
 					nameLB.setBounds(1028, 173, 46, 14);
 					nameTF.setBounds(1028, 198, 240, 25);
