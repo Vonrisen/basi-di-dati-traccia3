@@ -234,6 +234,16 @@ DELETE FROM Rider WHERE rider_id = cod_rider;
 END;
 $$;
 
+//Aggiornamento rider
+CREATE OR REPLACE PROCEDURE updateRider(codRider varchar, residenza varchar, cellulare varchar, veicolo varchar, workingtime varchar)
+AS $$
+BEGIN
+IF workingtime=''THEN workingtime=null; END IF;
+UPDATE Rider SET rider_id=codRider, address=residenza, cellphone=cellulare, vehicle=veicolo, working_time=workingtime WHERE rider_id=codRider;
+END;
+$$
+LANGUAGE PLPGSQL;
+
 //Inserisce un negozio
 DROP PROCEDURE insertShop;
 CREATE OR REPLACE PROCEDURE insertShop(shop_name varchar, address varchar, working_hours varchar, closing_days varchar, pwd varchar) LANGUAGE PLPGSQL AS $$
@@ -261,7 +271,6 @@ END;
 $$;
 
 //Eliminazione di un alimento
-DROP PROCEDURE deleteMeal;
 CREATE OR REPLACE PROCEDURE deleteMeal(meal varchar) LANGUAGE PLPGSQL AS $$
 BEGIN
 DELETE FROM Meal WHERE meal_name = meal;
