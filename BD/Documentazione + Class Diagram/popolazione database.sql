@@ -97,23 +97,27 @@ INSERT INTO rider VALUES (DEFAULT,'NPLCMN01P70G964X','Carmen','Napolitano','Via 
 
 
 	--INSERIMENTO IN SHOP
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli', null, null, 'Napoli123');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta', '08:00-00:00', null, 'Caserta123');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno');
-
-
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno',null, 'Lunedi', 'Salerno123');
 
 
 
 
+CALL insertCustomer('MArio', 'Rossi', 'Via Casamia', '1990-12-12','Ercolano','M','3433344433', 'm.rossi@qualcosa.it', 'Qualcosa123', 'RSSMRA90T12H243S');
 
 
+CALL insertfood('Spaghetti e vongole','pp',5.50,'Ingredienti:Spaghetti, vongole, pomodorini');
 
+Call insertallergen('pp0001', 'Molluschi');
 
+CAll insertRider('FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','02-12-1990','Napoli','M','0987654321','Bicicletta','00:00-00:00','001')
 
+Insert INTO cart VALUES (DEFAULT, DEFAULT,'U000024')
 
+INSERT INTO cartcomposition VALUES('00000006','pp0001',5)
 
 
 

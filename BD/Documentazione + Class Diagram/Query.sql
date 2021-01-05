@@ -33,7 +33,7 @@ CREATE TABLE CartComposition(
 	meal_id CHAR(6),
 	quantity SMALLINT NOT NULL,
 	
-	PRIMARY KEY(cart_id, food_id),
+	PRIMARY KEY(cart_id, meal_id),
 	FOREIGN KEY (cart_id) REFERENCES Cart(cart_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
@@ -67,6 +67,7 @@ CREATE TABLE MealComposition(
 
 
 -- TABELLA ALIMENTO
+CREATE SEQUENCE Meal_sequence;
 CREATE TABLE Meal( 
 
     meal_id CHAR (6) PRIMARY KEY, 
@@ -148,7 +149,7 @@ CREATE SEQUENCE Cart_sequence;
 
 CREATE TABLE Cart( 
 
-	cart_id CHAR(8) PRIMARY KEY DEFAULT to_char(nextval('Cart_sequence'),'00000000'), 
+	cart_id CHAR(8) PRIMARY KEY DEFAULT to_char(nextval('Cart_sequence'),'00000000FM'), 
 	complete CHAR(1) NOT NULL DEFAULT 'n', 
 	customer_id CHAR(7), 
 	FOREIGN KEY(customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE CASCADE 
@@ -165,7 +166,8 @@ CREATE SEQUENCE Shop_sequence;
 	shop_name VARCHAR(32) NOT NULL,
 	address VARCHAR(255) NOT NULL UNIQUE,
 	working_hours CHAR(11),
-	closing_days VARCHAR(56)
+	closing_days VARCHAR(56),
+	password VARCHAR(32) NOT NULL,
  )
 
 ---CALLABLE STATEMENTS JDBC
@@ -217,11 +219,10 @@ end;
 $$;
  
 //Inserisce un rider
-CREATE OR REPLACE PROCEDURE insertRider(cf varchar, rider_name varchar, surname varchar, address varchar, birth_date date, birth_place varchar, gender char, cellphone  varchar,
-										email varchar, password varchar, vehicle VehicleType, working_time varchar, deliveries_number Smallint, shop_id varchar) 
+CREATE OR REPLACE PROCEDURE insertRider(cf varchar, rider_name varchar, surname varchar, address varchar, birth_date varchar, birth_place varchar, gender char, cellphone  varchar, vehicle varchar, working_time varchar, shop_id varchar) 
 LANGUAGE PLPGSQL AS $$
 BEGIN
-INSERT INTO Rider VALUES (cf, rider_name, surname, address, birth_date, birth_place, gender, cellphone, DEFAULT, email, password, vehicle, working_time, deliveries_number);
+INSERT INTO Rider VALUES (DEFAULT, cf, rider_name, surname, address, TO_DATE(birth_date,'dd-mm-yyyy'), birth_place, gender, cellphone, vehicle, working_time, DEFAULT);
 INSERT INTO Contract VALUES (to_char(currval('Rider_sequence'),'R0000FM'), shop_id);
 END;
 $$;
@@ -251,6 +252,7 @@ BEGIN
 INSERT INTO Shop VALUES(DEFAULT, shop_name, address, working_hours, closing_days, pwd);
 END;
 $$;
+
 //Update Shop
 CREATE OR REPLACE PROCEDURE updateShop(shop_id varchar, shop_name varchar, address varchar, working_hours varchar, closing_days varchar, pwd varchar)
 AS $$
@@ -294,8 +296,9 @@ LOOP
 END LOOP;
 END;
 $$;
+
 //Inserisce un customer
-CREATE OR REPLACE PROCEDURE insertCustomer(customer_name varchar, surname varchar, address varchar, birth_date date, birth_place varchar, cellphone char, email varchar, passw varchar, cf varchar) LANGUAGE PLPGSQL AS $$
+CREATE OR REPLACE PROCEDURE insertCustomer(customer_name varchar, surname varchar, address varchar, birth_date date, birth_place varchar, gender char, cellphone char, email varchar, passw varchar, cf varchar) LANGUAGE PLPGSQL AS $$
 BEGIN
 INSERT INTO Customer VALUES (DEFAULT,customer_name,surname,address,birth_date,birth_place,gender,cellphone,email,passw,cf);
 END;
