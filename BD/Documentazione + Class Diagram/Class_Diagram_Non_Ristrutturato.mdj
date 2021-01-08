@@ -359,6 +359,7 @@
 											"model": {
 												"$ref": "AAAAAAF2cMWH8PXEGAc="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 149,
 											"top": 278,
@@ -378,7 +379,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 149,
-											"top": 293,
+											"top": 280,
 											"width": 167.2734375,
 											"height": 13,
 											"text": "+vehicle: VehicleType",
@@ -395,7 +396,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 149,
-											"top": 308,
+											"top": 295,
 											"width": 167.2734375,
 											"height": 13,
 											"text": "+working_time: String",
@@ -412,7 +413,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 149,
-											"top": 323,
+											"top": 310,
 											"width": 167.2734375,
 											"height": 13,
 											"text": "+deliveries_number: Smallint",
@@ -423,7 +424,7 @@
 									"left": 144,
 									"top": 273,
 									"width": 177.2734375,
-									"height": 68
+									"height": 55
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -436,7 +437,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 144,
-									"top": 341,
+									"top": 328,
 									"width": 177.2734375,
 									"height": 10
 								},
@@ -478,7 +479,7 @@
 							"left": 144,
 							"top": 248,
 							"width": 177.2734375,
-							"height": 103,
+							"height": 90,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2cMT4PPVsQ9U="
 							},
@@ -2265,7 +2266,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 142,
-									"top": 353,
+									"top": 340,
 									"width": 92.88525390625,
 									"height": 13,
 									"alpha": -1.2924966923180672,
@@ -2287,7 +2288,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 195,
-									"top": 372,
+									"top": 359,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -2306,7 +2307,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 226,
-									"top": 353,
+									"top": 340,
 									"width": 21.68359375,
 									"height": 13,
 									"alpha": 0.8760583604340575,
@@ -2357,7 +2358,7 @@
 								"$ref": "AAAAAAF2cMsCSf0oF7s="
 							},
 							"lineStyle": 2,
-							"points": "376:480;224:480;224:350",
+							"points": "376:480;224:480;224:337",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF2cNAhbRJnGpg="
