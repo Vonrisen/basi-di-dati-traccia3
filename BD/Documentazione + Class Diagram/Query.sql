@@ -6,7 +6,7 @@ CREATE TABLE Supply(
 	meal_id CHAR(6),
 	quantity SMALLINT NOT NULL,
 
-	PRIMARY KEY(shop_id, food_id),
+	PRIMARY KEY(shop_id, meal_id),
 	FOREIGN KEY (shop_id) REFERENCES Shop(shop_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
@@ -16,12 +16,12 @@ CREATE TABLE Supply(
 CREATE TABLE OrderComposition(
 
 	order_id CHAR(12),
-	food_id CHAR(6),
+	meal_id CHAR(6),
 	quantity SMALLINT NOT NULL,
 
-	PRIMARY KEY(order_id, food_id),
+	PRIMARY KEY(order_id, meal_id),
 	FOREIGN KEY (order_id) REFERENCES CustomerOrder(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (food_id) REFERENCES Food(food_id) ON UPDATE CASCADE
+	FOREIGN KEY (meal_id) REFERENCES Meal(meal_id) ON UPDATE CASCADE
 )
 
 
@@ -43,11 +43,11 @@ CREATE TABLE CartComposition(
 
 CREATE TABLE Contract(
 
-	rider_id CHAR(5),
+	rider_cf CHAR(5),
 	shop_id CHAR(4),
 	
 	PRIMARY KEY (rider_id,shop_id),
-	FOREIGN KEY (rider_id) REFERENCES Rider(rider_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (rider_cf) REFERENCES Rider(cf) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (shop_id) REFERENCES Shop(shop_id) ON DELETE CASCADE ON UPDATE CASCADE
 	
 )
@@ -88,11 +88,11 @@ CREATE TABLE CustomerOrder(
 	status VARCHAR(20) NOT NULL DEFAULT 'In attesa',
 	payment VARCHAR(20),
 	note VARCHAR(255),
-	rider_id CHAR(5),
+	rider_cf CHAR(5),
 	shop_id CHAR(4),
 	customer_id CHAR(6),
 	
-	FOREIGN KEY(rider_id) REFERENCES Rider(rider_id),
+	FOREIGN KEY(rider_cf) REFERENCES Rider(cf),
 	FOREIGN KEY(shop_id) REFERENCES Shop(shop_id),
 	FOREIGN KEY(customer_id ) REFERENCES Customer(customer_id)
 	)
@@ -103,11 +103,10 @@ CREATE TABLE CustomerOrder(
 
 -- TABELLA RIDER
 
-CREATE SEQUENCE Rider_sequence; 
+
 CREATE TABLE Rider( 
 
-	rider_id CHAR(5) PRIMARY KEY DEFAULT to_char(nextval ('Rider_sequence'),'R0000FM'), 
-	cf CHAR(16) NOT NULL UNIQUE, 
+	cf CHAR(16) PRIMARY KEY, 
 	rider_name VARCHAR(32) NOT NULL, 
 	surname VARCHAR(32) NOT NULL, 
 	address VARCHAR(255) NOT NULL, 
@@ -188,15 +187,15 @@ EXECUTE PROCEDURE createOrder();
 //Creazione ordine
 CREATE OR REPLACE FUNCTION createOrder() RETURNS trigger AS $createOrder$
 DECLARE
-/* Inizializzare indirizzo, note, cod_rider, cod_negozio*/
+/* Inizializzare indirizzo, note, codice_fiscale, cod_negozio*/
 BEGIN
-INSERT INTO Order (order_id,user_id, order_date,address ,note , rider_id, shop_id, status)
-VALUES(NEW.cart_id,NEW.user_id,DEFAULT,address ,note ,rider_id, shop_id, DEFAULT);
+INSERT INTO Order (order_id,user_id, order_date,address ,note , cf, shop_id, status)
+VALUES(NEW.cart_id,NEW.user_id,DEFAULT,address ,note ,cf, shop_id, DEFAULT);
 INSERT INTO OrderComposition (SELECT * FROM CartComposition WHERE cart_id=NEW.cart_id);
 UPDATE Supply AS S
 SET quantity = S.quantity - OC.quantity
 FROM OrderComposition AS OC
-WHERE S.food_id = OC.food_id AND OC.order_id=NEW.cart_id AND S.shop_id = shop_id;
+WHERE S.meal_id = OC.meal_id AND OC.order_id=NEW.cart_id AND S.shop_id = shop_id;
 DELETE FROM Cart WHERE cart_id=NEW.cart_id;
 RETURN NEW;
 END;
@@ -212,9 +211,9 @@ end;
 $$;
  
 //Inserisce un allergene ad un alimento
-CREATE OR REPLACE PROCEDURE insertAllergen(food_id varchar, allergen AllergenType ) LANGUAGE PLPGSQL AS $$
+CREATE OR REPLACE PROCEDURE insertAllergen(meal_id varchar, allergen AllergenType ) LANGUAGE PLPGSQL AS $$
 begin
-INSERT INTO MealComposition VALUES(food_id,allergen);
+INSERT INTO MealComposition VALUES(meal_id,allergen);
 end;
 $$;
  
@@ -222,25 +221,25 @@ $$;
 CREATE OR REPLACE PROCEDURE insertRider(cf varchar, rider_name varchar, surname varchar, address varchar, birth_date varchar, birth_place varchar, gender char, cellphone  varchar, vehicle varchar, working_time varchar, shop_id varchar) 
 LANGUAGE PLPGSQL AS $$
 BEGIN
-INSERT INTO Rider VALUES (DEFAULT, cf, rider_name, surname, address, TO_DATE(birth_date,'dd-mm-yyyy'), birth_place, gender, cellphone, vehicle, working_time, DEFAULT);
-INSERT INTO Contract VALUES (to_char(currval('Rider_sequence'),'R0000FM'), shop_id);
+INSERT INTO Rider VALUES (cf, rider_name, surname, address, TO_DATE(birth_date,'dd-mm-yyyy'), birth_place, gender, cellphone, vehicle, working_time, DEFAULT);
+INSERT INTO Contract VALUES (cf, shop_id);
 END;
 $$;
 
 //Eliminazione di un rider
-CREATE OR REPLACE PROCEDURE deleteRider(cod_rider varchar) 
+CREATE OR REPLACE PROCEDURE deleteRider(codice_fiscale varchar) 
 LANGUAGE PLPGSQL AS $$
 BEGIN
-DELETE FROM Rider WHERE rider_id = cod_rider;
+DELETE FROM Rider WHERE cf = codice_fiscale;
 END;
 $$;
 
 //Aggiornamento rider
-CREATE OR REPLACE PROCEDURE updateRider(codRider varchar, residenza varchar, cellulare varchar, veicolo varchar, workingtime varchar)
+CREATE OR REPLACE PROCEDURE updateRider(codice_fiscale varchar, residenza varchar, cellulare varchar, veicolo varchar, workingtime varchar)
 AS $$
 BEGIN
 IF workingtime=''THEN workingtime=null; END IF;
-UPDATE Rider SET rider_id=codRider, address=residenza, cellphone=cellulare, vehicle=veicolo, working_time=workingtime WHERE rider_id=codRider;
+UPDATE Rider SET address=residenza, cellphone=cellulare, vehicle=veicolo, working_time=workingtime WHERE cf=codice_fiscale;
 END;
 $$
 LANGUAGE PLPGSQL;

@@ -72,25 +72,25 @@ INSERT INTO meal VALUES (DEFAULT,'Pasticceria mignon',6.00,'Ingredienti:vari');
 
 
 	--INSERIMENTO IN RIDER
-INSERT INTO rider VALUES (DEFAULT,'FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','1990-12-02','Napoli','M','0987654321','Bicicletta','00:00-00:00');
+INSERT INTO rider VALUES ('FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','1990-12-02','Napoli','M','0987654321','Bicicletta','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'RZZLNZ00B63C675H','Lorenza','Rozza','Via Marino','2000-02-23','Cicciano','F','9876543210','Motoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('RZZLNZ00B63C675H','Lorenza','Rozza','Via Marino','2000-02-23','Cicciano','F','9876543210','Motoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'DLRFNC93C03H703Q','Francesco','Di Lauro','Via Ester','1993-03-03','Salerno','M','8765432109','Autoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('DLRFNC93C03H703Q','Francesco','Di Lauro','Via Ester','1993-03-03','Salerno','M','8765432109','Autoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'LTRMRA96A58F839V','Maria','Altieri','Via Cite','1996-01-18','Napoli','F','7654321098','Bicicletta','00:00-00:00');
+INSERT INTO rider VALUES ('LTRMRA96A58F839V','Maria','Altieri','Via Cite','1996-01-18','Napoli','F','7654321098','Bicicletta','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'CRDMHL99A10B963H','Michele','Cordaro','Via De Stefano','1999-01-10','Caserta','M','6543210987','Motoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('CRDMHL99A10B963H','Michele','Cordaro','Via De Stefano','1999-01-10','Caserta','M','6543210987','Motoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'MLLMRC91S52C188Y','Mariarca','Maiello','Via Cisterna','1991-11-12','Castello di Cisterna','F','5432109876','Autoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('MLLMRC91S52C188Y','Mariarca','Maiello','Via Cisterna','1991-11-12','Castello di Cisterna','F','5432109876','Autoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'TRCLGU88E11A509X','Luigi','Turco','Via Nonsaprei','1988-05-11','Avellino','M','4321098765','Motoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('TRCLGU88E11A509X','Luigi','Turco','Via Nonsaprei','1988-05-11','Avellino','M','4321098765','Motoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'MNDVLR96C63F924G','Valeria','Menditti','Via Cimitile','1996-03-23','Nola','F','3210987654','Motoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('MNDVLR96C63F924G','Valeria','Menditti','Via Cimitile','1996-03-23','Nola','F','3210987654','Motoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'TSTNGL97L15G964R','Angelo','Testa','Via Campo','1997-07-15','Pozzuoli','M','2109876543','Autoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('TSTNGL97L15G964R','Angelo','Testa','Via Campo','1997-07-15','Pozzuoli','M','2109876543','Autoveicolo','00:00-00:00');
 
-INSERT INTO rider VALUES (DEFAULT,'NPLCMN01P70G964X','Carmen','Napolitano','Via Stens','2001-09-30','Pozzuoli','F','1098765432','Motoveicolo','00:00-00:00');
+INSERT INTO rider VALUES ('NPLCMN01P70G964X','Carmen','Napolitano','Via Stens','2001-09-30','Pozzuoli','F','1098765432','Motoveicolo','00:00-00:00');
 
 
 
@@ -106,7 +106,7 @@ INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno',null, '
 
 
 
-CALL insertCustomer('MArio', 'Rossi', 'Via Casamia', '1990-12-12','Ercolano','M','3433344433', 'm.rossi@qualcosa.it', 'Qualcosa123', 'RSSMRA90T12H243S');
+CALL insertCustomer('Mario', 'Rossi', 'Via Casamia', '1990-12-12','Ercolano','M','3433344433', 'm.rossi@qualcosa.it', 'Qualcosa123', 'RSSMRA90T12H243S');
 
 
 CALL insertfood('Spaghetti e vongole','pp',5.50,'Ingredienti:Spaghetti, vongole, pomodorini');
