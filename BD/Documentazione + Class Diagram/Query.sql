@@ -302,3 +302,10 @@ BEGIN
 INSERT INTO Customer VALUES (DEFAULT,customer_name,surname,address,birth_date,birth_place,gender,cellphone,email,passw,cf);
 END;
 $$;
+
+//Constraint address
+ALTER TABLE Customer
+ADD CONSTRAINT customer_address_check CHECK (address~*'^(accesso|arco|belvedere|borgo|campo|canale|cascina|cavone|cavalcavia|contrada|corso|cortile|costa|discesa|fondo|galleria|frazione|isola|lido|litoranea|lungo|
+												 lungomare|masseria|molo|mura|passaggio|passo|pendio|piazza|piazzale|piazzetta|ponte|portico|porto|rampa|recinto|rione|riva|rotonda|salita|scalinata|scesa|sentiero|
+												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ A-Za-z0-9]+( )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+( )[A-Z]{2}$' )
+
