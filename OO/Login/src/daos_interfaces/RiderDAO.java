@@ -1,12 +1,20 @@
 package daos_interfaces;
 
-import java.sql.Date;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import entities.Rider;
+import entities.Shop;
+
 public interface RiderDAO {
 
-	public ResultSet getAllRiders() throws SQLException;
-	public void insertRider(String cf, String name, String surname, String address,String birth_date,String birth_place, String gender, String cellphone, String vehicle, String working_time, String shop_id) throws SQLException;
-	public void deleteRider(String rider_id) throws SQLException;
+	public List<Rider> getAllRiders() throws SQLException;
+	public int insertRider(Rider rider) throws SQLException;
+	public int deleteRider(Rider rider) throws SQLException;
+	public int updateRider(Rider rider) throws SQLException;
+	public List<Rider> getRidersOfAShop(String shop_id) throws SQLException;
+	public Rider getRiderByCf(String cf) throws SQLException;
+	public Rider getRiderOfTheOrder(String order_id) throws SQLException;
+
 }

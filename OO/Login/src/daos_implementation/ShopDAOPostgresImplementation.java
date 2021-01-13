@@ -1,73 +1,103 @@
 package daos_implementation;
 
-import java.sql.CallableStatement;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import daos_interfaces.CustomerOrderDAO;
+import daos_interfaces.RiderDAO;
 import daos_interfaces.ShopDAO;
 import db_connection.DBconnection;
-import db_connection.DBconnection_CodiceCatastale;
+import entities.CustomerOrder;
+import entities.Rider;
 import entities.Shop;
 
-public class ShopDAOPostgresImplementation implements  ShopDAO{
-	
+public class ShopDAOPostgresImplementation implements ShopDAO{
+
 	private Connection connection;
-	private DBconnection instance;
-	private PreparedStatement print_all_shops_PS;
-	private CallableStatement insert_shop_CS,delete_shop_CS, update_shop_CS;
-	
-	public ShopDAOPostgresImplementation()
-	{
+	PreparedStatement get_all_shops_PS;
+	PreparedStatement get_orders_of_a_shop_PS;
+	public ShopDAOPostgresImplementation() {
+		
 		try {
-			instance = DBconnection.getInstance();
+			DBconnection instance = DBconnection.getInstance();
 			connection = instance.getConnection();
-		} catch (SQLException e1) {
-			System.out.println("Errore di connessione col database "+e1.getMessage());
+		}catch(SQLException s)
+		{
+			JOptionPane.showMessageDialog(null, "Errore di connessione");
 		}
 		try {
-			insert_shop_CS = connection.prepareCall("CALL insertShop(?,?,?,?,?)");
-			delete_shop_CS = connection.prepareCall("CALL deleteShop(?)");
-			update_shop_CS = connection.prepareCall("CALL updateShop(?,?,?,?,?,?)");
-			print_all_shops_PS = connection.prepareStatement("SELECT * FROM Shop ORDER BY shop_id");
-		} catch (SQLException e) {
-			System.out.println("Errore durante la preparazione degli statement "+e.getMessage());
+			
+			get_all_shops_PS = connection.prepareStatement("SELECT * FROM Shop ORDER BY shop_id");
+		    get_orders_of_a_shop_PS = connection.prepareStatement("SELECT * FROM CustomerOrder WHERE shop_id=?");
+			
+		}catch(SQLException s)
+		{
+			JOptionPane.showMessageDialog(null, "Errore di connessione");
 		}
-	}
-	public void insertShop(String name, String address, String working_time, String closing_days, String password) throws SQLException {
 		
-		insert_shop_CS.setString(1, name);
-		insert_shop_CS.setString(2, address);
-		insert_shop_CS.setString(3, working_time);
-		insert_shop_CS.setString(4, closing_days);
-		insert_shop_CS.setString(5, password);
-		insert_shop_CS.executeUpdate();
-		return;
-	}
-	
-	public void deleteShop(String shop_id) throws SQLException {
-		
-		delete_shop_CS.setString(1, shop_id);
-		delete_shop_CS.executeUpdate();
-		return;
-	}
-	public void updateShop(String shop_id, String name, String address, String working_time, String closing_days, String password) throws SQLException {
-		
-		update_shop_CS.setString(1, shop_id);
-		update_shop_CS.setString(2, name);
-		update_shop_CS.setString(3, address);
-		update_shop_CS.setString(4, working_time);
-		update_shop_CS.setString(5, closing_days);
-		update_shop_CS.setString(6, password);
-		update_shop_CS.executeUpdate();
-		return;
 	}
 
-	public ResultSet getAllShops() throws SQLException {
-		ResultSet rs = print_all_shops_PS.executeQuery();
-		return rs;
+	@Override
+	public List<Shop> getAllShops() throws SQLException {
+		List<Shop>shop_list = new ArrayList<Shop>();
+		List<Rider>riders_of_a_shop = new ArrayList<Rider>();
+		List<CustomerOrder>orders_of_a_shop = new ArrayList<CustomerOrder>();
+		CustomerOrderDAO customer_order_DAO = new CustomerOrderDAOPostgresImplementation();
+		RiderDAO rider_DAO = new RiderDAOPostgresImplementation();
+		ResultSet rs = get_all_shops_PS.executeQuery();
+		while(rs.next())
+		{
+			
+			orders_of_a_shop = customer_order_DAO.getCustomerOrdersOfAShop(rs.getString("shop_id"));
+			riders_of_a_shop = rider_DAO.getRidersOfAShop(rs.getString("shop_id"));
+			Shop shop = new Shop(rs.getString("shop_id"),rs.getString("name"),rs.getString("address"),rs.getString("working_hours"),
+								 rs.getString("closing_days"),rs.getString("password"),orders_of_a_shop, riders_of_a_shop);
+			shop_list.add(shop);
+			
+		}
+		return shop_list;
 	}
 
-	
+	@Override
+	public int insertShop(Shop shop) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(Shop shop) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateShop(Shop shop) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Shop getShopById(String shop_id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Shop> getShopsOfARider(String cf) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Shop getShopOfTheOrder(String order_id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
