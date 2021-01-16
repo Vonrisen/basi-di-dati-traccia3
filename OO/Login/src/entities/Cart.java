@@ -1,35 +1,36 @@
 package entities;
-
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cart {
-	
-	//ATTRIBUTI
-	
-	private char complete = 'n';
-	private Customer customer;
-	private ArrayList <CartComposition> cart_composition;
+
+	Shop shop;
+	Customer customer;
+	List<OrderComposition> order_composition_list;
 	
 	
-	//COSTRUTTORE
-	public Cart(char complete, Customer customer, ArrayList<CartComposition> cart_composition) {
+	
+	public Cart(Shop shop, Customer customer) {
 		super();
-		this.complete = complete;
+		this.shop = shop;
 		this.customer = customer;
-		this.cart_composition = cart_composition;
+		order_composition_list = new ArrayList<OrderComposition>();
 	}
 
 
-	//GETTER AND SETTER
-	public char getComplete() {
-		return complete;
+	
+	public Shop getShop() {
+		return shop;
 	}
 
 
-	public void setComplete(char complete) {
-		this.complete = complete;
+
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
+
+
 
 
 	public Customer getCustomer() {
@@ -37,20 +38,27 @@ public class Cart {
 	}
 
 
+
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
 
-	public ArrayList<CartComposition> getCart_composition() {
-		return cart_composition;
+
+	public List<OrderComposition> getOrder_composition_list() {
+		return order_composition_list;
 	}
 
 
-	public void setCart_composition(ArrayList<CartComposition> cart_composition) {
-		this.cart_composition = cart_composition;
+	public void setOrder_composition_list(List<OrderComposition> order_composition_list) {
+		this.order_composition_list = order_composition_list;
 	}
-	
-	
 
+
+
+	public void addIntoOrderComposition(OrderComposition meal) {
+		
+		this.order_composition_list.add(meal);
+		
+	}
 }

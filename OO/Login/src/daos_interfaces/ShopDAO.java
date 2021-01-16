@@ -17,4 +17,5 @@ public interface ShopDAO {
 	public Shop getShopById(String shop_id) throws SQLException;
 	public List<Shop> getShopsOfARider(String cf) throws SQLException;
 	public Shop getShopOfTheOrder(String order_id) throws SQLException;
+	
 }
