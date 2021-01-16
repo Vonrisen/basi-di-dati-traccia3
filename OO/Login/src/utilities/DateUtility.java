@@ -14,5 +14,4 @@ public class DateUtility {
 		String formatted_date = fmt.format(gc.getTime());
 	    return formatted_date;
 	}
-
 }

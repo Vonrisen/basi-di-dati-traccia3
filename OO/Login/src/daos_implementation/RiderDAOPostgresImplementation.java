@@ -15,6 +15,7 @@ import db_connection.DBconnection;
 import entities.Address;
 import entities.Rider;
 import entities.Shop;
+import utilities.ConvertAddress;
 
 public class RiderDAOPostgresImplementation implements RiderDAO {
 	
@@ -52,12 +53,9 @@ public class RiderDAOPostgresImplementation implements RiderDAO {
 		Rider rider;
 		while(rs.next())
 		{
-			database_address = rs.getString("address");
-			delims = ",";
-			tokens = database_address.split(delims);
-			address = new Address(tokens[0],tokens[1],tokens[2],tokens[3],tokens[4]);
+
 			rider = new Rider(rs.getString("cf"),rs.getString("name"),rs.getString("surname"), new Date(rs.getDate("birth_date").getTime()),rs.getString("birth_place"),rs.getString("gender"),
-							rs.getString("cellphone"),address,rs.getString("vehicle"),rs.getString("working_time"),rs.getShort("deliveries_number"));
+							rs.getString("cellphone"),ConvertAddress.stringAddressToObjectAddress(rs.getString("address"), ","),rs.getString("vehicle"),rs.getString("working_time"),rs.getShort("deliveries_number"));
 			rider_list.add(rider);
 		}
 		return rider_list;

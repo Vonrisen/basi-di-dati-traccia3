@@ -26,7 +26,7 @@ public class Main {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(riders.get(1).toString());
+		System.out.println(riders.get(1).getAddress().getName());
 	}
 	
 }
