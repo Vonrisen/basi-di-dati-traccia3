@@ -59,7 +59,8 @@ CREATE TABLE rider (
 
 CREATE TABLE meal ( 
 
-    id CHAR (6) PRIMARY KEY, 
+	id CHAR (4) PRIMARY KEY DEFAULT to_char(nextval('meal_sequence'),'0000FM'),
+	category VARCHAR(32) NOT NULL,
 	name VARCHAR (50) NOT NULL UNIQUE, 
 	price REAL NOT NULL, 
 	ingredients VARCHAR(255) NOT NULL
@@ -101,7 +102,7 @@ CREATE TABLE allergen (
 CREATE TABLE ordercomposition (
 
 	order_id CHAR(12),
-	meal_id CHAR(6),
+	meal_id CHAR(4),
 	quantity SMALLINT NOT NULL,
 
 	PRIMARY KEY(order_id, meal_id),
@@ -114,7 +115,7 @@ CREATE TABLE ordercomposition (
 
 CREATE TABLE mealcomposition ( 
 
-	meal_id CHAR(6), 
+	meal_id CHAR(4), 
 	allergen_name VARCHAR(32), 
 
 	PRIMARY KEY(meal_id,allergen_name), 
@@ -123,3 +124,43 @@ CREATE TABLE mealcomposition (
 	
 );
 
+-- Creazione tabella "Supply"
+
+CREATE TABLE Supply (
+
+	shop_id char(3),
+	meal_id char(4),
+	PRIMARY KEY (shop_id,meal_id),
+	FOREIGN KEY (shop_id) REFERENCES Shop(id) ON DELETE CASCADE,
+	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE
+
+);
+
+
+
+
+--Constraint address
+ALTER TABLE Customer
+ADD CONSTRAINT customer_address_check CHECK (address~*'^(accesso|arco|belvedere|borgo|campo|canale|cascina|cavone|cavalcavia|contrada|corso|cortile|costa|discesa|fondo|galleria|frazione|isola|lido|litoranea|lungo|
+												 lungomare|masseria|molo|mura|passaggio|passo|pendio|piazza|piazzale|piazzetta|ponte|portico|porto|rampa|recinto|rione|riva|rotonda|salita|scalinata|scesa|sentiero|
+												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ ''A-Za-z0-9]+(, )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+(, )[A-Z]{2}$' );
+
+ALTER TABLE CustomerOrder
+ADD CONSTRAINT customer_order_address_check CHECK (address~*'^(accesso|arco|belvedere|borgo|campo|canale|cascina|cavone|cavalcavia|contrada|corso|cortile|costa|discesa|fondo|galleria|frazione|isola|lido|litoranea|lungo|
+												 lungomare|masseria|molo|mura|passaggio|passo|pendio|piazza|piazzale|piazzetta|ponte|portico|porto|rampa|recinto|rione|riva|rotonda|salita|scalinata|scesa|sentiero|
+												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ ''A-Za-z0-9]+(, )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+(, )[A-Z]{2}$' );
+
+ALTER TABLE Rider
+ADD CONSTRAINT rider_address_check CHECK (address~*'^(accesso|arco|belvedere|borgo|campo|canale|cascina|cavone|cavalcavia|contrada|corso|cortile|costa|discesa|fondo|galleria|frazione|isola|lido|litoranea|lungo|
+												 lungomare|masseria|molo|mura|passaggio|passo|pendio|piazza|piazzale|piazzetta|ponte|portico|porto|rampa|recinto|rione|riva|rotonda|salita|scalinata|scesa|sentiero|
+												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ ''A-Za-z0-9]+(, )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+(, )[A-Z]{2}$' );
+
+ALTER TABLE Shop
+ADD CONSTRAINT shop_address_check CHECK (address~*'^(accesso|arco|belvedere|borgo|campo|canale|cascina|cavone|cavalcavia|contrada|corso|cortile|costa|discesa|fondo|galleria|frazione|isola|lido|litoranea|lungo|
+												 lungomare|masseria|molo|mura|passaggio|passo|pendio|piazza|piazzale|piazzetta|ponte|portico|porto|rampa|recinto|rione|riva|rotonda|salita|scalinata|scesa|sentiero|
+												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ ''A-Za-z0-9]+(, )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+(, )[A-Z]{2}$' );
+
+
+--Constraint Email
+ALTER TABLE Customer
+ADD CONSTRAINT customer_email_check CHECK (email::text ~* '^[A-Za-z0-9._%-]+(@)[A-Za-z0-9.-]+[.][A-Za-z]+$'::text)
