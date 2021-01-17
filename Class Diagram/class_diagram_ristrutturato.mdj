@@ -934,7 +934,7 @@
 											"top": 739,
 											"width": 196.44091796875,
 											"height": 13,
-											"text": "+ingredients[0..1]: String",
+											"text": "+ingredients: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4691,7 +4691,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "ingredients[0..1]",
+							"name": "ingredients",
 							"type": "String"
 						},
 						{
