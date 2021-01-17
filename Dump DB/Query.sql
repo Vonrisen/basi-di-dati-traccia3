@@ -184,35 +184,21 @@ END;
 $crea_ordine$ LANGUAGE plpgsql;
 
 --Inserisce un alimento nella tabella Meal
-CREATE OR REPLACE PROCEDURE insertFood(meal_name varchar, prefix varchar, price real, description varchar) LANGUAGE PLPGSQL AS $$
+CREATE OR REPLACE PROCEDURE insertMeal(meal_name varchar, prefix varchar, price real, ingredients varchar) LANGUAGE PLPGSQL AS $$
 declare
 suffix CHAR(4)=to_char(nextval('Meal_sequence'),'0000FM');
 begin
-INSERT INTO Meal VALUES (prefix||suffix, meal_name, price, description);
+INSERT INTO Meal VALUES (prefix||suffix, meal_name, price, ingredients);
 end;
-$$;
- 
---Inserisce un allergene ad un alimento
-CREATE OR REPLACE PROCEDURE insertAllergen(meal_id varchar, allergen AllergenType ) LANGUAGE PLPGSQL AS $$
-begin
-INSERT INTO MealComposition VALUES(meal_id,allergen);
-end;
-$$;
- 
---Inserisce un rider
-CREATE OR REPLACE PROCEDURE insertRider(cf varchar, rider_name varchar, surname varchar, address varchar, birth_date varchar, birth_place varchar, gender char, cellphone  varchar, vehicle varchar, working_time varchar, shop_id varchar) 
-LANGUAGE PLPGSQL AS $$
-BEGIN
-INSERT INTO Rider VALUES (cf, rider_name, surname, address, TO_DATE(birth_date,'dd-mm-yyyy'), birth_place, gender, cellphone, vehicle, working_time, DEFAULT);
-INSERT INTO Contract VALUES (cf, shop_id);
-END;
 $$;
 
+
+
 --Eliminazione di un rider
-CREATE OR REPLACE PROCEDURE deleteRider(codice_fiscale varchar) 
+CREATE OR REPLACE PROCEDURE licenziaRider(codice_fiscale varchar) 
 LANGUAGE PLPGSQL AS $$
 BEGIN
-DELETE FROM Rider WHERE cf = codice_fiscale;
+Update Rider SET shop_id=null WHERE cf = codice_fiscale;
 END;
 $$;
 
@@ -226,39 +212,22 @@ END;
 $$
 LANGUAGE PLPGSQL;
 
---Inserisce un negozio
-CREATE OR REPLACE PROCEDURE insertShop(shop_name varchar, address varchar, working_hours varchar, closing_days varchar, pwd varchar) LANGUAGE PLPGSQL AS $$
-BEGIN
-INSERT INTO Shop VALUES(DEFAULT, shop_name, address, working_hours, closing_days, pwd);
-END;
-$$;
+
 
 --Update Shop
-CREATE OR REPLACE PROCEDURE updateShop(shop_id varchar, shop_name varchar, address varchar, working_hours varchar, closing_days varchar, pwd varchar)
+CREATE OR REPLACE PROCEDURE updateShop(shop_id varchar, shop_name varchar, address varchar, working_hours varchar, closing_days varchar, password varchar)
 AS $$
 BEGIN
 IF working_hours=''THEN working_hours=null; END IF;
 IF closing_days=''THEN closing_days=null; END IF;
-IF pwd=''THEN pwd=null; END IF;
-UPDATE Shop SET shop_id=shop_id,shop_name=shop_name,working_hours=working_hours,closing_days=closing_days,shop_password=pwd WHERE shop_id=shop_id;
+UPDATE Shop SET shop_name=shop_name,working_hours=working_hours,closing_days=closing_days WHERE shop_id=shop_id;
 END;
 $$
 LANGUAGE PLPGSQL;
 
---Eliminazione di un negozio
-CREATE OR REPLACE PROCEDURE deleteShop(cod_shop varchar) LANGUAGE PLPGSQL AS $$
-BEGIN
-DELETE FROM Shop WHERE shop_id = cod_shop;
-END;
-$$;
 
---Eliminazione di un alimento
-CREATE OR REPLACE PROCEDURE deleteMeal(meal varchar) LANGUAGE PLPGSQL AS $$
-BEGIN
-DELETE FROM Meal WHERE meal_name = meal;
-END;
-$$;
 
+--DA FARE; IO PASSEREI MEAL_NAME COME PARAMETRO. ALLERGEN ORA è UNA STRINGA E NON UN ENUM
 --Dato un alimento e una lista di allergeni, aggiunge questi ultimi all' alimento
 CREATE OR REPLACE PROCEDURE addAllergen(meal_id varchar, allergens varchar) LANGUAGE plpgsql AS $$
 DECLARE
@@ -277,12 +246,7 @@ END LOOP;
 END;
 $$;
 
---Inserisce un customer
-CREATE OR REPLACE PROCEDURE insertCustomer(customer_name varchar, surname varchar, address varchar, birth_date date, birth_place varchar, gender char, cellphone char, email varchar, passw varchar, cf varchar) LANGUAGE PLPGSQL AS $$
-BEGIN
-INSERT INTO Customer VALUES (DEFAULT,customer_name,surname,address,birth_date,birth_place,gender,cellphone,email,passw,cf);
-END;
-$$;
+
 
 --Constraint address
 ALTER TABLE Customer

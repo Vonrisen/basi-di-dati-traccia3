@@ -1,23 +1,23 @@
 	--INSERIMENTO IN CUSTOMER
-CALL insertCustomer('Pasquale', 'De Nicola', 'Via Di Pasquale', '1970-09-18', 'Napoli', 'M', '1234567890', 'p.denicola@outlook.com', 'Password123', 'DNCPQL70P18F839P');
+INSERT INTO Customer VALUES('DNCPQL70P18F839P', 'Pasquale', 'De Nicola', 'Via Di Pasquale', '1970-09-18', 'Napoli', 'M', '1234567890', 'p.denicola@outlook.com', 'Password123');
 
-CALL insertCustomer('Marica','Savino','Via DI Marica','1975-02-06','Caserta','F','2345678901','m.savino@outlook.com','MaricaSa975','SVNMRC75B46B963V');
+INSERT INTO Customer VALUES('SVNMRC75B46B963V','Marica','Savino','Via DI Marica','1975-02-06','Caserta','F','2345678901','m.savino@outlook.com','MaricaSa975');
 
-CALL insertCustomer('Nicola','Trinchese','Via Avella','1996-01-14','Avella','M','3456789012','n.trinchese@libero.it','trinCo1','TRNNCL96A14A508U');
+INSERT INTO Customer VALUES('TRNNCL96A14A508U','Nicola','Trinchese','Via Avella','1996-01-14','Avella','M','3456789012','n.trinchese@libero.it','trinCo1');
 
-CALL insertCustomer('Annalisa','Fiocchi','Via Sicura','1986-04-22','Sorrento','F','4567890123','a.fiocchi@alice.it','LisaFiocchiAnna32','FCCNLS86D62I862G');
+INSERT INTO Customer VALUES('FCCNLS86D62I862G','Annalisa','Fiocchi','Via Sicura','1986-04-22','Sorrento','F','4567890123','a.fiocchi@alice.it','LisaFiocchiAnna32');
 
-CALL insertCustomer('Mario','Parisi','Via Bono','2000-11-17','Avellino','M','5678901234','m.parisi@live.it','PaMario00','PRSMRA00S17A509N');
+INSERT INTO Customer VALUES('PRSMRA00S17A509N','Mario','Parisi','Via Bono','2000-11-17','Avellino','M','5678901234','m.parisi@live.it','PaMario00');
 
-CALL insertCustomer('Elena','De Luca','Via Daqui','1999-12-31','Salerno','F','6789012345','e.deluca@outlook.it','DEelena99','DLCLNE99T71H703K');
+INSERT INTO Customer VALUES('DLCLNE99T71H703K','Elena','De Luca','Via Daqui','1999-12-31','Salerno','F','6789012345','e.deluca@outlook.it','DEelena99');
 
-CALL insertCustomer('Saverio','Romano','Via Oleandri','2001-05-19','Pozzuoli','M','7890123456','s.romano@libero.com','SaRoVeMa201','RMNSVR01E19G964E');
+INSERT INTO Customer VALUES('RMNSVR01E19G964E','Saverio','Romano','Via Oleandri','2001-05-19','Pozzuoli','M','7890123456','s.romano@libero.com','SaRoVeMa201');
 
-CALL insertCustomer('Giovanna','Di Maio','Via Seconda','1980-08-08','Nola','F','8901234567','d.dimaio@outlook.com','gioDima80','DMIGNN80M48F924S');
+INSERT INTO Customer VALUES('DMIGNN80M48F924S','Giovanna','Di Maio','Via Seconda','1980-08-08','Nola','F','8901234567','d.dimaio@outlook.com','gioDima80');
 
-CALL insertCustomer('Carmine','Ioime','Via Trivice','1990-03-29','Pomigliano D''arco','M','9012345678','c.ioime@outlook.com','Mino90','MIOCMN90C29G812U');
+INSERT INTO Customer VALUES('MIOCMN90C29G812U','Carmine','Ioime','Via Trivice','1990-03-29','Pomigliano D''arco','M','9012345678','c.ioime@outlook.com','Mino90');
 
-CALL insertCustomer('Cristina','D''avena','Via Zecchino d''Oro','1964-07-06','Bologna','F','0123456789','c.davena@puffi.pu','Puffiamo10','DVNCST64L46A944B');
+INSERT INTO Customer VALUES('DVNCST64L46A944B','Cristina','D''avena','Via Zecchino d''Oro','1964-07-06','Bologna','F','0123456789','c.davena@puffi.pu','Puffiamo10');
 
 
 
@@ -85,25 +85,25 @@ INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno',null, '
 
 
 	--INSERIMENTO IN RIDER
-CAll insertRider ('FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','1990-12-02','Napoli','M','0987654321','Bicicletta','00:00-00:00','001');
+INSERT INTO Rider VALUES  ('FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','1990-12-02','Napoli','M','0987654321','Bicicletta','00:00-00:00','001');
 
-CAll insertRider ('RZZLNZ00B63C675H','Lorenza','Rozza','Via Marino','2000-02-23','Cicciano','F','9876543210','Motoveicolo','00:00-00:00','002');
+INSERT INTO Rider VALUES  ('RZZLNZ00B63C675H','Lorenza','Rozza','Via Marino','2000-02-23','Cicciano','F','9876543210','Motoveicolo','00:00-00:00','002');
 
-CAll insertRider ('DLRFNC93C03H703Q','Francesco','Di Lauro','Via Ester','1993-03-03','Salerno','M','8765432109','Autoveicolo','00:00-00:00','003');
+INSERT INTO Rider VALUES  ('DLRFNC93C03H703Q','Francesco','Di Lauro','Via Ester','1993-03-03','Salerno','M','8765432109','Autoveicolo','00:00-00:00','003');
 
-CAll insertRider ('LTRMRA96A58F839V','Maria','Altieri','Via Cite','1996-01-18','Napoli','F','7654321098','Bicicletta','00:00-00:00','001');
+INSERT INTO Rider VALUES  ('LTRMRA96A58F839V','Maria','Altieri','Via Cite','1996-01-18','Napoli','F','7654321098','Bicicletta','00:00-00:00','001');
 
-CAll insertRider ('CRDMHL99A10B963H','Michele','Cordaro','Via De Stefano','1999-01-10','Caserta','M','6543210987','Motoveicolo','00:00-00:00','002');
+INSERT INTO Rider VALUES  ('CRDMHL99A10B963H','Michele','Cordaro','Via De Stefano','1999-01-10','Caserta','M','6543210987','Motoveicolo','00:00-00:00','002');
 
-CAll insertRider ('MLLMRC91S52C188Y','Mariarca','Maiello','Via Cisterna','1991-11-12','Castello di Cisterna','F','5432109876','Autoveicolo','00:00-00:00','003');
+INSERT INTO Rider VALUES  ('MLLMRC91S52C188Y','Mariarca','Maiello','Via Cisterna','1991-11-12','Castello di Cisterna','F','5432109876','Autoveicolo','00:00-00:00','003');
 
-CAll insertRider ('TRCLGU88E11A509X','Luigi','Turco','Via Nonsaprei','1988-05-11','Avellino','M','4321098765','Motoveicolo','00:00-00:00','001');
+INSERT INTO Rider VALUES  ('TRCLGU88E11A509X','Luigi','Turco','Via Nonsaprei','1988-05-11','Avellino','M','4321098765','Motoveicolo','00:00-00:00','001');
 
-CAll insertRider ('MNDVLR96C63F924G','Valeria','Menditti','Via Cimitile','1996-03-23','Nola','F','3210987654','Motoveicolo','00:00-00:00','001');
+INSERT INTO Rider VALUES  ('MNDVLR96C63F924G','Valeria','Menditti','Via Cimitile','1996-03-23','Nola','F','3210987654','Motoveicolo','00:00-00:00','001');
 
-CAll insertRider ('TSTNGL97L15G964R','Angelo','Testa','Via Campo','1997-07-15','Pozzuoli','M','2109876543','Autoveicolo','00:00-00:00','003');
+INSERT INTO Rider VALUES  ('TSTNGL97L15G964R','Angelo','Testa','Via Campo','1997-07-15','Pozzuoli','M','2109876543','Autoveicolo','00:00-00:00','003');
 
-CAll insertRider ('NPLCMN01P70G964X','Carmen','Napolitano','Via Stens','2001-09-30','Pozzuoli','F','1098765432','Motoveicolo','00:00-00:00','001');
+INSERT INTO Rider VALUES  ('NPLCMN01P70G964X','Carmen','Napolitano','Via Stens','2001-09-30','Pozzuoli','F','1098765432','Motoveicolo','00:00-00:00','001');
 
 
 
