@@ -28,7 +28,7 @@ CALL insertfood('Spaghetti e vongole','PE',5.50,'Ingredienti: Spaghetti, vongole
 
 CALL insertfood('Spaghetti alla Carbonara','PA',10.00,'Ingredienti: Spaghetti, tuorli, guanciale, pepe nero, pecorino romano');
 
-CALL insertfood('Pennette all'arrabiata','PL',8.50,'Ingredienti: Penne rigate, aglio, prezzemolo, sale, pomodori pelati, peperoncino, olio');
+CALL insertfood('Pennette all''arrabiata','PL',8.50,'Ingredienti: Penne rigate, aglio, prezzemolo, sale, pomodori pelati, peperoncino, olio');
 
 CALL insertfood('Brodo di tortellini','PL',11.00,'Ingredienti: Tortellini, brodino con spezie varie');
 
@@ -46,7 +46,7 @@ CALL insertfood('Salmone croccante','SE',9.50,'Ingredienti: Filetto di salmone, 
 
 CALL insertfood('CocaCola','BN',2.00,'Ingredienti: Acqua, Anidride carbonica, zucchero, colorante, acido fosforico, aromi naturali. caffeina');
 
-CALL insertfood('Bottiglina d'acqua','BN',1.00,'Ingredienti: acqua, sali minerali');
+CALL insertfood('Bottiglina d''acqua','BN',1.00,'Ingredienti: acqua, sali minerali');
 
 CALL insertfood('Patatine Fritte p','FR',2.00,'Ingredienti: Patate, sale, olio. Porzione piccola');
 
@@ -152,48 +152,3 @@ INSERT INTO mealComposition ('SE0008', 'Cereali e derivati');
 INSERT INTO mealComposition ('FA0016', 'Cereali e derivati');
 INSERT INTO mealComposition ('FA0017', 'Cereali e derivati');
 INSERT INTO mealComposition ('FI0018', 'Cereali e derivati');
-
-
-
-
-
-
-
-
-
-CALL insertCustomer('Mario', 'Rossi', 'Via Casamia', '1990-12-12','Ercolano','M','3433344433', 'm.rossi@qualcosa.it', 'Qualcosa123', 'RSSMRA90T12H243S');
-
-
-CALL insertfood('Spaghetti e vongole','pp',5.50,'Ingredienti:Spaghetti, vongole, pomodorini');
-
-Call insertallergen('pp0001', 'Molluschi');
-
-CAll insertRider('FRUGLC90T02F839Q','Gianluca','Fru','Via Napoli','02-12-1990','Napoli','M','0987654321','Bicicletta','00:00-00:00','001')
-
-Insert INTO cart VALUES (DEFAULT, DEFAULT,'U000024')
-
-INSERT INTO cartcomposition VALUES('00000006','pp0001',5)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
