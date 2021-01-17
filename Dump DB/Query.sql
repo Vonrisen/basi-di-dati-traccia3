@@ -1,14 +1,28 @@
---Creazione ordine
-CREATE OR REPLACE PROCEDURE createOrder(address varchar, payment varchar, note varchar, shop_id varchar, customer_cf varchar) 
+  --Creazione ordine
+--meal_list_name e' la lista dei nomi dei cibi ordinati dall' utente  / quantity_list e' la lista delle quantita' dei rispettivi cibi
+CREATE OR REPLACE PROCEDURE createOrder(address varchar, payment varchar, note varchar, shop_id varchar, customer_cf varchar, meal_list_name varchar, quantity_list varchar) 
 LANGUAGE PLPGSQL AS $$
 DECLARE
+meal_name Meal.name%TYPE;
+quant varchar;
+meal_counter int default 1;
+id_meal Meal.id%TYPE;
 BEGIN
 IF note='' THEN note=null; END IF;
 INSERT INTO CustomerOrder VALUES (DEFAULT, DEFAULT, null, address, DEFAULT, payment, note, null, shop_id, customer_cf);
+LOOP
+ meal_name=split_part(meal_list_name, ', ', meal_counter);
+ quant=split_part(quantity_list, ', ', meal_counter);
+ SELECT id INTO id_meal FROM Meal WHERE name=meal_name;
+ IF meal_name<>'' THEN
+ INSERT INTO OrderComposition VALUES(to_char(currval('customerorder_sequence'),'000000000000FM'),id_meal,quant::real);
+ meal_counter=meal_counter+1;
+ ELSE
+ exit;
+ END IF;
+END LOOP;
 END;
-$$;
-
-
+$$
 
 --Eliminazione di un rider
 CREATE OR REPLACE PROCEDURE licenziaRider(codice_fiscale varchar) 
