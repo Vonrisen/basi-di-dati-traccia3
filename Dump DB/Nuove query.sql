@@ -37,8 +37,8 @@ CREATE TABLE rider (
 	working_hours CHAR(11) NOT NULL, 
 	deliveries_number SMALLINT NOT NULL DEFAULT 0
 	
-	shop_id CHAR(3) 
-	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE,
+	shop_id CHAR(3),
+	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE
 	
 );
 
