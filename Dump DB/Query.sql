@@ -306,8 +306,8 @@ ADD CONSTRAINT shop_address_check CHECK (address~*'^(accesso|arco|belvedere|borg
 												 spiaggia|spiazzo|strada|stradale|stretto|stretta|strettoia|terrazza|traversa|via|vicoletto|vico|villaggio|viuzza)( )[ A-Za-z0-9]+(, )[A-Z0-9]+(, )[0-9]{5}(, )[A-Za-z]+(, )[A-Z]{2}$' )
 
 
-
-
+--Constraint Email
+email::text ~* '^[A-Za-z0-9._%-]+(@)[A-Za-z0-9.-]+[.][A-Za-z]+$'::text
 
 
 
