@@ -20,6 +20,19 @@ CREATE TABLE customer (
 	
 );
 
+-- Creazione tabella "Shop"
+
+ CREATE TABLE shop (
+	 
+	id CHAR(3) PRIMARY KEY DEFAULT to_char(nextval('shop_sequence'),'000FM'),
+	name VARCHAR(50) NOT NULL,
+	address VARCHAR(255) NOT NULL UNIQUE,
+	working_hours CHAR(11) DEFAULT '00:00-24:00',
+	closing_days VARCHAR(62),
+	password VARCHAR(32) NOT NULL
+
+);
+
 -- Creazione tabella "Rider"
 
 CREATE TABLE rider (
@@ -35,24 +48,11 @@ CREATE TABLE rider (
 	
 	vehicle VARCHAR(18) NOT NULL, 
 	working_hours CHAR(11) NOT NULL, 
-	deliveries_number SMALLINT NOT NULL DEFAULT 0
+	deliveries_number SMALLINT NOT NULL DEFAULT 0,
 	
 	shop_id CHAR(3),
 	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE
 	
-);
-
--- Creazione tabella "Shop"
-
- CREATE TABLE shop (
-	 
-	id CHAR(3) PRIMARY KEY DEFAULT to_char(nextval('shop_sequence'),'000FM'),
-	name VARCHAR(50) NOT NULL,
-	address VARCHAR(255) NOT NULL UNIQUE,
-	working_hours CHAR(11) DEFAULT '00:00-24:00',
-	closing_days VARCHAR(62),
-	password VARCHAR(32) NOT NULL
-
 );
 
 -- Creazione tabella "Meal"
@@ -88,6 +88,14 @@ CREATE TABLE customerorder (
 	
 );
 
+-- Creazione tabella "Allergen"
+
+CREATE TABLE allergen (
+
+	name VARCHAR(32) PRIMARY KEY
+
+);
+
 -- Creazione tabella "OrderComposition"
 
 CREATE TABLE ordercomposition (
@@ -113,13 +121,5 @@ CREATE TABLE mealcomposition (
 	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE,
 	FOREIGN KEY (allergen_name) REFERENCES Allergen(name) ON DELETE CASCADE
 	
-);
-
--- Creazione tabella "Allergen"
-
-CREATE TABLE allergen (
-
-	name VARCHAR(32) PRIMARY KEY
-
 );
 
