@@ -24,6 +24,54 @@ END LOOP;
 END;
 $$
 
+
+--FUNZIONE che restituisce il valore massimo raggiungibile dalla sequenza. Come parametro prende il nome della sequenza
+CREATE OR REPLACE FUNCTION massimo(seqname varchar) RETURNS integer as $$
+declare 
+max integer;
+begin
+select max_value into max from pg_sequences where sequencename=seqname;
+return max;
+end;
+$$ LANGUAGE plpgsql;
+
+--FUNZIONE che restituisce il valore corrente dalla sequenza. Come parametro prende il nome della sequenza
+CREATE OR REPLACE FUNCTION current(seqname varchar) RETURNS integer as $$
+declare 
+curr integer;
+begin
+select last_value into curr from pg_sequences where sequencename=seqname;
+return curr;
+end;
+$$ LANGUAGE plpgsql;
+
+--FUNZIONE che genera il codice ordine. Come parametri prende il nome della sequenza che genera la lettera e il nome della sequenza numerica
+CREATE or replace FUNCTION genseq(letterSeq varchar, seqNum varchar) RETURNS char AS $$
+declare
+BEGIN
+RETURN  ( let(letterSeq, seqNum) || to_char(nextval(seqNum),'00000000000FM') );
+END;
+$$ LANGUAGE plpgsql;
+
+--FUNZIONE che gestisce la lettera della sequenza. Come parametri prende il nome della sequenza che genera la lettera e il nome della sequenza numerica
+create or replace function let(letterSeq varchar, seqNum varchar) returns char as $$
+declare
+i integer;
+j integer;
+begin
+i=corrente(letterSeq);
+if i is null then i=nextval(letterSeq); end if;
+	begin
+	j=currval(seqNum);
+	exception
+	when sqlstate '55000' then j=1;
+	end;
+if j = massimo(seqNum) then i= nextval(letterSeq); end if;
+return chr(i);
+end;
+$$ language plpgsql;
+
+
 --Eliminazione di un rider
 CREATE OR REPLACE PROCEDURE licenziaRider(codice_fiscale varchar) 
 LANGUAGE PLPGSQL AS $$
