@@ -107,11 +107,12 @@ LANGUAGE PLPGSQL;
 
 
 --Dato un alimento e una lista di allergeni, aggiunge questi ultimi all' alimento
-CREATE OR REPLACE PROCEDURE addAllergen(meal_id varchar, allergens varchar) LANGUAGE plpgsql AS $$
+CREATE OR REPLACE PROCEDURE addAllergens(meal_name varchar, allergens varchar) LANGUAGE plpgsql AS $$
 DECLARE
 allerg varchar='';
 count_allergens INT DEFAULT 1;
 BEGIN
+SELECT id INTO meal_id FROM meal WHERE name=meal_name
 LOOP
  allerg=split_part(allergens, ', ', count_allergens);
  IF allerg<>'' THEN

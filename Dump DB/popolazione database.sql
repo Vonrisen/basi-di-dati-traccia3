@@ -132,22 +132,21 @@ INSERT INTO allergen VALUES ('Molluschi');
 
 
 	--INSERIMENTO ALLERGENI-ALIMENTO
-CALL addallergen ('0001', 'Molluschi, Cereali e derivati');
-CALL addallergen ('0002', 'Uova, Cereali e derivati');
-CALL addallergen ('0002', 'Latte e derivati');
-CALL addallergen ('0003', 'Cereali e derivati');
-CALL addallergen ('0004', 'Cereali e derivati');
-CALL addallergen ('0005', 'Uova, Cereali e derivati');
-CALL addallergen ('0008', 'Pesce, Cereali e derivati');
-CALL addallergen ('0009', 'Molluschi');
-CALL addallergen ('0010', 'Pesce');
-CALL addallergen ('0016', 'Cereali e derivati');
-CALL addallergen ('0017', 'Latte e derivati');
-CALL addallergen ('0018', 'Latte e derivati, Cereali e derivati');
-CALL addallergen ('0019', 'Latte e derivati, Cereali e derivati');
-CALL addallergen ('0020', 'Latte e derivati');
-CALL addallergen ('0021', 'Latte e derivati');
-CALL addallergen ('0022', 'Latte e derivati, Uova');
+CALL addallergens ('Spaghetti e vongole', 'Molluschi, Cereali e derivati');
+CALL addallergens ('Spaghetti alla Carbonara', 'Uova, Cereali e derivati,Latte e derivati');
+CALL addallergens ('Pennette all''arrabiata', 'Cereali e derivati');
+CALL addallergens ('Brodo di tortellini', 'Cereali e derivati');
+CALL addallergens ('Cotoletta', 'Uova, Cereali e derivati');
+CALL addallergens ('Baccalà fritto', 'Pesce, Cereali e derivati');
+CALL addallergens ('Insalata di polpo e patate', 'Molluschi');
+CALL addallergens ('Salmone croccante', 'Pesce');
+CALL addallergens ('Panino hamburger', 'Cereali e derivati');
+CALL addallergens ('Panino kebab', 'Latte e derivati');
+CALL addallergens ('Pizza margherita', 'Latte e derivati, Cereali e derivati');
+CALL addallergens ('Gelato alla vaniglia', 'Latte e derivati, Cereali e derivati');
+CALL addallergens ('Gelato al cioccolato', 'Latte e derivati');
+CALL addallergens ('Gelato a fragola', 'Latte e derivati');
+CALL addallergens ('Monoporzione red velvet', 'Latte e derivati, Uova');
 
 
 
