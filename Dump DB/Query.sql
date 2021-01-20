@@ -139,3 +139,15 @@ return substr(allergens,1,length(allergens)-2);
 END; 
 $$
 
+--Update Meal
+CREATE OR REPLACE PROCEDURE updateMeal(old_name varchar, m_category varchar, new_name varchar, m_price real, m_ingredients varchar)
+AS $$
+DECLARE
+meal_id char(4);
+BEGIN
+SELECT id INTO meal_id FROM meal WHERE name=old_name;
+UPDATE meal SET category=m_category, name=new_name, price=m_price, ingredients=m_ingredients WHERE id=meal_id;
+END;
+$$
+LANGUAGE PLPGSQL;
+

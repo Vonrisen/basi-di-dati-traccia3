@@ -24,51 +24,51 @@ INSERT INTO Customer VALUES('DVNCST64L46A944B','Cristina','D''avena','Via Zecchi
 
 
 	--INSERIMENTO IN MEAL
-INSERT INTO Meal VALUES (DEFAULT, 'Primi piatti', 'Spaghetti e vongole',5.50,'Ingredienti: Spaghetti, vongole, pomodorini');
+INSERT INTO Meal VALUES (DEFAULT, 'Primo piatto', 'Spaghetti e vongole',5.50,'Spaghetti, vongole, pomodorini');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Primi piatti', 'Spaghetti alla Carbonara',10.00,'Ingredienti: Spaghetti, tuorli, guanciale, pepe nero, pecorino romano');
+INSERT INTO Meal VALUES (DEFAULT, 'Primo piatto', 'Spaghetti alla Carbonara',10.00,'Spaghetti, tuorli, guanciale, pepe nero, pecorino romano');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Primi piatti', 'Pennette all''arrabiata' ,8.50,'Ingredienti: Penne rigate, aglio, prezzemolo, sale, pomodori pelati, peperoncino, olio');
+INSERT INTO Meal VALUES (DEFAULT, 'Primo piatto', 'Pennette all''arrabiata' ,8.50,'Penne rigate, aglio, prezzemolo, sale, pomodori pelati, peperoncino, olio');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Primi piatti', 'Brodo di tortellini',11.00,'Ingredienti: Tortellini, brodino con spezie varie');
+INSERT INTO Meal VALUES (DEFAULT, 'Primo piatto', 'Brodo di tortellini',11.00,'Tortellini, brodino con spezie varie');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Cotoletta',8.50,'Ingredienti: Carne di vitello, uova, farina, burro');
+INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Cotoletta',8.50,'Carne di vitello, uova, farina, burro');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Carne alla pizzaiola',11.50,'Ingredienti: Fettine di manzo, olio, sale, aglio, passata di pomodoro, origano, pepe');
+INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Carne alla pizzaiola',11.50,'Fettine di manzo, olio, sale, aglio, passata di pomodoro, origano, pepe');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Costine al forno',12.00,'Ingredienti: Costine di carne, rosmarino, pepe nero, aglio');
+INSERT INTO Meal VALUES (DEFAULT, 'Carne', 'Costine al forno',12.00,'Costine di carne, rosmarino, pepe nero, aglio');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Baccalà fritto',10.50,'Ingredienti: Baccalà dissalato, farina');
+INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Baccalà fritto',10.50,'Baccalà dissalato, farina');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Insalata di polpo e patate',9.00,'Ingredienti: Polpo, Patate, prezzemolo, olio, succo di limone');
+INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Insalata di polpo e patate',9.00,'Polpo, Patate, prezzemolo, olio, succo di limone');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Salmone croccante',9.50,'Ingredienti: Filetto di salmone, prezzemolo, scorza di limone, pane, pepe bianco, rosmarino');
+INSERT INTO Meal VALUES (DEFAULT, 'Pesce', 'Salmone croccante',9.50,'Filetto di salmone, prezzemolo, scorza di limone, pane, pepe bianco, rosmarino');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Bibita analcolica', 'CocaCola',2.00,'Ingredienti: Acqua, Anidride carbonica, zucchero, colorante, acido fosforico, aromi naturali. caffeina');
+INSERT INTO Meal VALUES (DEFAULT, 'Bibita analcolica', 'CocaCola',2.00,'Acqua, Anidride carbonica, zucchero, colorante, acido fosforico, aromi naturali. caffeina');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Bibita analcolica', 'Bottiglina d''acqua',1.00,'Ingredienti: acqua, sali minerali');
+INSERT INTO Meal VALUES (DEFAULT, 'Bibita analcolica', 'Bottiglina d''acqua',1.00,'Acqua, sali minerali');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte p',2.00,'Ingredienti: Patate, sale, olio. Porzione piccola');
+INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte p',2.00,'Patate, sale, olio. Porzione piccola');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte m',3.00,'Ingredienti: Patate, sale, olio. Porzione Merdia');
+INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte m',3.00,'Patate, sale, olio. Porzione Merdia');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte g',4.00,'Ingredienti: Patate, sale, olio. Porzione Grande');
+INSERT INTO Meal VALUES (DEFAULT, 'Fritto', 'Patatine Fritte g',4.00,'Patate, sale, olio. Porzione Grande');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Panino', 'Panino hamburger',6.00,'Ingredienti: Panino, hamburger, patatine, pomodorini');
+INSERT INTO Meal VALUES (DEFAULT, 'Panino', 'Panino hamburger',6.00,'Panino, hamburger, patatine, pomodorini');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Panino', 'Panino kebab',7.00,'Ingredienti: Panino, patatine, provola');
+INSERT INTO Meal VALUES (DEFAULT, 'Panino', 'Panino kebab',7.00,'Panino, patatine, provola');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Pizza', 'Pizza margherita',4.00,'Ingredienti: Sugo, mozzarella');
+INSERT INTO Meal VALUES (DEFAULT, 'Pizza', 'Pizza margherita',4.00,'Sugo, mozzarella');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato alla vaniglia',2.00,'Ingredienti: Latte, panna, vaniglia');
+INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato alla vaniglia',2.00,'Latte, panna, vaniglia');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato al cioccolato',2.00,'Ingredienti: Latte, panna, cacao');
+INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato al cioccolato',2.00,'Latte, panna, cacao');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato a fragola',2.00,'Ingredienti: Latte, panna, succo di fragola, fragola a pezzi');
+INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Gelato a fragola',2.00,'Latte, panna, succo di fragola, fragola a pezzi');
 
-INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Monoporzione red velvet',5.00,'Ingredienti: Burro, uova, farina, zucchero, sale, coloranti, yogurt bianco, lievito');
+INSERT INTO Meal VALUES (DEFAULT, 'Dolce', 'Monoporzione red velvet',5.00,'Burro, uova, farina, zucchero, sale, coloranti, yogurt bianco, lievito');
 
-INSERT INTO meal VALUES (DEFAULT, 'Bibita alcolica', 'Spritz', 5.00, 'Ingredienti: aperol, soda, prosecco, arancia');
+INSERT INTO meal VALUES (DEFAULT, 'Bibita alcolica', 'Spritz', 5.00, 'Aperol, soda, prosecco, arancia');
 
 
 
@@ -123,7 +123,7 @@ INSERT INTO allergen VALUES ('Frutta a guscio');
 INSERT INTO allergen VALUES ('Sedano');
 INSERT INTO allergen VALUES ('Senape');
 INSERT INTO allergen VALUES ('Sesamo');
-INSERT INTO allergen VALUES ('Anidride solforosa e solfiti');
+INSERT INTO allergen VALUES ('An. solforosa e solfiti');
 INSERT INTO allergen VALUES ('Lupini');
 INSERT INTO allergen VALUES ('Molluschi');
 
