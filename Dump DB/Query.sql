@@ -111,8 +111,9 @@ CREATE OR REPLACE PROCEDURE addAllergens(meal_name varchar, allergens varchar) L
 DECLARE
 allerg varchar='';
 count_allergens INT DEFAULT 1;
+meal_id Meal.id%TYPE;
 BEGIN
-SELECT id INTO meal_id FROM meal WHERE name=meal_name
+SELECT id INTO meal_id FROM meal WHERE name=meal_name;
 LOOP
  allerg=split_part(allergens, ', ', count_allergens);
  IF allerg<>'' THEN
