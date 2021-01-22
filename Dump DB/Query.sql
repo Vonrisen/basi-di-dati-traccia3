@@ -141,38 +141,8 @@ END;
 $$
 
 --Update Meal
-CREATE OR REPLACE PROCEDURE updateMeal(old_name varchar, m_category varchar, new_name varchar, m_price real, m_ingredients varchar)
-AS $$
-DECLARE
-meal_id char(4);
-BEGIN
-SELECT id INTO meal_id FROM meal WHERE name=old_name;
-UPDATE meal SET category=m_category, name=new_name, price=m_price, ingredients=m_ingredients WHERE id=meal_id;
-END;
-$$
-LANGUAGE PLPGSQL;
-
---INSERT INTO SUPPLY
-CREATE OR REPLACE PROCEDURE insertSupply(shop_id varchar, meal_name varchar)
-AS $$
-DECLARE
-meal_id char(4);
-BEGIN
-SELECT id INTO meal_id FROM meal WHERE name=meal_name;
-INSERT INTO supply VALUES (shop_id,meal_id);
-END;
-$$
-LANGUAGE PLPGSQL;
-
-
---Delete from supply
-CREATE OR REPLACE PROCEDURE deleteFromSupply(shop_cod varchar, meal_name varchar)
-AS $$
-DECLARE
-meal_cod char(4);
-BEGIN
-SELECT id INTO meal_cod FROM meal WHERE name=meal_name;
-DELETE From supply WHERE shop_id=shop_cod and meal_id=meal_cod;
-END;
-$$
-LANGUAGE PLPGSQL;
+UPDATE Meal SET category=?, name=?, price=?, ingredients=? WHERE name=?;
+//Insert In Supply
+INSERT INTO Supply SELECT ?, meal_id FROM MEAL WHERE name=?;
+//Delete da supply
+DELETE FROM Supply WHERE shop_id=? AND meal_id IN (SELECT id FROM Meal WHERE name=?)
