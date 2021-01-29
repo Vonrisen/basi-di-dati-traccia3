@@ -76,11 +76,11 @@ INSERT INTO meal VALUES (DEFAULT, 'Bibita alcolica', 'Spritz', 5.00, 'Aperol, so
 
 
 	--INSERIMENTO IN SHOP
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli, 20, 80030, Napoli, NA', null, null, 'Napoli123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli, 20, 80030, Napoli, NA', null, null, 'napoli@food.overflow.it', 'Napoli123');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta, 20, 80030, Caserta, CE', '08:00-00:00', null, 'Caserta123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta, 20, 80030, Caserta, CE', '08:00-00:00', null, 'caserta@food.overflow.it', 'Caserta123');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno, 20, 80030, Salerno, SA',null, 'Lunedi', 'Salerno123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno, 20, 80030, Salerno, SA',null, 'Lunedi', 'salerno@food.overflow.it', 'Salerno123');
 
 
 

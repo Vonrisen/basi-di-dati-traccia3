@@ -24,12 +24,13 @@ CREATE TABLE customer (
 -- Creazione tabella "Shop"
 
  CREATE TABLE shop (
-	 
+	
 	id CHAR(3) PRIMARY KEY DEFAULT to_char(nextval('shop_sequence'),'000FM'),
 	name VARCHAR(50) NOT NULL,
 	address VARCHAR(255) NOT NULL UNIQUE,
 	working_hours CHAR(11) DEFAULT '00:00-24:00',
 	closing_days VARCHAR(62),
+	email VARCHAR(320) NOT NULL UNIQUE,
 	password VARCHAR(32) NOT NULL
 
 );
@@ -53,7 +54,7 @@ CREATE TABLE rider (
 	
 	shop_id CHAR(3),
 	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE
-	
+	--on delete set null
 );
 
 -- Creazione tabella "Meal"

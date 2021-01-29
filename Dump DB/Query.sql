@@ -72,14 +72,6 @@ end;
 $$ language plpgsql;
 
 
---Eliminazione di un rider
-CREATE OR REPLACE PROCEDURE licenziaRider(codice_fiscale varchar) 
-LANGUAGE PLPGSQL AS $$
-BEGIN
-Update Rider SET shop_id=null WHERE cf = codice_fiscale;
-END;
-$$;
-
 --Aggiornamento rider
 CREATE OR REPLACE PROCEDURE updateRider(codice_fiscale varchar, residenza varchar, cellulare varchar, veicolo varchar, workingtime varchar)
 AS $$
@@ -93,12 +85,13 @@ LANGUAGE PLPGSQL;
 
 
 --Update Shop
-CREATE OR REPLACE PROCEDURE updateShop(shop_id varchar, shop_name varchar, address varchar, working_hours varchar, closing_days varchar, password varchar)
+CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, address varchar, working_hours varchar, closing_days varchar, password varchar, oldEmail varchar, newEmail varchar)
 AS $$
 BEGIN
-IF working_hours=''THEN working_hours=null; END IF;
+IF working_hours=''THEN working_hours=DEFAULT; END IF;
 IF closing_days=''THEN closing_days=null; END IF;
-UPDATE Shop SET shop_name=shop_name,working_hours=working_hours,closing_days=closing_days WHERE shop_id=shop_id;
+UPDATE Shop SET shop_name=shop_name, working_hours=working_hours, closing_days=closing_days, password=password, email=newEmail 
+WHERE email=oldEmail;
 END;
 $$
 LANGUAGE PLPGSQL;
@@ -140,9 +133,3 @@ return substr(allergens,1,length(allergens)-2);
 END; 
 $$
 
---Update Meal
-UPDATE Meal SET category=?, name=?, price=?, ingredients=? WHERE name=?;
-//Insert In Supply
-INSERT INTO Supply SELECT ?, meal_id FROM MEAL WHERE name=?;
-//Delete da supply
-DELETE FROM Supply WHERE shop_id=? AND meal_id IN (SELECT id FROM Meal WHERE name=?)
