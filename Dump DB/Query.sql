@@ -133,3 +133,51 @@ return substr(allergens,1,length(allergens)-2);
 END; 
 $$
 
+--
+CREATE OR REPLACE FUNCTION add_rider_in_order() RETURNS TRIGGER AS $add_rider_in_order$
+BEGIN
+	
+		if (SELECT deliveries_number FROM rider as r WHERE r.cf=new.rider_cf) < 3
+		THEN
+			
+			UPDATE Rider
+			SET deliveries_number=deliveries_number+1
+			WHERE cf=new.rider_cf;
+			
+			new.status='In consegna';
+			
+		END IF;
+	
+	return new;
+
+END;
+$add_rider_in_order$ LANGUAGE plpgsql;
+
+CREATE TRIGGER add_rider_in_order
+BEFORE UPDATE of rider_cf ON customerorder
+FOR EACH ROW
+WHEN (NEW.rider_cf IS NOT NULL)
+EXECUTE PROCEDURE add_rider_in_order();
+
+--
+
+CREATE OR REPLACE FUNCTION update_deliveries_number_of_a_order() RETURNS TRIGGER AS $update_deliveries_number_of_a_order$
+BEGIN
+	
+	IF new.status = 'Consegnato' OR new.status = 'Errore'
+	THEN
+	
+		UPDATE rider
+		SET deliveries_number=deliveries_number-1
+		WHERE cf = new.rider_cf;
+		
+	END IF;
+	
+	RETURN NEW;
+	
+END;
+$update_deliveries_number_of_a_order$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_deliveries_number_of_a_order
+AFTER UPDATE of status ON customerorder
+FOR EACH ROW EXECUTE PROCEDURE update_deliveries_number_of_a_order();
