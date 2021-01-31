@@ -1,13 +1,15 @@
-CREATE SEQUENCE shop_sequence;
-CREATE SEQUENCE meal_sequence;
-CREATE SEQUENCE customerorder_sequence MAXVALUE 99999999999;
+CREATE SEQUENCE shop_sequence MAXVALUE 999 NO CYCLE;
+CREATE SEQUENCE customer_sequence MAXVALUE 99999999 NO CYCLE;
+CREATE SEQUENCE meal_sequence MAXVALUE 9999 NO CYCLE;
+CREATE SEQUENCE customerorder_sequence MAXVALUE 99999999999 NO CYCLE;
 CREATE SEQUENCE letter START WITH 65 MINVALUE 65 MAXVALUE 90;
 
 -- Creazione tabella "Customer"
 
 CREATE TABLE customer (
 
-	cf CHAR(16) PRIMARY KEY,
+	id CHAR(8) PRIMARY KEY DEFAULT to_char(nextval('customer_sequence'),'00000000FM'),
+	cf CHAR(16) NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	surname VARCHAR(50) NOT NULL,
 	address VARCHAR(255) NOT NULL,
@@ -54,7 +56,6 @@ CREATE TABLE rider (
 	
 	shop_id CHAR(3),
 	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE
-	--on delete set null
 );
 
 -- Creazione tabella "Meal"
@@ -83,11 +84,11 @@ CREATE TABLE customerorder (
 	
 	rider_cf CHAR(16),
 	shop_id CHAR(3),
-	customer_cf CHAR(16),
+	customer_id CHAR(8),
 	
 	FOREIGN KEY(rider_cf) REFERENCES Rider(cf),
 	FOREIGN KEY(shop_id) REFERENCES Shop(id),
-	FOREIGN KEY(customer_cf) REFERENCES Customer(cf)
+	FOREIGN KEY(customer_id) REFERENCES Customer(id)
 	
 );
 
