@@ -119,7 +119,7 @@ END LOOP;
 END;
 $$;
 
-
+--Restituisce gli allergeni di un alimento
 CREATE OR REPLACE FUNCTION getAllergensofameal(meal varchar) RETURNS VARCHAR  language plpgsql AS $$
 DECLARE
 my_curs cursor FOR SELECT allergen_name FROM MealComposition WHERE meal_id=meal;
@@ -133,7 +133,7 @@ return substr(allergens,1,length(allergens)-2);
 END; 
 $$
 
---
+--Trigger per la getione dell'update degli ordini
 CREATE OR REPLACE FUNCTION add_rider_in_order() RETURNS TRIGGER AS $add_rider_in_order$
 BEGIN
 	
@@ -159,8 +159,8 @@ FOR EACH ROW
 WHEN (NEW.rider_cf IS NOT NULL)
 EXECUTE PROCEDURE add_rider_in_order();
 
---
 
+--Altro trigger per la getione dell'update degli ordini
 CREATE OR REPLACE FUNCTION update_deliveries_number_of_a_order() RETURNS TRIGGER AS $update_deliveries_number_of_a_order$
 BEGIN
 	
