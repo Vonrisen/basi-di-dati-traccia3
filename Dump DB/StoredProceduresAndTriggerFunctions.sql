@@ -38,12 +38,13 @@ LANGUAGE PLPGSQL;
 
 
 --Update Shop
-CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, address varchar, working_hours varchar, closing_days varchar, password varchar, oldEmail varchar, newEmail varchar, phone varchar)
+DROP PROCEDURE updateShop;
+CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, addr varchar, hours varchar, days varchar, passw varchar,newEmail varchar, phone varchar, oldEmail varchar)
 AS $$
 BEGIN
-IF working_hours=''THEN working_hours=DEFAULT; END IF;
-IF closing_days=''THEN closing_days=null; END IF;
-UPDATE Shop SET shop_name=shop_name, working_hours=working_hours, closing_days=closing_days, password=password, email=newEmail, home_phone=phone
+IF hours=''THEN hours=DEFAULT; END IF;
+IF days=''THEN days=null; END IF;
+UPDATE Shop SET name=shop_name, working_hours=hours, closing_days=closing_days, password=passw, email=newEmail, home_phone=phone, address=addr
 WHERE email=oldEmail;
 END;
 $$
