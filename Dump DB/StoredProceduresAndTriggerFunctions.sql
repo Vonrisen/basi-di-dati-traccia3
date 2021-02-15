@@ -1,15 +1,20 @@
   --Creazione ordine
 --meal_list_name e' la lista dei nomi dei cibi ordinati dall' utente  / quantity_list e' la lista delle quantita' dei rispettivi cibi
-CREATE OR REPLACE PROCEDURE createOrder(address varchar, payment varchar, note varchar, shop_id varchar, customer_id varchar, meal_list_name varchar, quantity_list varchar) 
+DROP PROCEDURE createORDER;
+CREATE OR REPLACE PROCEDURE createOrder(addr varchar, paymnt varchar, notes varchar, shop_email varchar, customer_email varchar, meal_list_name varchar, quantity_list varchar) 
 LANGUAGE PLPGSQL AS $$
 DECLARE
 meal_name Meal.name%TYPE;
 quant varchar;
 meal_counter int default 1;
 id_meal Meal.id%TYPE;
+id_shop Shop.id%TYPE;
+id_customer Customer.id%TYPE;
 BEGIN
-IF note='' THEN note=null; END IF;
-INSERT INTO CustomerOrder VALUES (DEFAULT, DEFAULT, null, address, DEFAULT, payment, note, null, shop_id, customer_id);
+IF notes='' THEN notes=null; END IF;
+SELECT id INTO id_shop FROM Shop WHERE email=shop_email;
+SELECT id INTO id_customer FROM Customer WHERE email=customer_email_email;
+INSERT INTO CustomerOrder VALUES (DEFAULT, DEFAULT, null, addr, DEFAULT, payment, notes, null, id_shop, id_customer);
 LOOP
  meal_name=split_part(meal_list_name, ', ', meal_counter);
  quant=split_part(quantity_list, ', ', meal_counter);
