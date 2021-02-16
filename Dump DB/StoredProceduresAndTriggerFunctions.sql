@@ -1,12 +1,16 @@
   
 --RICERCA COMPLESSA CUSTOMER
 DROP FUNCTION effettuaRicercaComplessaCustomer;
-CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, meal_name varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
+CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
 DECLARE 
-command text='SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE name like ''%'||$2||'%'' AND category ='||quote_literal($1)||' AND price >= '||$3||'AND price <= '||$4||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($6)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
+command text;
 i integer DEFAULT 1;
 BEGIN 
-IF allergen_list IS NULL THEN command = command|| quote_literal(' ')||')';
+IF $1='Visualizza tutti i pasti' THEN command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
+ELSE
+command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE category ='||quote_literal($1)||' AND price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
+END IF;
+IF allergen_list IS NULL THEN command = command|| quote_literal(' ')||')'; 
 END IF;
 LOOP
 EXIT WHEN allergen_list='' OR allergen_list IS NULL;
@@ -21,6 +25,7 @@ END LOOP;
 RETURN QUERY EXECUTE command;
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 --Creazione ordine
