@@ -123,7 +123,6 @@ END;
 $$
 
 --
-CREATE OR REPLACE FUNCTION associateRiderToOrder() RETURNS TRIGGER AS $associate_rider_to_order$
 BEGIN
 	
 		if (SELECT deliveries_number FROM rider WHERE cf=new.rider_cf) < 3
@@ -133,12 +132,13 @@ BEGIN
 			WHERE cf=new.rider_cf;
 			
 			new.status='In consegna';
+		else
+		RAISE EXCEPTION 'Rider cannot be associated to more than 3 activities!';
 		END IF;
-	
 	return new;
 
 END;
-$associate_rider_to_order$ LANGUAGE plpgsql;
+
 
 CREATE TRIGGER associate_rider_to_order
 BEFORE UPDATE of rider_cf ON customerorder
@@ -151,19 +151,18 @@ EXECUTE PROCEDURE add_rider_in_order();
 CREATE OR REPLACE FUNCTION updateDeliveriesNumberOfARider() RETURNS TRIGGER AS $update_deliveries_number_of_a_rider$
 BEGIN
 	
-	IF new.status = 'Consegnato' OR new.status = 'Errore'
-	THEN
-	
+	IF (SELECT deliveries_number FROM Rider WHERE cf = new.rider_cf )>0THEN
 		UPDATE rider
 		SET deliveries_number=deliveries_number-1
 		WHERE cf = new.rider_cf;
-		
-	END IF;
-	
+	ELSE
+	    RAISE EXCEPTION 'Rider with cf: % has no pending deliveries',new.rider_cf;
+		END IF;
 	RETURN NEW;
 	
 END;
 $update_deliveries_number_of_a_rider$ LANGUAGE plpgsql;
+
 
 CREATE TRIGGER update_deliveries_number_of_a_rider
 AFTER UPDATE of status ON customerorder
