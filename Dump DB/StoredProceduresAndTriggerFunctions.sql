@@ -1,4 +1,3 @@
-  
 --RICERCA COMPLESSA CUSTOMER
 DROP FUNCTION effettuaRicercaComplessaCustomer;
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
@@ -10,7 +9,7 @@ IF $1='Visualizza tutti i pasti' THEN command = 'SELECT DISTINCT name, category,
 ELSE
 command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE category ='||quote_literal($1)||' AND price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
 END IF;
-IF allergen_list IS NULL THEN command = command|| quote_literal(' ')||')'; 
+IF allergen_list IS NULL OR allergen_list='' THEN command = command|| quote_literal(' ')||')'; 
 END IF;
 LOOP
 EXIT WHEN allergen_list='' OR allergen_list IS NULL;
