@@ -121,8 +121,8 @@ return substr(allergens,1,length(allergens)-2);
 END; 
 $$
 
---
-BEGIN
+-- trigger add_rider_in_order
+BEGIN 
 	
 		if (SELECT deliveries_number FROM rider WHERE cf=new.rider_cf) < 3
 		THEN
