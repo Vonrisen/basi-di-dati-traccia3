@@ -33,7 +33,7 @@ CREATE TABLE customer (
 	closing_days VARCHAR(62) DEFAULT '',
 	email VARCHAR(320) NOT NULL UNIQUE,
 	password VARCHAR(32) NOT NULL,
-    home_phone CHAR(10) NOT NULL UNIQUE
+    home_phone CHAR(11) NOT NULL UNIQUE
 );
 
 -- Creazione tabella "Rider"
