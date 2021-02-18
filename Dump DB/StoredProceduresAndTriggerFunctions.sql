@@ -1,5 +1,4 @@
 --RICERCA COMPLESSA CUSTOMER
-DROP FUNCTION effettuaRicercaComplessaCustomer;
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
 DECLARE 
 command text;
@@ -25,11 +24,8 @@ RETURN QUERY EXECUTE command;
 END;
 $$ LANGUAGE plpgsql;
 
-
-
 --Creazione ordine
 --meal_list_name e' la lista dei nomi dei cibi ordinati dall' utente  / quantity_list e' la lista delle quantita' dei rispettivi cibi
-DROP PROCEDURE createORDER;
 CREATE OR REPLACE PROCEDURE createOrder(addr varchar, paymnt varchar, notes varchar, shop_email varchar, customer_email varchar, meal_list_name varchar, quantity_list varchar) 
 LANGUAGE PLPGSQL AS $$
 DECLARE
@@ -56,8 +52,7 @@ LOOP
  END IF;
 END LOOP;
 END;
-$$
-
+$$;
 
 --Aggiornamento rider
 CREATE OR REPLACE PROCEDURE updateRider(cod_f varchar, residence varchar, cellular varchar, vehic varchar, workingtime varchar)
@@ -69,10 +64,7 @@ END;
 $$
 LANGUAGE PLPGSQL;
 
-
-
 --Update Shop
-DROP PROCEDURE updateShop;
 CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, addr varchar, hours varchar, days varchar, passw varchar,newEmail varchar, phone varchar, oldEmail varchar)
 AS $$
 BEGIN
@@ -83,9 +75,6 @@ WHERE email=oldEmail;
 END;
 $$
 LANGUAGE PLPGSQL;
-
-
-
 
 --Dato un alimento e una lista di allergeni, aggiunge questi ultimi all' alimento
 CREATE OR REPLACE PROCEDURE addAllergens(meal_name varchar, allergens varchar) LANGUAGE plpgsql AS $$
@@ -107,7 +96,6 @@ END LOOP;
 END;
 $$;
 
-
 CREATE OR REPLACE FUNCTION getAllergensofameal(meal varchar) RETURNS VARCHAR  language plpgsql AS $$
 DECLARE
 my_curs cursor FOR SELECT allergen_name FROM MealComposition WHERE meal_id=meal;
@@ -119,12 +107,13 @@ allergens = i.allergen_name||', '||allergens;
 END LOOP;
 return substr(allergens,1,length(allergens)-2);
 END; 
-$$
+$$;
 
 -- trigger add_rider_in_order
+CREATE OR REPLACE FUNCTION add_rider_in_order() RETURNS TRIGGER AS $associate_rider_to_order$
 BEGIN 
 	
-		if (SELECT deliveries_number FROM rider WHERE cf=new.rider_cf) < 3
+		IF (SELECT deliveries_number FROM rider WHERE cf=new.rider_cf) < 3
 		THEN
 			UPDATE Rider
 			SET deliveries_number=deliveries_number+1
@@ -137,15 +126,13 @@ BEGIN
 	return new;
 
 END;
-
+$associate_rider_to_order$ LANGUAGE plpgsql;
 
 CREATE TRIGGER associate_rider_to_order
 BEFORE UPDATE of rider_cf ON customerorder
 FOR EACH ROW
 WHEN (NEW.rider_cf IS NOT NULL)
 EXECUTE PROCEDURE add_rider_in_order();
-
-
 
 CREATE OR REPLACE FUNCTION updateDeliveriesNumberOfARider() RETURNS TRIGGER AS $update_deliveries_number_of_a_rider$
 BEGIN
@@ -165,4 +152,4 @@ $update_deliveries_number_of_a_rider$ LANGUAGE plpgsql;
 
 CREATE TRIGGER update_deliveries_number_of_a_rider
 AFTER UPDATE of status ON customerorder
-FOR EACH ROW EXECUTE PROCEDURE update_deliveries_number_of_a_order();
+FOR EACH ROW EXECUTE PROCEDURE updateDeliveriesNumberOfARider();

@@ -2,6 +2,7 @@ CREATE SEQUENCE shop_sequence;
 CREATE SEQUENCE meal_sequence;
 CREATE SEQUENCE customerorder_sequence MAXVALUE 99999999999;
 CREATE SEQUENCE letter START WITH 65 MINVALUE 65 MAXVALUE 90;
+CREATE SEQUENCE customer_sequence;
 
 -- Creazione tabella "Customer"
 
@@ -32,7 +33,7 @@ CREATE TABLE customer (
 	closing_days VARCHAR(62) DEFAULT '',
 	email VARCHAR(320) NOT NULL UNIQUE,
 	password VARCHAR(32) NOT NULL,
-        cellphone CHAR(10) NOT NULL UNIQUE
+    home_phone CHAR(10) NOT NULL UNIQUE
 );
 
 -- Creazione tabella "Rider"

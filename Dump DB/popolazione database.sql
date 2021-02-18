@@ -76,11 +76,11 @@ INSERT INTO meal VALUES (DEFAULT, 'Bibita alcolica', 'Spritz', 5.00, 'Aperol, so
 
 
 	--INSERIMENTO IN SHOP
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli, 20, 80030, Napoli, NA', null, null, 'napoli@food.overflow.it', 'Napoli123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Napoli', 'Via Napoli, 20, 80030, Napoli, NA', null, null, 'napoli@foodoverflow.it', 'Napoli123', '081-1234556');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta, 20, 80030, Caserta, CE', '08:00-00:00', null, 'caserta@food.overflow.it', 'Caserta123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Caserta', 'Via Caserta, 20, 80030, Caserta, CE', '08:00-00:00', null, 'caserta@foodoverflow.it', 'Caserta123','081-1235454');
 
-INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno, 20, 80030, Salerno, SA',null, 'Lunedi', 'salerno@food.overflow.it', 'Salerno123');
+INSERT INTO shop VALUES (DEFAULT, 'Food Overflow Salerno', 'Via Salerno, 20, 80030, Salerno, SA',null, 'Lunedi', 'salerno@foodoverflow.it', 'Salerno123','081-1234555');
 
 
 
@@ -112,20 +112,7 @@ INSERT INTO Rider VALUES  ('NPLCMN01P70G964X','Carmen','Napolitano','Via Stens, 
 
 
 	--INSERIMENTO ALLERGENI
-INSERT INTO allergen VALUES ('Cereali e derivati');
-INSERT INTO allergen VALUES ('Crostacei');
-INSERT INTO allergen VALUES ('Uova');
-INSERT INTO allergen VALUES ('Pesce');
-INSERT INTO allergen VALUES ('Arachidi');
-INSERT INTO allergen VALUES ('Soia');
-INSERT INTO allergen VALUES ('Latte e derivati');
-INSERT INTO allergen VALUES ('Frutta a guscio');
-INSERT INTO allergen VALUES ('Sedano');
-INSERT INTO allergen VALUES ('Senape');
-INSERT INTO allergen VALUES ('Sesamo');
-INSERT INTO allergen VALUES ('An. solforosa e solfiti');
-INSERT INTO allergen VALUES ('Lupini');
-INSERT INTO allergen VALUES ('Molluschi');
+
 
 
 
