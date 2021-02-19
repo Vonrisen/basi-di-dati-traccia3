@@ -24,6 +24,25 @@ RETURN QUERY EXECUTE command;
 END;
 $$ LANGUAGE plpgsql;
 
+-- effettuaRicercaComplessaAdmin 
+DROP FUNCTION effettuaRicercaComplessaAdmin;
+--Ricerca di ordini che hanno almeno un pasto nella categoria selezionata, con totale dell ordine compreso nella fascia di prezzo selezionata, il cui rider ha il veicolo selezionato e la cui provincia di consegna e' quella selezionata
+CREATE OR REPLACE FUNCTION effettuaRicercaComplessaAdmin(cat varchar, min_price FLOAT, max_price FLOAT, vehc varchar, province varchar) RETURNS SETOF RECORD AS $$
+DECLARE
+ok1 int default 0;
+ok2 int default 0;
+ok3 int default 0;
+BEGIN 
+IF cat = 'Seleziona categoria' THEN ok1=1; END IF;
+IF vehc = 'Seleziona categoria' THEN ok2=1; END IF;
+IF province ='Seleziona provincia di consegna' THEN ok3=1; END IF;
+RETURN QUERY SELECT CO.id, CO.date, CO.delivery_time, CO.address, CO.status, CO.payment, CO.note, CO.rider_cf, CO.shop_id, CO.customer_id FROM CustomerOrder CO JOIN OrderComposition OC ON CO.id = OC.order_id WHERE OC.meal_id IN (SELECT id FROM Meal WHERE category=cat OR 1=ok1) AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = vehc OR 1=ok2)AND CO.customer_id IN (SELECT id FROM Customer WHERE SPLIT_PART(address,', ',5)=province OR 1=ok3);
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+
 --Creazione ordine
 --meal_list_name e' la lista dei nomi dei cibi ordinati dall' utente  / quantity_list e' la lista delle quantita' dei rispettivi cibi
 CREATE OR REPLACE PROCEDURE createOrder(addr varchar, payment varchar, notes varchar, shop_email varchar, customer_email varchar, meal_list_name varchar, quantity_list varchar) 
