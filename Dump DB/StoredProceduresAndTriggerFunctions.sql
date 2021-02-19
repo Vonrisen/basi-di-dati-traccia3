@@ -110,7 +110,7 @@ END;
 $$;
 
 -- trigger add_rider_in_order
-CREATE OR REPLACE FUNCTION add_rider_in_order() RETURNS TRIGGER AS $associate_rider_to_order$
+CREATE OR REPLACE FUNCTION associate_rider_to_order() RETURNS TRIGGER AS $associate_rider_to_order$
 BEGIN 
 	
 		IF (SELECT deliveries_number FROM rider WHERE cf=new.rider_cf) < 3
@@ -131,8 +131,8 @@ $associate_rider_to_order$ LANGUAGE plpgsql;
 CREATE TRIGGER associate_rider_to_order
 BEFORE UPDATE of rider_cf ON customerorder
 FOR EACH ROW
-WHEN (NEW.rider_cf IS NOT NULL)
-EXECUTE PROCEDURE add_rider_in_order();
+WHEN (NEW.rider_cf IS NULL)
+EXECUTE PROCEDURE associate_rider_to_order();
 
 CREATE OR REPLACE FUNCTION updateDeliveriesNumberOfARider() RETURNS TRIGGER AS $update_deliveries_number_of_a_rider$
 BEGIN
