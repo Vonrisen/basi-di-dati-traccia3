@@ -36,7 +36,7 @@ BEGIN
 IF cat = 'Seleziona categoria' THEN ok1=1; END IF;
 IF vehc = 'Seleziona veicolo del rider' THEN ok2=1; END IF;
 IF province ='Seleziona provincia di consegna' THEN ok3=1; END IF;
-RETURN QUERY SELECT CO.id, CO.date, CO.delivery_time, CO.address, CO.status, CO.payment, CO.note, CO.rider_cf, CO.shop_id, CO.customer_id FROM CustomerOrder CO JOIN OrderComposition OC ON CO.id = OC.order_id WHERE OC.meal_id IN (SELECT id FROM Meal WHERE category=cat OR 1=ok1) AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = vehc OR 1=ok2)AND CO.customer_id IN (SELECT id FROM Customer WHERE SPLIT_PART(address,', ',5)=province OR 1=ok3);
+RETURN QUERY SELECT CO.id, CO.date, CO.delivery_time, CO.address, CO.status, CO.payment, CO.note, CO.rider_cf, CO.shop_email, CO.customer_email FROM CustomerOrder CO JOIN OrderComposition OC ON CO.id = OC.order_id  JOIN Customer AS C ON C.id = CO.customer_id JOIN Shop AS S ON S.id = OC.shop_id WHERE OC.meal_id IN (SELECT id FROM Meal WHERE category=cat OR 1=ok1) AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = vehc OR 1=ok2)AND (SPLIT_PART(C.address,', ',5)=province OR 1=ok3);
 END;
 $$ LANGUAGE plpgsql;
 
