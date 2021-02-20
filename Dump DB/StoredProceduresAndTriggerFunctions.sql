@@ -149,7 +149,7 @@ END;
 $link_rider_to_order$ LANGUAGE plpgsql;
 
 CREATE TRIGGER link_rider_to_order
-BEFORE UPDATE of rider_cf ON customerorder
+AFTER UPDATE of rider_cf ON customerorder
 FOR EACH ROW
 WHEN (OLD.rider_cf IS null)
 EXECUTE PROCEDURE linkRiderToOrder();
