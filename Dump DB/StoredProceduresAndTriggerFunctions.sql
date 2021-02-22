@@ -25,7 +25,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- effettuaRicercaComplessaAdmin 
-DROP FUNCTION effettuaRicercaComplessaAdmin;
 --Ricerca di ordini che hanno almeno un pasto nella categoria selezionata, con totale dell ordine compreso nella fascia di prezzo selezionata, il cui rider ha il veicolo selezionato e la cui provincia di consegna e' quella selezionata
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaAdmin(cat varchar, min_price FLOAT, max_price FLOAT, vehc varchar, prov varchar) RETURNS SETOF RECORD AS $$
 DECLARE
