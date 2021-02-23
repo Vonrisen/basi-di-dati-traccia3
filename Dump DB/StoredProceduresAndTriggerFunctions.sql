@@ -8,12 +8,12 @@ IF $1='Visualizza tutti i pasti' THEN command = 'SELECT DISTINCT name, category,
 ELSE
 command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE category ='||quote_literal($1)||' AND price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
 END IF;
-IF allergen_list IS NULL OR allergen_list='' THEN command = command|| quote_literal(' ')||')'; 
+IF allergen_list IS NULL OR allergen_list='' THEN command = command|| quote_literal(' ')||') ORDER BY price'; 
 END IF;
 LOOP
 EXIT WHEN allergen_list='' OR allergen_list IS NULL;
 IF SPLIT_PART(allergen_list,', ',i)='' THEN
- command = command ||quote_literal(allergen_list)||')';
+ command = command ||quote_literal(allergen_list)||') ORDER BY price';
  allergen_list='';
 ELSE
  command = command || quote_literal(SPLIT_PART(allergen_list,', ',i))|| ' OR allergen_name=';
@@ -42,7 +42,7 @@ FROM CustomerOrder AS CO JOIN Shop AS S ON S.id = CO.shop_id JOIN Customer AS C 
 WHERE CO.id IN 
 (SELECT CO.id
 FROM CustomerOrder CO JOIN OrderComposition OC ON CO.id = OC.order_id JOIN Customer AS C ON C.id = CO.customer_id JOIN Meal AS M ON M.id = OC.meal_id 
-WHERE (M.category = cat OR 1=ok1) AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = vehc OR 1=ok2)AND (SPLIT_PART(C.address,', ',5)=prov OR 1=ok3) GROUP BY CO.id HAVING SUM(M.price)>=min_price AND SUM(M.price)<=max_price);
+WHERE (M.category = cat OR 1=ok1) AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = vehc OR 1=ok2)AND (SPLIT_PART(C.address,', ',5)=prov OR 1=ok3) GROUP BY CO.id HAVING SUM(M.price)>=min_price AND SUM(M.price)<=max_price) ORDER BY CO.date;
 END;
 $$ LANGUAGE plpgsql;
 
