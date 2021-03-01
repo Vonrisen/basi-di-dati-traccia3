@@ -1,4 +1,5 @@
 --RICERCA COMPLESSA CUSTOMER
+
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
 DECLARE 
 command text;
@@ -79,16 +80,6 @@ END LOOP;
 END;
 $$;
 
---Aggiornamento rider
-CREATE OR REPLACE PROCEDURE updateRider(cod_f varchar, residence varchar, cellular varchar, vehic varchar, workingtime varchar)
-AS $$
-BEGIN
-IF workingtime=''THEN workingtime=null; END IF;
-UPDATE Rider SET address=residence, cellphone=cellular, vehicle=vehic, working_time=workingtime WHERE cf=cod_f;
-END;
-$$
-LANGUAGE PLPGSQL;
-
 --Update Shop
 CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, addr varchar, hours varchar, days varchar, passw varchar,newEmail varchar, phone varchar, oldEmail varchar)
 AS $$
@@ -121,7 +112,7 @@ END LOOP;
 END;
 $$;
 
-CREATE OR REPLACE FUNCTION getAllergensofameal(meal varchar) RETURNS VARCHAR  language plpgsql AS $$
+CREATE OR REPLACE FUNCTION getAllergensOfAMeal(meal varchar) RETURNS VARCHAR  language plpgsql AS $$
 DECLARE
 my_curs cursor FOR SELECT allergen_name FROM MealComposition WHERE meal_id=meal;
 allergens Allergen.name%TYPE DEFAULT '';

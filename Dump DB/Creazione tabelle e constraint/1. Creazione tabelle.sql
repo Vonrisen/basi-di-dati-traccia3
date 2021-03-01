@@ -17,7 +17,7 @@ CREATE TABLE customer (
 	birth_date DATE NOT NULL,
 	birth_place VARCHAR(64) NOT NULL,
 	gender CHAR(1) NOT NULL,
-	cellphone CHAR(10) NOT NULL UNIQUE, -- Da vedere l'unique
+	cellphone CHAR(10) NOT NULL UNIQUE,
 	email VARCHAR(320) NOT NULL UNIQUE,
 	password VARCHAR(32) NOT NULL
 	
@@ -49,14 +49,14 @@ CREATE TABLE rider (
 	birth_date DATE NOT NULL,
 	birth_place VARCHAR(64) NOT NULL,
 	gender CHAR(1) NOT NULL,
-	cellphone CHAR(10) NOT NULL UNIQUE, -- Da vedere l'unique
+	cellphone CHAR(10) NOT NULL UNIQUE,
 	
 	vehicle VARCHAR(18) NOT NULL, 
 	working_hours CHAR(11) NOT NULL DEFAULT '00:00-24:00', 
 	deliveries_number SMALLINT NOT NULL DEFAULT 0,
 	
 	shop_id CHAR(3),
-	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE -- Da rivedere i constraint ?on delete set null?
+	FOREIGN KEY (shop_id) REFERENCES shop(id) ON DELETE CASCADE
 
 );
 
@@ -88,9 +88,9 @@ CREATE TABLE customerorder (
 	shop_id CHAR(3),
 	customer_id CHAR(8),
 	
-	FOREIGN KEY(rider_cf) REFERENCES Rider(cf), -- Da rivedere i constraint
-	FOREIGN KEY(shop_id) REFERENCES Shop(id), -- Da rivedere i constraint
-	FOREIGN KEY(customer_id) REFERENCES Customer(id) -- Da rivedere i constraint
+	FOREIGN KEY(rider_cf) REFERENCES Rider(cf) ON DELETE SET NULL ON UPDATE CASCADE,
+	FOREIGN KEY(shop_id) REFERENCES Shop(id) ON DELETE SET NULL, 
+	FOREIGN KEY(customer_id) REFERENCES Customer(id) ON DELETE SET NULL
 	
 );
 
@@ -111,8 +111,8 @@ CREATE TABLE ordercomposition (
 	quantity SMALLINT NOT NULL,
 
 	PRIMARY KEY(order_id, meal_id),
-	FOREIGN KEY (order_id) REFERENCES CustomerOrder(id) ON DELETE CASCADE, -- Da rivedere i constraint
-	FOREIGN KEY (meal_id) REFERENCES Meal(id) -- Da rivedere i constraint
+	FOREIGN KEY (order_id) REFERENCES CustomerOrder(id) ON DELETE CASCADE,
+	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE SET NULL
 	
 );
 
@@ -124,8 +124,8 @@ CREATE TABLE mealcomposition (
 	allergen_name VARCHAR(32), 
 
 	PRIMARY KEY(meal_id,allergen_name), 
-	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE, -- Da rivedere i constraint
-	FOREIGN KEY (allergen_name) REFERENCES Allergen(name) ON DELETE CASCADE -- Da rivedere i constraint
+	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE,
+	FOREIGN KEY (allergen_name) REFERENCES Allergen(name) ON DELETE CASCADE ON UPDATE CASCADE
 	
 );
 
@@ -136,7 +136,7 @@ CREATE TABLE Supply (
 	shop_id char(3),
 	meal_id char(4),
 	PRIMARY KEY (shop_id,meal_id),
-	FOREIGN KEY (shop_id) REFERENCES Shop(id) ON DELETE CASCADE, -- Da rivedere i constraint
-	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE -- Da rivedere i constraint
+	FOREIGN KEY (shop_id) REFERENCES Shop(id) ON DELETE CASCADE,
+	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE
 
 );
