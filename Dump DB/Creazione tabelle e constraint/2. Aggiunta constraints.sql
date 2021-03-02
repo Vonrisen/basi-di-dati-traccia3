@@ -64,15 +64,15 @@ ADD CONSTRAINT shop_home_phone_check CHECK (home_phone ~ '^(004191|010|011|0121|
 
 -- Controllo numero di consegne in corso del rider.
 ALTER TABLE Rider
-ADD CONSTRAINT rider_delieveries_number_check CHECK deliveries_number >= 0 AND deliveries_number<=3;
+ADD CONSTRAINT rider_delieveries_number_check CHECK (deliveries_number >= 0) AND (deliveries_number<=3);
 
 -- Controllo prezzo dell'alimento.
 ALTER TABLE Meal
-ADD CONSTRAINT meal_price_check CHECK price > 0;
+ADD CONSTRAINT meal_price_check CHECK (price > 0);
 
 -- Controllo quantità della composizione dell'ordine.
 ALTER TABLE OrderComposition
-ADD CONSTRAINT order_composition_quantity_check CHECK quantity > 0;
+ADD CONSTRAINT order_composition_quantity_check CHECK (quantity > 0);
 
 -- Controllo stato di consegna dell'ordine.
 ALTER TABLE CustomerOrder
