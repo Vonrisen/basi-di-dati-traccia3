@@ -1357,7 +1357,7 @@
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
 									"edgePosition": 1,
-									"text": "+Execution"
+									"text": "+Carry out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1411,17 +1411,17 @@
 										"$ref": "AAAAAAF2cMsdlf17LVs="
 									},
 									"font": "Arial;13;0",
-									"left": 744,
-									"top": 245,
+									"left": 735,
+									"top": 244,
 									"width": 69.03076171875,
 									"height": 13,
-									"alpha": -1.2329181560700566,
-									"distance": 39.21734310225516,
+									"alpha": -1.3156139520422394,
+									"distance": 47.53945729601885,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
 									"edgePosition": 2,
-									"text": "+from"
+									"text": "+carried out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1476,16 +1476,16 @@
 										"$ref": "AAAAAAF2cMsdlf18Sd8="
 									},
 									"font": "Arial;13;0",
-									"left": 701,
+									"left": 711,
 									"top": 368,
 									"width": 68.7958984375,
 									"height": 13,
-									"alpha": 0.3430238272985673,
-									"distance": 29.732137494637012,
+									"alpha": 0.2573236502042652,
+									"distance": 39.293765408777,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
-									"text": "+execute"
+									"text": "+carries out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2013,7 +2013,7 @@
 										"$ref": "AAAAAAF2cNAhbRJm47c="
 									},
 									"edgePosition": 2,
-									"text": "+prepares"
+									"text": "+makes"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2227,7 +2227,7 @@
 										"$ref": "AAAAAAF2cNAoyBMtsWU="
 									},
 									"edgePosition": 1,
-									"text": "+Preparation"
+									"text": "+Make"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2355,7 +2355,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAF2cNAoyBMtsWU="
 									},
-									"text": "+prepared by"
+									"text": "+made by"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2505,7 +2505,7 @@
 										"$ref": "AAAAAAF2cNBsQhZkz4w="
 									},
 									"edgePosition": 1,
-									"text": "+Contract"
+									"text": "+Hire"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3160,17 +3160,17 @@
 										"$ref": "AAAAAAF2cQnr+Wp7Kko="
 									},
 									"font": "Arial;13;0",
-									"left": 960,
-									"top": 694,
-									"width": 47.328125,
+									"left": 944,
+									"top": 720,
+									"width": 79.84716796875,
 									"height": 13,
-									"alpha": -4.079640578908656,
-									"distance": 18.601075237738275,
+									"alpha": -2.403777140980415,
+									"distance": 14.866068747318506,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cQnr+Wp/B0I="
 									},
 									"edgePosition": 1,
-									"text": "+Allergy"
+									"text": "+Composition"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -4124,7 +4124,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAF3DNX85ZnBNvs="
 									},
-									"text": "+disposes"
+									"text": "+sells"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -4291,14 +4291,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
-							"name": "Execution",
+							"name": "Carry out",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cMsdlf17LVs=",
 								"_parent": {
 									"$ref": "AAAAAAF2cMsdlf16JsI="
 								},
-								"name": "from",
+								"name": "carried out",
 								"reference": {
 									"$ref": "AAAAAAF2cMS6D/Utw4k="
 								},
@@ -4310,7 +4310,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cMsdlf16JsI="
 								},
-								"name": "execute",
+								"name": "carries out",
 								"reference": {
 									"$ref": "AAAAAAF2cMsCSP0mgvA="
 								},
@@ -4615,7 +4615,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMdG8/bxjOY="
 							},
-							"name": "Allergy",
+							"name": "Composition",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cQnr+Wp8884=",
@@ -4838,7 +4838,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "Contract",
+							"name": "Hire",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cNBsQhZh6xQ=",
@@ -4918,7 +4918,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF3DNX85Jm9QHg="
 								},
-								"name": "disposes",
+								"name": "sells",
 								"reference": {
 									"$ref": "AAAAAAF2cMdG8/bxjOY="
 								},
@@ -5023,7 +5023,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cNAhbRJiwTM="
 								},
-								"name": "prepares",
+								"name": "makes",
 								"reference": {
 									"$ref": "AAAAAAF2cMsCSP0mgvA="
 								},
@@ -5048,7 +5048,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM8qfg2nh1k="
 							},
-							"name": "Preparation",
+							"name": "Make",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cNAoyBMqk2s=",
@@ -5067,7 +5067,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cNAoyBMpp+s="
 								},
-								"name": "prepared by",
+								"name": "made by",
 								"reference": {
 									"$ref": "AAAAAAF2cM5Jawhcvcc="
 								},
