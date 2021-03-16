@@ -1102,7 +1102,7 @@
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
 									"edgePosition": 1,
-									"text": "+Execution"
+									"text": "+Carry out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1156,17 +1156,17 @@
 										"$ref": "AAAAAAF2cMsdlf17LVs="
 									},
 									"font": "Arial;13;0",
-									"left": 840,
-									"top": 333,
+									"left": 823,
+									"top": 332,
 									"width": 69.03076171875,
 									"height": 13,
-									"alpha": -1.2329181560700566,
-									"distance": 39.21734310225516,
+									"alpha": -1.352127414697962,
+									"distance": 55.31726674375732,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
 									"edgePosition": 2,
-									"text": "+from"
+									"text": "+carried out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1221,16 +1221,16 @@
 										"$ref": "AAAAAAF2cMsdlf18Sd8="
 									},
 									"font": "Arial;13;0",
-									"left": 783,
-									"top": 448,
+									"left": 799,
+									"top": 440,
 									"width": 68.7958984375,
 									"height": 13,
-									"alpha": 0.3430238272985673,
-									"distance": 29.732137494637012,
+									"alpha": 0.38831863852646376,
+									"distance": 47.53945729601885,
 									"hostEdge": {
 										"$ref": "AAAAAAF2cMsdlv1+wpM="
 									},
-									"text": "+execute"
+									"text": "+carries out"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1758,7 +1758,7 @@
 										"$ref": "AAAAAAF2cNAhbRJm47c="
 									},
 									"edgePosition": 2,
-									"text": "+prepares"
+									"text": "+makes"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1972,7 +1972,7 @@
 										"$ref": "AAAAAAF2cNAoyBMtsWU="
 									},
 									"edgePosition": 1,
-									"text": "+Preparation"
+									"text": "+Make"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2100,7 +2100,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAF2cNAoyBMtsWU="
 									},
-									"text": "+prepared by"
+									"text": "+made by"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2250,7 +2250,7 @@
 										"$ref": "AAAAAAF2cNBsQhZkz4w="
 									},
 									"edgePosition": 1,
-									"text": "+Contract"
+									"text": "+Hire"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3656,7 +3656,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAF2pBVqzbfu3XQ="
 									},
-									"text": "+disposes"
+									"text": "+sells"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3823,14 +3823,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cMS6D/Utw4k="
 							},
-							"name": "Execution",
+							"name": "Carry out",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cMsdlf17LVs=",
 								"_parent": {
 									"$ref": "AAAAAAF2cMsdlf16JsI="
 								},
-								"name": "from",
+								"name": "carried out",
 								"reference": {
 									"$ref": "AAAAAAF2cMS6D/Utw4k="
 								},
@@ -3842,7 +3842,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cMsdlf16JsI="
 								},
-								"name": "execute",
+								"name": "carries out",
 								"reference": {
 									"$ref": "AAAAAAF2cMsCSP0mgvA="
 								},
@@ -4199,7 +4199,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM5Jawhcvcc="
 							},
-							"name": "Contract",
+							"name": "Hire",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cNBsQhZh6xQ=",
@@ -4250,7 +4250,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2pBVqzbfq28w="
 								},
-								"name": "disposes",
+								"name": "sells",
 								"reference": {
 									"$ref": "AAAAAAF2cMdG8/bxjOY="
 								},
@@ -4354,7 +4354,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cNAhbRJiwTM="
 								},
-								"name": "prepares",
+								"name": "makes",
 								"reference": {
 									"$ref": "AAAAAAF2cMsCSP0mgvA="
 								},
@@ -4379,7 +4379,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2cM8qfg2nh1k="
 							},
-							"name": "Preparation",
+							"name": "Make",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF2cNAoyBMqk2s=",
@@ -4398,7 +4398,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF2cNAoyBMpp+s="
 								},
-								"name": "prepared by",
+								"name": "made by",
 								"reference": {
 									"$ref": "AAAAAAF2cM5Jawhcvcc="
 								},
