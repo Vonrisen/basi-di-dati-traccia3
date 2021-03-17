@@ -34,11 +34,11 @@ CREATE OR REPLACE FUNCTION effettuaRicercaComplessaAdmin(cat varchar, min_price 
 DECLARE
 ok1 int default 0;
 ok2 int default 0;
-no_rider varchar(200) default ' AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = '||quote_literal(vehc)||') GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price)<='||max_price||') ORDER BY CO.date';
+no_rider varchar(200) default ' AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = '||quote_literal(vehc)||') GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price*OC.quantity)<='||max_price||') ORDER BY CO.date';
 command varchar(1000) default '';
 BEGIN 
 IF cat = 'Seleziona categoria' OR cat = '-------------------' THEN ok1=1; END IF;
-IF vehc = 'Seleziona veicolo del rider' OR vehc = '-------------------' THEN no_rider = ' GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price)<='||max_price||') ORDER BY CO.date'; END IF;
+IF vehc = 'Seleziona veicolo del rider' OR vehc = '-------------------' THEN no_rider = ' GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price*OC.quantity)<='||max_price||') ORDER BY CO.date'; END IF;
 IF prov ='Seleziona provincia di consegna' OR prov = '-------------------' THEN ok2=1; END IF;
 command = 'SELECT  CO.id, CO.date, CO.delivery_time, CO.address, CO.status, CO.payment, CO.note, CO.rider_cf, S.email, C.email
 							  			  FROM CustomerOrder AS CO JOIN Shop AS S ON S.id = CO.shop_id JOIN Customer AS C ON C.id = CO.customer_id
