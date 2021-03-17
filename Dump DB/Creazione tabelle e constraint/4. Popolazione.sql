@@ -158,4 +158,25 @@ VALUES
 	('003', '0022'),
 	('003', '0023');
 
+--Popolazione CustomerOrder
+CALL createOrder('Via Silvio Spaventa, 130, 84013, CAVA DE'' TIRRENI, SALERNO', 'Contrassegno', NULL, 'salerno@foodoverflow.it', 'arci.acci@gmail.com', 'Spaghetti e vongole, Cotoletta, Carne alla pizzaiola, Coca cola, Monoporzione red velvet', '2, 1, 1, 2, 1');
+CALL createOrder('Via Silvio Spaventa, 130, 84013, CAVA DE'' TIRRENI, SALERNO', 'Contrassegno', NULL, 'salerno@foodoverflow.it', 'arci.acci@gmail.com', 'Pizza margherita, Panino kebab, Patatine Fritte grande, Coca cola', '1, 1, 1, 2');
+CALL createOrder('Via Artica, 69, 80100, OTTAVIANO, SALERNO', 'Contrassegno', 'Campanello rotto', 'salerno@foodoverflow.it', 'scimmiartica@gmail.com', 'Gelato alla vaniglia, Gelato al cioccolato, Gelato a fragola', '1, 1, 1');
+CALL createOrder('Via Artica, 69, 80100, OTTAVIANO, SALERNO', 'Contrassegno', 'Campanello rotto', 'salerno@foodoverflow.it', 'scimmiartica@gmail.com', 'Pizza margherita, Panino kebab, Panino hamburger, Coca cola, Bottiglina d''acqua naturale, Spritz', '4, 2, 2, 3, 2, 3');
+CALL createOrder('Via Rolling Stones, 00, 84011, AMALFI, SALERNO', 'Contrassegno', 'terzo piano', 'salerno@foodoverflow.it', 'mickjagger@gmail.com', 'Spaghetti alla carbonara, Bottiglina d''acqua naturale', '1, 1');
+CALL createOrder('Via Rolling Stones, 00, 84011, AMALFI, SALERNO', 'Contrassegno', 'terzo piano', 'salerno@foodoverflow.it', 'mickjagger@gmail.com', 'Patatine Fritte grande, Spritz, Coca cola', '3, 1, 2');
+CALL createOrder('Via Trivice, 30L, 84059, CAMEROTA, SALERNO', 'Contrassegno', NULL, 'salerno@foodoverflow.it', 'vpervendetta@gmail.com', 'Pizza margherita, Coca cola', '3, 3');
+CALL createOrder('Via Trivice, 30L, 84059, CAMEROTA, SALERNO', 'Contrassegno', NULL, 'salerno@foodoverflow.it', 'vpervendetta@gmail.com', 'Costine al forno, Cotoletta, Bottiglina d''acqua naturale, Coca cola, Monoporzione red velvet', '1, 1, 1, 1, 2');
+CALL createOrder('Via Partenope, 38, 81031, AVERSA, CASERTA', 'Contrassegno', NULL, 'caserta@foodoverflow.it', 'giuliana.musc@gmail.com', 'Pennette all''arrabbiata', '1');
+CALL createOrder('Via Partenope, 38, 81031, AVERSA, CASERTA', 'Contrassegno', NULL, 'caserta@foodoverflow.it', 'giuliana.musc@gmail.com', 'Brodo di tortellini, Baccalà fritto, Bottiglina d''acqua naturale', '1, 1, 1');
+CALL createOrder('Via Stens, 54, 81043, CAPUA, CASERTA', 'Contrassegno', NULL, 'caserta@foodoverflow.it', 'napolitan@gmail.com', 'Insalata di polpo e patate, Monoporzione red velvet', '1, 1');
+CALL createOrder('Via Stens, 54, 81043, CAPUA, CASERTA', 'Contrassegno', NULL, 'caserta@foodoverflow.it', 'napolitan@gmail.com', 'Spaghetti e vongole, Salmone croccante', '2, 1');
+CALL createOrder('Via Scarpati, 11A, 80145, NAPOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'vittor@gmail.com', 'Patatine fritte piccola, Panino hamburger, Spritz', '1, 2, 2');
+CALL createOrder('Via Scarpati, 11A, 80145, NAPOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'vittor@gmail.com', 'Patatine Fritte media, Cotoletta, Coca cola, Gelato al cioccolato', '2, 2, 2, 2');
+CALL createOrder('Via del Rito, 20, 80132, POZZUOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'pasq@gmail.com', 'Cotoletta, Costine al forno, Carne alla pizzaiola, Salmone croccante, Patatine Fritte grande, Monoporzione red velvet, Coca cola, Bottiglina d''acqua naturale, Spritz', '2, 1, 1, 2, 3, 6, 2, 2, 2');
+CALL createOrder('Via del Rito, 20, 80132, POZZUOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'pasq@gmail.com', 'Panino kebab, Coca cola', '4, 4');
+CALL createOrder('Piazza del Duomo, 68 Z, 80133, CASAVATORE, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'marik.savino@gmail.com', 'Pizza margherita, Panino hamburger, Coca cola, Monoporzione red velvet', '2, 1, 3, 2');
+CALL createOrder('Piazza del Duomo, 68 Z, 80133, CASAVATORE, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'marik.savino@gmail.com', 'Pennette all''arrabbiata, Cotoletta, Carne alla pizzaiola', '2, 1, 1');
+CALL createOrder('Via Avella, 99, 80100, BACOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'n.trinchese@gmail.com', 'Baccalà fritto, Bottiglina d''acqua naturale, Monoporzione red velvet', '1, 1, 2');
+CALL createOrder('Via Sicura, 3, 80129, PORTICI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'fioccolandia@gmail.com', 'Spaghetti e vongole, Bottiglina d''acqua naturale', '1, 1');
 
