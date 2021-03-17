@@ -32,14 +32,20 @@ $$ LANGUAGE plpgsql;
 -- Ricerca di ordini che hanno almeno un pasto della categoria selezionata, con totale dell ordine compreso nella fascia di prezzo selezionata il cui rider ha il veicolo selezionato e la cui provincia di consegna è quella selezionata
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaAdmin(cat varchar, min_price FLOAT, max_price FLOAT, vehc varchar, prov varchar) RETURNS SETOF RECORD AS $$
 DECLARE
+<<<<<<< HEAD
 -- Le variabili "ok1" "ok2" permettono ad una condizione di essere sempre verificata, quando richiesto.
 ok1 int default 0; 
 ok2 int default 0; 
 no_rider varchar(200) default ' AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = '||quote_literal(vehc)||') GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price)<='||max_price||') ORDER BY CO.date';
+=======
+ok1 int default 0;
+ok2 int default 0;
+no_rider varchar(200) default ' AND CO.rider_cf IN (SELECT cf FROM Rider WHERE vehicle = '||quote_literal(vehc)||') GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price*OC.quantity)<='||max_price||') ORDER BY CO.date';
+>>>>>>> d5d89524275c98de13393f54773d0927f5a88e70
 command varchar(1000) default '';
 BEGIN 
 IF cat = 'Seleziona categoria' OR cat = '-------------------' THEN ok1=1; END IF;
-IF vehc = 'Seleziona veicolo del rider' OR vehc = '-------------------' THEN no_rider = ' GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price)<='||max_price||') ORDER BY CO.date'; END IF;
+IF vehc = 'Seleziona veicolo del rider' OR vehc = '-------------------' THEN no_rider = ' GROUP BY CO.id HAVING SUM(M.price*OC.quantity)>='||min_price||' AND SUM(M.price*OC.quantity)<='||max_price||') ORDER BY CO.date'; END IF;
 IF prov ='Seleziona provincia di consegna' OR prov = '-------------------' THEN ok2=1; END IF;
 command = 'SELECT  CO.id, CO.date, CO.delivery_time, CO.address, CO.status, CO.payment, CO.note, CO.rider_cf, S.email, C.email
 							  			  FROM CustomerOrder AS CO JOIN Shop AS S ON S.id = CO.shop_id JOIN Customer AS C ON C.id = CO.customer_id
