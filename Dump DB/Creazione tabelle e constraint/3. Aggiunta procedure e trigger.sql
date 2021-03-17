@@ -1,12 +1,15 @@
 --RICERCA COMPLESSA CUSTOMER
 
+--Permette di effettuare una ricerca filtrata di pasti combinando categoria di un pasto, fascia di prezzo; sono scartati i cibi che hanno almeno un allergia alimentare tra quelle incluse nella lista.
 CREATE OR REPLACE FUNCTION effettuaRicercaComplessaCustomer(category varchar, min_price FLOAT, max_price FLOAT, allergen_list varchar, shop_email varchar) RETURNS SETOF RECORD AS $$
 DECLARE 
 command text;
 i integer DEFAULT 1;
 BEGIN 
+--Nel caso in cui non voglio limiti sulla categoria
 IF $1='Visualizza tutti i pasti' THEN command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
 ELSE
+--Ricerca complessa completa
 command = 'SELECT DISTINCT name, category, price, ingredients, id FROM Meal WHERE category ='||quote_literal($1)||' AND price >= '||$2||'AND price <= '||$3||'AND id IN(SELECT meal_id FROM Supply WHERE shop_id=(SELECT id FROM Shop WHERE email='||quote_literal($5)||')) AND id NOT IN (SELECT meal_id FROM MealComposition WHERE allergen_name =';
 END IF;
 IF allergen_list IS NULL OR allergen_list='' THEN command = command|| quote_literal(' ')||') ORDER BY price'; 
@@ -52,6 +55,7 @@ $$ LANGUAGE plpgsql;
 
 
 --Creazione ordine
+--Permette il salvataggio di un ordine sul database. Verra' prima inserito un record in CustomerOrder successivamente per ogni pasto dell' ordine viene inserito un record in OrderComposition contenente l' id dell' ordine, id del pasto con rispettiva quantita.
 --meal_list_name e' la lista dei nomi dei cibi ordinati dall' utente  / quantity_list e' la lista delle quantita' dei rispettivi cibi
 CREATE OR REPLACE PROCEDURE createOrder(addr varchar, payment varchar, notes varchar, shop_email varchar, customer_email varchar, meal_list_name varchar, quantity_list varchar) 
 LANGUAGE PLPGSQL AS $$
@@ -82,6 +86,7 @@ END;
 $$;
 
 --Update Shop
+--Permette di aggiornare i campi di un record di uno Shop.
 CREATE OR REPLACE PROCEDURE updateShop(shop_name varchar, addr varchar, hours varchar, days varchar, passw varchar,newEmail varchar, phone varchar, oldEmail varchar)
 AS $$
 BEGIN
@@ -94,6 +99,7 @@ $$
 LANGUAGE PLPGSQL;
 
 --Dato un alimento e una lista di allergeni, aggiunge questi ultimi all' alimento
+--Permette di aggiungere ad un alimento una lista di allergeni
 CREATE OR REPLACE PROCEDURE addAllergens(meal_name varchar, allergens varchar) LANGUAGE plpgsql AS $$
 DECLARE
 allerg Allergen.name%TYPE DEFAULT '';
@@ -113,6 +119,7 @@ END LOOP;
 END;
 $$;
 
+--Restituisce gli allergeni di un pasto.
 CREATE OR REPLACE FUNCTION getAllergensOfAMeal(meal varchar) RETURNS VARCHAR  language plpgsql AS $$
 DECLARE
 my_curs cursor FOR SELECT allergen_name FROM MealComposition WHERE meal_id=meal;
@@ -128,6 +135,7 @@ $$;
 
 -- trigger add_rider_in_order
 
+--Permette di associare un rider ad una consegna. Se si prova ad associare un ordine ad un rider che ha gia' 3 consegne allora verra' lanciata un eccezione.
 CREATE OR REPLACE FUNCTION linkRiderToOrder() RETURNS TRIGGER AS $link_rider_to_order$
 BEGIN 
 	
@@ -146,6 +154,7 @@ BEGIN
 END;
 $link_rider_to_order$ LANGUAGE plpgsql;
 
+--Trigger che viene innescato non appena un rider viene associato ad una consegna.
 CREATE TRIGGER link_rider_to_order
 AFTER UPDATE of rider_cf ON customerorder
 FOR EACH ROW
@@ -153,6 +162,7 @@ WHEN (OLD.rider_cf IS null)
 EXECUTE PROCEDURE linkRiderToOrder();
 
 
+--Permette di aggiornare il numero di consegne di un rider nel caso in cui questo ha consegnato l' ordine oppure ha avuto problemi nella consegna. Se si prova ad aggiornare il numero di consegne di un rider che non ha consegne viene lanciata un eccezione.
 CREATE OR REPLACE FUNCTION updateDeliveriesNumberOfARider() RETURNS TRIGGER AS $update_deliveries_number_of_a_rider$
 BEGIN
 	
@@ -168,7 +178,7 @@ BEGIN
 END;
 $update_deliveries_number_of_a_rider$ LANGUAGE plpgsql;
 
-
+--Trigger che viene innescato quando un ordine viene consegnato(cioe' quando viene il delivery_time viene aggiornato) oppure c'e' stato un problema durante la consegna di tale.
 CREATE TRIGGER update_deliveries_number_of_a_rider
 AFTER UPDATE of delivery_time ON customerorder
 FOR EACH ROW 
