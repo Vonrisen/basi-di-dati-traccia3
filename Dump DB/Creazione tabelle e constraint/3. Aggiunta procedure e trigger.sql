@@ -74,7 +74,7 @@ LOOP -- Finquando c'è un nome di un alimento in una lista allora effettua l'ins
  quant=split_part(quantity_list, ', ', meal_counter);
  SELECT id INTO id_meal FROM Meal WHERE name=meal_name;
  IF meal_name<>'' THEN
- INSERT INTO OrderComposition VALUES(to_char(currval('customerorder_sequence'),'000000000000FM'),id_meal,quant::real);
+ INSERT INTO OrderComposition VALUES(to_char(currval('customer_order_sequence'),'000000000000FM'),id_meal,quant::real);
  meal_counter=meal_counter+1;
  ELSE
  exit;

@@ -595,7 +595,7 @@ public class RegisterFrame extends JFrame {
 				if (passwordTF.getText().equals("Inserisci password")) {
 
 					passwordTF.setHorizontalAlignment(JTextField.LEFT);
-					passwordTF.setEchoChar('•');
+					passwordTF.setEchoChar('*');
 					passwordTF.setText("");
 				}
 			}
@@ -621,7 +621,7 @@ public class RegisterFrame extends JFrame {
 				if (repeat_passwordTF.getText().equals("Reinserisci la password")) {
 
 					repeat_passwordTF.setHorizontalAlignment(JTextField.LEFT);
-					repeat_passwordTF.setEchoChar('•');
+					repeat_passwordTF.setEchoChar('*');
 					repeat_passwordTF.setText("");
 				}
 			}

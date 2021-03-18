@@ -112,7 +112,7 @@ CREATE TABLE ordercomposition (
 
 	PRIMARY KEY(order_id, meal_id),
 	FOREIGN KEY (order_id) REFERENCES CustomerOrder(id) ON DELETE CASCADE,
-	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE SET NULL
+	FOREIGN KEY (meal_id) REFERENCES Meal(id) ON DELETE CASCADE
 	
 );
 

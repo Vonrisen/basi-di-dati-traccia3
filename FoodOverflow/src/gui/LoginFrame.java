@@ -425,7 +425,7 @@ public class LoginFrame extends JFrame {
 
 				if (passwordTF.getText().equals("Inserisci password")) {
 
-					passwordTF.setEchoChar('•');
+					passwordTF.setEchoChar('*');
 					passwordTF.setText("");
 				}
 			}

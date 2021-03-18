@@ -26,8 +26,8 @@ VALUES
 	(DEFAULT, 'Pesce', 'Baccalà fritto', 10.50, 'Baccalà dissalato, farina'),
 	(DEFAULT, 'Pesce', 'Insalata di polpo e patate', 9.00, 'Polpo, Patate, prezzemolo, olio, succo di limone'),
 	(DEFAULT, 'Pesce', 'Salmone croccante', 9.50, 'Filetto di salmone, prezzemolo, scorza di limone, pane, pepe bianco, rosmarino'),
-	(DEFAULT, 'Bevanda analcolica', 'Coca cola', 2.00, 'Acqua, Anidride carbonica, zucchero, colorante, acido fosforico, aromi naturali. caffeina'),
-	(DEFAULT, 'Bevanda analcolica', 'Bottiglina d''acqua naturale', 1.00, null),
+	(DEFAULT, 'Bevande analcoliche', 'Coca cola', 2.00, 'Acqua, Anidride carbonica, zucchero, colorante, acido fosforico, aromi naturali. caffeina'),
+	(DEFAULT, 'Bevande analcoliche', 'Bottiglina d''acqua naturale', 1.00, null),
 	(DEFAULT, 'Fritto', 'Patatine fritte piccola', 2.00, 'Patate, sale, olio. Porzione piccola'),
 	(DEFAULT, 'Fritto', 'Patatine Fritte media', 3.00, 'Patate, sale, olio. Porzione media'),
 	(DEFAULT, 'Fritto', 'Patatine Fritte grande', 4.00, 'Patate, sale, olio. Porzione Grande'),
@@ -38,7 +38,7 @@ VALUES
 	(DEFAULT, 'Dolce', 'Gelato al cioccolato', 2.00, 'Latte, panna, cacao'),
 	(DEFAULT, 'Dolce', 'Gelato a fragola', 2.00, 'Latte, panna, succo di fragola, fragola a pezzi'),
 	(DEFAULT, 'Dolce', 'Monoporzione red velvet', 5.00, 'Burro, uova, farina, zucchero, sale, coloranti, yogurt bianco, lievito'),
-	(DEFAULT, 'Bevanda alcolica', 'Spritz', 5.00, 'Aperol, soda, prosecco, arancia');
+	(DEFAULT, 'Bevande alcoliche', 'Spritz', 5.00, 'Aperol, soda, prosecco, arancia');
 
 --Popolazione allergeni
 INSERT INTO allergen 
@@ -57,6 +57,7 @@ VALUES
 	('An. solforosa e solfiti'),
 	('Lupini'),
 	('Molluschi');
+
 
 -- Aggiunta degli allergeni agli alimenti
 CALL addallergens ('Spaghetti e vongole', 'Molluschi, Cereali e derivati');
