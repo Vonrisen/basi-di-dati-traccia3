@@ -181,3 +181,22 @@ CALL createOrder('Piazza del Duomo, 68 Z, 80133, CASAVATORE, NAPOLI', 'Contrasse
 CALL createOrder('Via Avella, 99, 80100, BACOLI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'n.trinchese@gmail.com', 'Baccalà fritto, Bottiglina d''acqua naturale, Monoporzione red velvet', '1, 1, 2');
 CALL createOrder('Via Sicura, 3, 80129, PORTICI, NAPOLI', 'Contrassegno', NULL, 'napoli@foodoverflow.it', 'fioccolandia@gmail.com', 'Spaghetti e vongole, Bottiglina d''acqua naturale', '1, 1');
 
+
+UPDATE CustomerOrder SET rider_cf='MIOCMN90C29G812U' WHERE id='000000000013';
+UPDATE CustomerOrder SET rider_cf='MIOCMN90C29G812U' WHERE id='000000000013';
+UPDATE CustomerOrder SET rider_cf='DLRFNC93C03H703Q' WHERE id='000000000017';
+UPDATE CustomerOrder SET rider_cf='MNDVLR96C63F924G' WHERE id='000000000020';
+UPDATE CustomerOrder SET rider_cf='LTRMRA96A58F839V' WHERE id='000000000009';
+UPDATE CustomerOrder SET rider_cf='CRDMHL99A10B963H' WHERE id='000000000010';
+UPDATE CustomerOrder SET rider_cf='TSTNGL97L15G964R' WHERE id='000000000011';
+UPDATE CustomerOrder SET rider_cf='TRCLGU88E11A509X' WHERE id='000000000001';
+UPDATE CustomerOrder SET rider_cf='MLLMRC91S52C188Y' WHERE id='000000000003';
+UPDATE CustomerOrder SET rider_cf='NPLCMN01P70G964X' WHERE id='000000000007';
+
+
+UPDATE CustomerOrder SET delivery_time=current_time, status='Consegnato' WHERE id='000000000017';
+UPDATE CustomerOrder SET delivery_time=current_time, status='Consegnato' WHERE id='000000000017';
+UPDATE CustomerOrder SET delivery_time=current_time, status='Errore' WHERE id='000000000020';
+UPDATE CustomerOrder SET delivery_time=current_time, status='Consegnato' WHERE id='000000000009';
+UPDATE CustomerOrder SET delivery_time=current_time, status='Consegnato' WHERE id='000000000010';
+UPDATE CustomerOrder SET delivery_time=current_time, status='Errore' WHERE id='000000000003';
