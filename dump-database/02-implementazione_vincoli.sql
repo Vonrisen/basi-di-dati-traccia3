@@ -73,7 +73,7 @@ ADD CONSTRAINT customer_order_status_check CHECK (status ~* '^(In attesa|In cons
 
 -- Controlla che la categoria di un meal sia una tra quelle riportate di sotto nell' espressione regolare. Non è case sensitive.
 ALTER TABLE Meal
-ADD CONSTRAINT meal_category_check CHECK (category ~* '^(Primo piatto|Carne|Pesce|Pizza|Panino|Fritto|Dolce|Bevanda analcolica|Bevanda alcolica)$');
+ADD CONSTRAINT meal_category_check CHECK (category ~* '^(Primo piatto|Carne|Pesce|Pizza|Panino|Fritto|Dolce|Bevande analcoliche|Bevande alcoliche)$');
 
 -- Controlla che l' allergene sia uno tra quelli riportati di sotto nell'espressione regolare. Non è case sensitive.
 ALTER TABLE Allergen
